@@ -83,7 +83,7 @@ public class Action {
 
         //WHAT WE NEED TO DO:
         if (!(currentArea.getAnimals() <= 0)) {
-
+            // New comment
             //set count to the new amount of firewood
             count = inventory.getFood() + 1;
             //subtract from the currentArea
