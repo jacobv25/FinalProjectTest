@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefaultBackground"
+    tools:context=".ActionActivity">
+
+    <Button
+        android:id="@+id/harvestFoodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:text="@string/harvest_food"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <Button
+        android:id="@+id/getFirewoodButton"
+        android:layout_width="134dp"
+        android:layout_height="65dp"
+        android:text="@string/get_firewood"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <Button
+        android:id="@+id/collectWaterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:text="@string/collect_water"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <Button
+        android:id="@+id/eatFoodButton"
+        android:layout_width="118dp"
+        android:layout_height="73dp"
+        android:text="@string/eat_food"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <Button
+        android:id="@+id/startFireButton"
+        android:layout_width="129dp"
+        android:layout_height="73dp"
+        android:text="@string/start_fire"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="467dp" />
+
+    <Button
+        android:id="@+id/drinkWaterButton"
+        android:layout_width="143dp"
+        android:layout_height="73dp"
+        android:text="@string/drink_water"
+        tools:layout_editor_absoluteX="233dp"
+        tools:layout_editor_absoluteY="467dp" />
+</android.support.constraint.ConstraintLayout>

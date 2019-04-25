@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FinalProjectTest</string>
+    <string name="north_button">N</string>
+    <string name="south_button">S</string>
+    <string name="east_button">E</string>
+    <string name="west_button">W</string>
+    <string name="action_button">A</string>
+    <string name="inventory_button">INV</string>
+    <string name="look_button">LOOK</string>
+    <string name="harvest_food">HARVEST FOOD</string>
+    <string name="collect_water">COLLECT WATER</string>
+    <string name="get_firewood">Get Firewood</string>
+    <string name="eat_food">Eat Food</string>
+    <string name="start_fire">Start Fire</string>
+    <string name="drink_water">Drink Water</string>
+    <string name="play_game">Play</string>
+    <string name="learn_more">Learn More</string>
+    />
+</resources>
