@@ -81,33 +81,34 @@ public class Action {
             displayText = HARVEST_FOOD_SUCCESS;
         }
 
-        //WHAT WE NEED TO DO:
-        if (!(currentArea.getAnimals() <= 0)) {
-            // New comment
-            //set count to the new amount of firewood
-            count = inventory.getFood() + 1;
-            //subtract from the currentArea
-            currentArea.setFood(currentArea.getAnimals() - 1);
-            //set the inventory to the new firewood count
-            inventory.setFood(count);
-            //set the player's inventory to the new inventory
-            player.setInventory(inventory);
-            //set the display text
-            displayText = HARVEST_FOOD_SUCCESS;
-        }
-        if (!(currentArea.getPlants() <= 0)) {
-
-            //set count to the new amount of firewood
-            count = inventory.getFood() + 1;
-            //subtract from the currentArea
-            currentArea.setFood(currentArea.getPlants() - 1);
-            //set the inventory to the new firewood count
-            inventory.setFood(count);
-            //set the player's inventory to the new inventory
-            player.setInventory(inventory);
-            //set the display text
-            displayText = HARVEST_FOOD_SUCCESS;
-        }
+        //TODO: Uncomment the code below and delete the code above when
+        //TODO: we've implemented animals and plants into Player class
+//        if (!(currentArea.getAnimals() <= 0)) {
+//            // New comment
+//            //set count to the new amount of firewood
+//            count = inventory.getFood() + 1;
+//            //subtract from the currentArea
+//            currentArea.setFood(currentArea.getAnimals() - 1);
+//            //set the inventory to the new firewood count
+//            inventory.setFood(count);
+//            //set the player's inventory to the new inventory
+//            player.setInventory(inventory);
+//            //set the display text
+//            displayText = HARVEST_FOOD_SUCCESS;
+//        }
+//        if (!(currentArea.getPlants() <= 0)) {
+//
+//            //set count to the new amount of firewood
+//            count = inventory.getFood() + 1;
+//            //subtract from the currentArea
+//            currentArea.setFood(currentArea.getPlants() - 1);
+//            //set the inventory to the new firewood count
+//            inventory.setFood(count);
+//            //set the player's inventory to the new inventory
+//            player.setInventory(inventory);
+//            //set the display text
+//            displayText = HARVEST_FOOD_SUCCESS;
+//        }
 
 
         else {

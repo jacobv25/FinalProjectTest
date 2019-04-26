@@ -59,53 +59,53 @@ public class PlayActivity extends AppCompatActivity {
         if (buttonText.equals("E") || buttonText.equals("W") ||
                 buttonText.equals("N") || buttonText.equals("S")) {
             //move player
-            movePlayerBoardPiece(buttonText, player, GAME_BOARD_PIECES);
+            player.movePlayerBoardPiece(buttonText, player, GAME_BOARD_PIECES, displayText);
             System.out.println("displayText=" + displayText);
             currentAreaTextView.setText(displayText);
         }
     }
 
-    private void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
-
-        switch (buttonText)
-        {
-            case "E":
-
-                if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
-                    player.setX(player.getX() + 1);
-                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                break;
-
-            case "W":
-
-                if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
-                    player.setX(player.getX() - 1);
-                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                break;
-
-            case "N":
-
-                if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
-                    player.setY(player.getY() - 1);
-                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                break;
-
-            case "S":
-
-                if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
-                    player.setY(player.getY() + 1);
-                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                break;
-
-            case "w":
-                //wait and do nothing
-                displayText = "You waited and did nothing.";
-                break;
-
-            default:
-                System.out.println("Sorry, that input was not understood. Try \"north\", \"south\", \"east\", \"west\", \"w\" ");
-        }
-    }
+//    private void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
+//
+//        switch (buttonText)
+//        {
+//            case "E":
+//
+//                if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
+//                    player.setX(player.getX() + 1);
+//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+//                break;
+//
+//            case "W":
+//
+//                if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
+//                    player.setX(player.getX() - 1);
+//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+//                break;
+//
+//            case "N":
+//
+//                if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
+//                    player.setY(player.getY() - 1);
+//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+//                break;
+//
+//            case "S":
+//
+//                if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
+//                    player.setY(player.getY() + 1);
+//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+//                break;
+//
+//            case "w":
+//                //wait and do nothing
+//                displayText = "You waited and did nothing.";
+//                break;
+//
+//            default:
+//                System.out.println("Sorry, that input was not understood. Try \"north\", \"south\", \"east\", \"west\", \"w\" ");
+//        }
+//    }
 
     private void decideAction(String buttonText, Player player, GameTime time, String displayText) {
 

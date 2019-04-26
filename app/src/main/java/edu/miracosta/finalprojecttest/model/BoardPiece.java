@@ -7,6 +7,8 @@ package edu.miracosta.finalprojecttest.model;
  * -weather its an obstacle or not
  * -Keeps if it has a burning camp fire
  */
+//TODO: Get rid of member variable food and
+//TODO: add replace it with animals and plants
 public class BoardPiece {
 
     private int[] resources;

@@ -14,6 +14,7 @@ public class BoardValues {
      * Right now there are just simple values so we can continue to test.
      * Ideally, when we are finished there will be 15 to 25 unique areas.
      */
+    //TODO: Change member variable food to animals and plants
     public static BoardPiece CABN_6_2 = new BoardPiece(2, 0, 0, 6, 2, false, "Dark dank cabin.");
 
     public static BoardPiece TRAL_5_2 = new BoardPiece(0, 0, 0, 5, 2, false, "A trail going east-west.");
@@ -27,6 +28,10 @@ public class BoardValues {
     public static BoardPiece ROAD_2_5 = new BoardPiece(0, 0, 0, 2, 5, false, "A road going north-south.");
     public static BoardPiece ROAD_2_6 = new BoardPiece(0, 0, 0, 2, 6, false, "A road going north-south.");
     public static BoardPiece ROAD_2_7 = new BoardPiece(0, 0, 0, 3, 7, false, "A road going north-south.");
+
+    //Used for JUnit Testing
+    public static BoardPiece TEST_x_y = new BoardPiece(10, 10, 10, 0, 0, false, "This area is used for testing.");
+
 
 
 

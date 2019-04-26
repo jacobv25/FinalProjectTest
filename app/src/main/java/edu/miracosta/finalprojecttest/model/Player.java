@@ -74,6 +74,48 @@ public class Player {
                 ", water bottle=" + inventory.getWaterBottle();
     }
 
+    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces, String displayText) {
+
+        switch (buttonText)
+        {
+            case "E":
+
+                if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
+                    player.setX(player.getX() + 1);
+                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                break;
+
+            case "W":
+
+                if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
+                    player.setX(player.getX() - 1);
+                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                break;
+
+            case "N":
+
+                if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
+                    player.setY(player.getY() - 1);
+                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                break;
+
+            case "S":
+
+                if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
+                    player.setY(player.getY() + 1);
+                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                break;
+
+            case "w":
+                //wait and do nothing
+                displayText = "You waited and did nothing.";
+                break;
+
+            default:
+                System.out.println("Sorry, that input was not understood. Try \"north\", \"south\", \"east\", \"west\", \"w\" ");
+        }
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
