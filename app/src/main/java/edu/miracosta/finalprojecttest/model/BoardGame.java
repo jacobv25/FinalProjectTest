@@ -10,6 +10,7 @@ import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_4;
 import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_5;
 import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_6;
 import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_7;
+import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_3_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_4_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_5_2;
@@ -54,9 +55,9 @@ public class BoardGame {
      * Used as a tester
      */
     public static final BoardPiece[][] GAME_BOARD_PIECES_TEST = {
-            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, CABN_6_2, MOUNTAIN},
+            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},

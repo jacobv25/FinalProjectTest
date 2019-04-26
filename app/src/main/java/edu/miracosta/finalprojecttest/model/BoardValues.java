@@ -29,8 +29,7 @@ public class BoardValues {
     public static BoardPiece ROAD_2_6 = new BoardPiece(0, 0, 0, 2, 6, false, "A road going north-south.");
     public static BoardPiece ROAD_2_7 = new BoardPiece(0, 0, 0, 3, 7, false, "A road going north-south.");
 
-    //Used for JUnit Testing
-    public static BoardPiece TEST_x_y = new BoardPiece(10, 10, 10, 0, 0, false, "This area is used for testing.");
+    public static BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 0, 0, false, "This area is used for testing.");
 
 
 

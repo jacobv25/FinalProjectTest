@@ -79,7 +79,6 @@ public class Player {
         switch (buttonText)
         {
             case "E":
-
                 if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
                     player.setX(player.getX() + 1);
                 displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
