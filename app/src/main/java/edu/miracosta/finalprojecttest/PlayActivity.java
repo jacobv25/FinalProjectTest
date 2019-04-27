@@ -70,6 +70,7 @@ public class PlayActivity extends AppCompatActivity {
 
         intent.putExtra("Player", player);
         intent.putExtra("Inventory", player.getInventory());
+        intent.putExtra("DisplayText", displayText);
 
         startActivity(intent);
     }

@@ -8,12 +8,12 @@
     tools:context=".ActionActivity">
 
     <Button
-        android:id="@+id/harvestFoodButton"
-        android:layout_width="133dp"
+        android:id="@+id/harvestAnimalButton"
+        android:layout_width="129dp"
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="36dp"
-        android:text="@string/harvest_food"
+        android:text="@string/harvest_animal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/get_firewood"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/harvestFoodButton" />
+        app:layout_constraintTop_toBottomOf="@+id/harvestAnimalButton" />
 
     <Button
         android:id="@+id/collectWaterButton"
@@ -84,6 +84,6 @@
         android:layout_marginEnd="30dp"
         android:text="@string/pick_plant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/harvestFoodButton"
+        app:layout_constraintStart_toEndOf="@+id/harvestAnimalButton"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

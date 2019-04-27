@@ -3,16 +3,20 @@ package edu.miracosta.finalprojecttest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
+import edu.miracosta.finalprojecttest.model.Action;
 import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
+
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 
 public class ActionActivity extends AppCompatActivity {
 
     private static final String TAG = PlayActivity.class.getSimpleName();
 
-    private Button harvestFoodButton;
+    private Button harvestAnimalButton;
     private Button pickPlantButton;
     private Button getFireWoodButton;
     private Button collectWaterButton;
@@ -21,12 +25,15 @@ public class ActionActivity extends AppCompatActivity {
     private Button startFireButton;
     private Button drinkWaterButton;
 
+    private String displayText;
+    private Player player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action);
 
-        harvestFoodButton = findViewById(R.id.harvestFoodButton);
+        harvestAnimalButton = findViewById(R.id.harvestAnimalButton);
         pickPlantButton = findViewById(R.id.pickPlantButton);
         getFireWoodButton = findViewById(R.id.getFirewoodButton);
         collectWaterButton = findViewById(R.id.collectWaterButton);
@@ -36,8 +43,16 @@ public class ActionActivity extends AppCompatActivity {
 
         Intent playerIntent = getIntent();
 
-        Player player = playerIntent.getParcelableExtra("Player");
+        player = playerIntent.getParcelableExtra("Player");
         Inventory inventory = (playerIntent.getParcelableExtra("Inventory"));
         player.setInventory(inventory);
+
+        displayText = playerIntent.getStringExtra("DisplayText");
+
+    }
+
+    public void harvestFoodButtonPressed(View v) {
+
+        Action.harvestAnimal(player, displayText, RUNNING_GAME_BOARD);
     }
 }
