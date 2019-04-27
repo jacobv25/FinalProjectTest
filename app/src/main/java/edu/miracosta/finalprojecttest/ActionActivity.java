@@ -53,6 +53,16 @@ public class ActionActivity extends AppCompatActivity {
 
     public void harvestFoodButtonPressed(View v) {
 
+        Intent intent = new Intent();
+
+        System.out.println("Before=" + player.displayInventory());
         Action.harvestAnimal(player, displayText, RUNNING_GAME_BOARD);
+        System.out.println("After=" + player.displayInventory());
+
+        intent.putExtra("Player", player);
+        intent.putExtra("Inventory", player.getInventory());
+        intent.putExtra("DisplayText", displayText);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

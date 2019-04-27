@@ -36,6 +36,8 @@ public class Inventory implements Parcelable {
         inventory[POS_PLANTS] = MIN_VALUE;
     }
 
+
+
     public int[] getInventory() {
         return inventory;
     }

@@ -1,6 +1,7 @@
 package edu.miracosta.finalprojecttest;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +10,15 @@ import android.widget.TextView;
 
 import edu.miracosta.finalprojecttest.model.Action;
 import edu.miracosta.finalprojecttest.model.GameTime;
+import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
 import edu.miracosta.finalprojecttest.model.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 
 public class PlayActivity extends AppCompatActivity {
+
+    private final static int REQUEST_CODE_1 = 1;
 
     private Button northButton;
     private Button southButton;
@@ -58,8 +62,8 @@ public class PlayActivity extends AppCompatActivity {
                 buttonText.equals("N") || buttonText.equals("S")) {
             //move player
             player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD, displayText);
-            System.out.println("displayText=" + displayText);
-            currentAreaTextView.setText(displayText);
+            System.out.println("displayText=" + player.getDisplayText());
+            currentAreaTextView.setText(player.getDisplayText());
         }
     }
 
@@ -71,8 +75,9 @@ public class PlayActivity extends AppCompatActivity {
         intent.putExtra("Inventory", player.getInventory());
         intent.putExtra("DisplayText", displayText);
 
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_1);
     }
+
     private void decideAction(String buttonText, Player player, GameTime time, String displayText) {
 
         switch (buttonText) {
@@ -112,6 +117,26 @@ public class PlayActivity extends AppCompatActivity {
                 System.out.println("FATAL ERROR IN CONSOLE TESTER");
                 System.out.println("EXITING PROGRAM");
                 System.exit(0);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // The returned result data is identified by requestCode.
+        // The request code is specified in startActivityForResult(intent, REQUEST_CODE_1); method.
+        switch (requestCode)
+        {
+            // This request code is set by startActivityForResult(intent, REQUEST_CODE_1) method.
+            case REQUEST_CODE_1:
+                if(resultCode == RESULT_OK)
+                {
+                    player = data.getParcelableExtra("Player");
+                    Inventory inventory = data.getParcelableExtra("Inventory");
+                    player.setInventory(inventory);
+                    displayText = data.getStringExtra("DisplayText");
+                }
         }
     }
 }

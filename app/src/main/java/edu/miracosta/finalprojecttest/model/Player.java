@@ -3,6 +3,7 @@ package edu.miracosta.finalprojecttest.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.io.Serializable;
 
@@ -29,6 +30,8 @@ public class Player implements Parcelable {
 
     private int x;
     private int y;
+
+    private String displayText;
 
     private Inventory inventory;
 
@@ -73,6 +76,9 @@ public class Player implements Parcelable {
      * @return
      */
     public String displayInventory() {
+        if (inventory == null) {
+            return "inventory is null";
+        }
         return "Inventory{" +
                 "firewood=" +  inventory.getFirewood() +
                 ", food=" + inventory.getFood() +
@@ -86,37 +92,35 @@ public class Player implements Parcelable {
             case "E":
                 if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
                     player.setX(player.getX() + 1);
-                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
                 break;
 
             case "W":
 
                 if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
                     player.setX(player.getX() - 1);
-                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
                 break;
 
             case "N":
 
                 if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
                     player.setY(player.getY() - 1);
-                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
                 break;
 
             case "S":
 
                 if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
                     player.setY(player.getY() + 1);
-                displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
                 break;
 
             case "w":
                 //wait and do nothing
-                displayText = "You waited and did nothing.";
+                this.displayText = "You waited and did nothing.";
                 break;
 
-            default:
-                System.out.println("Sorry, that input was not understood. Try \"north\", \"south\", \"east\", \"west\", \"w\" ");
         }
     }
 
@@ -229,7 +233,15 @@ public class Player implements Parcelable {
         this.y = y;
     }
 
-////////PARCELABLE METHODS
+    public String getDisplayText() {
+        return displayText;
+    }
+
+    public void setDisplayText(String displayText) {
+        this.displayText = displayText;
+    }
+
+    ////////PARCELABLE METHODS
     @Override
     public int describeContents() {
         return 0;
@@ -243,6 +255,7 @@ public class Player implements Parcelable {
         dest.writeDouble(thirst);
         dest.writeInt(x);
         dest.writeInt(y);
+        dest.writeString(displayText);
     }
 
     private Player(Parcel parcel) {
@@ -252,6 +265,7 @@ public class Player implements Parcelable {
         thirst = parcel.readDouble();
         x = parcel.readInt();
         y = parcel.readInt();
+        displayText = parcel.readString();
     }
 
     public static final Parcelable.Creator<Player> CREATOR = new Creator<Player>() {
