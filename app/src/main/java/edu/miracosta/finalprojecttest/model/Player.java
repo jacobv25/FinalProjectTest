@@ -1,6 +1,11 @@
 package edu.miracosta.finalprojecttest.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
 
 /**
@@ -9,7 +14,7 @@ import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
  * - Condition, Hunger, Thirst, Temperature
  * - Handles if Player is inside or not
  */
-public class Player {
+public class Player implements Parcelable {
 
     public static final int DEFAULT_X = CABN_6_2.getX();
     public static final int DEFAULT_Y = CABN_6_2.getY();
@@ -224,5 +229,40 @@ public class Player {
         this.y = y;
     }
 
+////////PARCELABLE METHODS
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeDouble(condition);
+        dest.writeDouble(temperature);
+        dest.writeDouble(hunger);
+        dest.writeDouble(thirst);
+        dest.writeInt(x);
+        dest.writeInt(y);
+    }
+
+    private Player(Parcel parcel) {
+        condition = parcel.readDouble();
+        temperature = parcel.readDouble();
+        hunger = parcel.readDouble();
+        thirst = parcel.readDouble();
+        x = parcel.readInt();
+        y = parcel.readInt();
+    }
+
+    public static final Parcelable.Creator<Player> CREATOR = new Creator<Player>() {
+        @Override
+        public Player createFromParcel(Parcel source) {
+            return new Player(source);
+        }
+
+        @Override
+        public Player[] newArray(int size) {
+            return new Player[size];
+        }
+    };
 }

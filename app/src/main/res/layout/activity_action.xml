@@ -9,49 +9,81 @@
 
     <Button
         android:id="@+id/harvestFoodButton"
-        android:layout_width="wrap_content"
+        android:layout_width="133dp"
         android:layout_height="65dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
         android:text="@string/harvest_food"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/getFirewoodButton"
         android:layout_width="134dp"
         android:layout_height="65dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
         android:text="@string/get_firewood"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/harvestFoodButton" />
 
     <Button
         android:id="@+id/collectWaterButton"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/collect_water"
-        tools:layout_editor_absoluteX="249dp"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toEndOf="@+id/getFirewoodButton"
+        app:layout_constraintTop_toBottomOf="@+id/pickPlantButton" />
 
     <Button
         android:id="@+id/eatFoodButton"
         android:layout_width="118dp"
         android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="288dp"
         android:text="@string/eat_food"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="370dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/startFireButton"
-        android:layout_width="129dp"
+        android:layout_width="96dp"
         android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="188dp"
         android:text="@string/start_fire"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="467dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/drinkWaterButton"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/drinkWaterButton"
-        android:layout_width="143dp"
+        android:layout_width="105dp"
         android:layout_height="73dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="188dp"
         android:text="@string/drink_water"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="467dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/pickPlantButton"
+        android:layout_width="131dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/pick_plant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/harvestFoodButton"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

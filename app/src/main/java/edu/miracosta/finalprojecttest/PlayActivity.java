@@ -1,5 +1,6 @@
 package edu.miracosta.finalprojecttest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,7 @@ public class PlayActivity extends AppCompatActivity {
 
         northButton = findViewById(R.id.northButton);
         southButton = findViewById(R.id.southButton);
-        eastButton = findViewById(R.id.westButton);
+        eastButton = findViewById(R.id.eastButton);
         westButton = findViewById(R.id.westButton);
         actionButton = findViewById(R.id.actionButton);
         inventoryButton = findViewById(R.id.inventoryButton);
@@ -63,48 +64,15 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
-//    private void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
-//
-//        switch (buttonText)
-//        {
-//            case "E":
-//
-//                if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
-//                    player.setX(player.getX() + 1);
-//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-//                break;
-//
-//            case "W":
-//
-//                if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
-//                    player.setX(player.getX() - 1);
-//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-//                break;
-//
-//            case "N":
-//
-//                if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
-//                    player.setY(player.getY() - 1);
-//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-//                break;
-//
-//            case "S":
-//
-//                if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
-//                    player.setY(player.getY() + 1);
-//                    displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-//                break;
-//
-//            case "w":
-//                //wait and do nothing
-//                displayText = "You waited and did nothing.";
-//                break;
-//
-//            default:
-//                System.out.println("Sorry, that input was not understood. Try \"north\", \"south\", \"east\", \"west\", \"w\" ");
-//        }
-//    }
+    public void actionButtonPressed(View v) {
 
+        Intent intent = new Intent(this, ActionActivity.class);
+
+        intent.putExtra("Player", player);
+        intent.putExtra("Inventory", player.getInventory());
+
+        startActivity(intent);
+    }
     private void decideAction(String buttonText, Player player, GameTime time, String displayText) {
 
         switch (buttonText) {

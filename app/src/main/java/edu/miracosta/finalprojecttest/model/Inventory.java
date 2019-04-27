@@ -1,5 +1,8 @@
 package edu.miracosta.finalprojecttest.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import static edu.miracosta.finalprojecttest.model.Action.POS_FIREWOOD;
 import static edu.miracosta.finalprojecttest.model.Action.POS_FOOD;
 import static edu.miracosta.finalprojecttest.model.Action.POS_PLANTS;
@@ -10,7 +13,7 @@ import static edu.miracosta.finalprojecttest.model.Player.MIN_VALUE;
  * The class handles all of the setting and getting in the Player's inventory.
  * Uses an integer array of size three to keep track of the amount of firewood, food and water
  */
-public class Inventory {
+public class Inventory implements Parcelable {
 
     public static final int MAX_INVENTORY_SPACE = 4;
 
@@ -108,4 +111,31 @@ public class Inventory {
     public void setWaterBottle(int waterBottle) {
         this.inventory[POS_WATER_BOTTLE] = waterBottle;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeIntArray(inventory);
+    }
+
+    private Inventory(Parcel parcel) {
+
+        inventory = parcel.createIntArray();
+    }
+
+    public static final Parcelable.Creator<Inventory> CREATOR = new Creator<Inventory>() {
+        @Override
+        public Inventory createFromParcel(Parcel source) {
+            return new Inventory(source);
+        }
+
+        @Override
+        public Inventory[] newArray(int size) {
+            return new Inventory[size];
+        }
+    };
 }

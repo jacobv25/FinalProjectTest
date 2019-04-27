@@ -35,14 +35,13 @@
         android:onClick="movePlayer"
         android:text="@string/west_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/westButton"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintEnd_toStartOf="@+id/eastButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.866" />
 
     <Button
-        android:id="@+id/westButton"
+        android:id="@+id/eastButton"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -91,6 +90,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="528dp"
         android:layout_marginEnd="48dp"
+        android:onClick="actionButtonPressed"
         android:text="@string/action_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
