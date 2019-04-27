@@ -25,7 +25,7 @@ public class ActionTests {
         player.getInventory().setFood(0);
         System.out.println("player food =" + player.getInventory().getFood());
         BoardPiece[][] testBoard = GAME_BOARD_PIECES_TEST; //because GAME_BOARD_PIECES_TEST is final, we need a new temp board game
-        Action.harvestAnimal(player, null, testBoard);
+        Action.harvestAnimal(player, testBoard);
         assertEquals(1, player.getInventory().getFood());
         assertEquals(9, testBoard[player.getX()][player.getY()].getAnimals());
     }

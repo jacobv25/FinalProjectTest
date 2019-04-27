@@ -26,6 +26,8 @@ public class Action {
     public static final int POS_WATER_BOTTLE = 2;
     public static final int POS_PLANTS = 3;
 
+    private static String displayText;
+
     /**
      * Access the xy area the Player is currently at and check the amount of firewood.
      * If the amount is greater than zero, decrement from the ammount and add it to the
@@ -61,13 +63,14 @@ public class Action {
      * player's food inventory
      * @param player
      */
-    public static void harvestAnimal(Player player, String displayText, BoardPiece[][] boardGame) {
+    public static void harvestAnimal(Player player, BoardPiece[][] boardGame) {
 
         int x = player.getX();
         int y = player.getY();
         int count;
         Inventory inventory = player.getInventory();
-        BoardPiece currentArea = boardGame[y][x];;
+        BoardPiece currentArea = boardGame[y][x];
+
 
         if (!(currentArea.getAnimals() <= 0)) {
             // New comment
@@ -80,10 +83,10 @@ public class Action {
             //set the player's inventory to the new inventory
             player.setInventory(inventory);
             //set the display text
-            displayText = HARVEST_FOOD_SUCCESS;
+            player.setDisplayText(HARVEST_FOOD_SUCCESS);
         }
         else {
-            displayText = HARVEST_FOOD_FAILURE;
+            player.setDisplayText(HARVEST_FOOD_FAILURE);
         }
     }
     /**

@@ -56,13 +56,30 @@ public class ActionActivity extends AppCompatActivity {
         Intent intent = new Intent();
 
         System.out.println("Before=" + player.displayInventory());
-        Action.harvestAnimal(player, displayText, RUNNING_GAME_BOARD);
+        Action.harvestAnimal(player, RUNNING_GAME_BOARD);
         System.out.println("After=" + player.displayInventory());
 
         intent.putExtra("Player", player);
         intent.putExtra("Inventory", player.getInventory());
-        intent.putExtra("DisplayText", displayText);
+        intent.putExtra("DisplayText", player.getDisplayText());
         setResult(RESULT_OK, intent);
         finish();
     }
+
+    public void pickPlantButtonPressed(View v) {
+
+        Intent intent = new Intent();
+
+        System.out.println("Before=" + player.displayInventory());
+        Action.pickPlant(player, displayText, RUNNING_GAME_BOARD);
+        System.out.println("After=" + player.displayInventory());
+
+        intent.putExtra("Player", player);
+        intent.putExtra("Inventory", player.getInventory());
+        intent.putExtra("DisplayText", player.getDisplayText());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    //TODO: Finish linking the buttons to the back end
 }

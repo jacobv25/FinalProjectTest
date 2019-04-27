@@ -83,6 +83,7 @@
         android:layout_marginStart="77dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="30dp"
+        android:onClick="pickPlantButtonPressed"
         android:text="@string/pick_plant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/harvestAnimalButton"

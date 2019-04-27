@@ -89,7 +89,7 @@ public class ConsoleTester {
                 break;
             case "harvest food":
 
-                Action.harvestAnimal(player, nullText, GAME_BOARD_PIECES);
+                Action.harvestAnimal(player, GAME_BOARD_PIECES);
                 break;
             case "collect water":
 

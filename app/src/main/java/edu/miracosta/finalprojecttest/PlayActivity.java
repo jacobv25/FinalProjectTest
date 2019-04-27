@@ -1,7 +1,6 @@
 package edu.miracosta.finalprojecttest;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +19,8 @@ public class PlayActivity extends AppCompatActivity {
 
     private final static int REQUEST_CODE_1 = 1;
 
+    //public static String DISPLAY_TEXT;
+
     private Button northButton;
     private Button southButton;
     private Button eastButton;
@@ -32,6 +33,9 @@ public class PlayActivity extends AppCompatActivity {
     private GameTime gameTime;
     private Weather weather;
 
+    //TODO: Get rid of member variable displayText.
+    //TODO: We wont need it since Player class will provide the diplay text
+    //TODO: for currentAreaTextView.
     private String displayText;
     
     @Override
@@ -78,48 +82,6 @@ public class PlayActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CODE_1);
     }
 
-    private void decideAction(String buttonText, Player player, GameTime time, String displayText) {
-
-        switch (buttonText) {
-
-            case "firewood":
-
-                Action.getFireWood(player, displayText, RUNNING_GAME_BOARD);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            case "start fire":
-
-                Action.startFire(player, gameTime, displayText);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            case "harvest food":
-
-                Action.harvestAnimal(player, displayText, RUNNING_GAME_BOARD);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            case "collect water":
-
-                Action.collectWater(player, displayText);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            case "drink water":
-
-                Action.drinkWater(player, displayText);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            case "eat food":
-
-                Action.eatFood(player, displayText);
-                currentAreaTextView.append("\n" + displayText);
-                break;
-            default:
-
-                System.out.println("FATAL ERROR IN CONSOLE TESTER");
-                System.out.println("EXITING PROGRAM");
-                System.exit(0);
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -135,7 +97,8 @@ public class PlayActivity extends AppCompatActivity {
                     player = data.getParcelableExtra("Player");
                     Inventory inventory = data.getParcelableExtra("Inventory");
                     player.setInventory(inventory);
-                    displayText = data.getStringExtra("DisplayText");
+                    //displayText = data.getStringExtra("DisplayText");
+                    currentAreaTextView.setText(player.getDisplayText());
                 }
         }
     }
