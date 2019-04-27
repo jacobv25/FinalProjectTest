@@ -12,7 +12,7 @@ import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Player;
 import edu.miracosta.finalprojecttest.model.Weather;
 
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 
 public class PlayActivity extends AppCompatActivity {
 
@@ -47,7 +47,6 @@ public class PlayActivity extends AppCompatActivity {
         gameTime = new GameTime();
         weather = new Weather();
 
-        currentAreaTextView.setText("You wake in a cabin.");
     }
 
     public void movePlayer(View v) {
@@ -58,7 +57,7 @@ public class PlayActivity extends AppCompatActivity {
         if (buttonText.equals("E") || buttonText.equals("W") ||
                 buttonText.equals("N") || buttonText.equals("S")) {
             //move player
-            player.movePlayerBoardPiece(buttonText, player, GAME_BOARD_PIECES, displayText);
+            player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD, displayText);
             System.out.println("displayText=" + displayText);
             currentAreaTextView.setText(displayText);
         }
@@ -80,7 +79,7 @@ public class PlayActivity extends AppCompatActivity {
 
             case "firewood":
 
-                Action.getFireWood(player, displayText, GAME_BOARD_PIECES);
+                Action.getFireWood(player, displayText, RUNNING_GAME_BOARD);
                 currentAreaTextView.append("\n" + displayText);
                 break;
             case "start fire":
@@ -90,7 +89,7 @@ public class PlayActivity extends AppCompatActivity {
                 break;
             case "harvest food":
 
-                Action.harvestAnimal(player, displayText, GAME_BOARD_PIECES);
+                Action.harvestAnimal(player, displayText, RUNNING_GAME_BOARD);
                 currentAreaTextView.append("\n" + displayText);
                 break;
             case "collect water":

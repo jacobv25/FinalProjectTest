@@ -6,18 +6,18 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 
 /**
  * Handles all Player values and contains their Inventory:
- * - xy position in GAME_BOARD_PIECES
+ * - xy position in RUNNING_GAME_BOARD
  * - Condition, Hunger, Thirst, Temperature
  * - Handles if Player is inside or not
  */
 public class Player implements Parcelable {
 
-    public static final int DEFAULT_X = CABN_6_2.getX();
-    public static final int DEFAULT_Y = CABN_6_2.getY();
+    public static final int DEFAULT_X = RUNNING_GAME_START.getX();
+    public static final int DEFAULT_Y = RUNNING_GAME_START.getY();
     public static final int MAX_VALUE = 100;
     public static final int MIN_VALUE = 0;
 

@@ -1,5 +1,6 @@
 package edu.miracosta.finalprojecttest.model;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
 
 /**
@@ -30,7 +31,7 @@ public class Regeneration {
         if (player.isPlayerInside()) {
             regenInside(player);
         }
-        if (GAME_BOARD_PIECES[y][x].getCampFire() != null) {
+        if (RUNNING_GAME_BOARD[y][x].getCampFire() != null) {
             regenFromFire(player);
         }
 

@@ -1,6 +1,6 @@
 package edu.miracosta.finalprojecttest.model;
 
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 
 /**
  * Handles all the Player Actions
@@ -98,7 +98,7 @@ public class Action {
         int y = player.getY();
         int count;
         Inventory inventory = player.getInventory();
-        BoardPiece currentArea = GAME_BOARD_PIECES[y][x];;
+        BoardPiece currentArea = RUNNING_GAME_BOARD[y][x];;
 
         if (!(currentArea.getWater() <= 0)) {
             //set count to the new amount of firewood
@@ -170,7 +170,7 @@ public class Action {
         int firewood = inventory.getFirewood();
         int x = player.getX();
         int y = player.getY();
-        BoardPiece currentArea = GAME_BOARD_PIECES[y][x];
+        BoardPiece currentArea = RUNNING_GAME_BOARD[y][x];
 
         if (firewood > 0) {
 

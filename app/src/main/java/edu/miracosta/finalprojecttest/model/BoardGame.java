@@ -14,6 +14,7 @@ import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_3_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_4_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_5_2;
+import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
 
 /**
  * Handles the different 2d arrays that act as game boards
@@ -55,9 +56,9 @@ public class BoardGame {
      * Used as a tester
      */
     public static final BoardPiece[][] GAME_BOARD_PIECES_TEST = {
-            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {TEST_X_Y, TEST_X_Y, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {MOUNTAIN, TEST_X_Y, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {MOUNTAIN, TST_STRT, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},

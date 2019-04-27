@@ -30,6 +30,7 @@ public class BoardValues {
 
 
     public static final BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 10, 0, 0, false, "This area is used for testing.");
+    public static final BoardPiece TST_STRT = new BoardPiece(0, 0, 0, 0, 1, 1, false, "This is the test START.");
     public static final BoardPiece MOUNTAIN = new BoardPiece(0, 0, 0, 0, 0, 0, true, "Impassable mountains.");
 
 
