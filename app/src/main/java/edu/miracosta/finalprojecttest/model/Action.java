@@ -24,6 +24,7 @@ public class Action {
     public static final int POS_FIREWOOD = 0;
     public static final int POS_FOOD = 1;
     public static final int POS_WATER_BOTTLE = 2;
+    public static final int POS_PLANTS = 3;
 
     /**
      * Access the xy area the Player is currently at and check the amount of firewood.
@@ -31,13 +32,13 @@ public class Action {
      * player's firewood inventory
      * @param player
      */
-    public static void getFireWood(Player player, String displayText) {
+    public static void getFireWood(Player player, String displayText, BoardPiece[][] boardGame) {
 
         int x = player.getX();
         int y = player.getY();
         int count;
         Inventory inventory = player.getInventory();
-        BoardPiece currentArea = GAME_BOARD_PIECES[y][x];;
+        BoardPiece currentArea = boardGame[y][x];;
 
         if (!(currentArea.getFirewood() <= 0)) {
             //set count to the new amount of firewood
@@ -60,19 +61,20 @@ public class Action {
      * player's food inventory
      * @param player
      */
-    public static void harvestFood(Player player, String displayText) {
+    public static void harvestAnimal(Player player, String displayText, BoardPiece[][] boardGame) {
 
         int x = player.getX();
         int y = player.getY();
         int count;
         Inventory inventory = player.getInventory();
-        BoardPiece currentArea = GAME_BOARD_PIECES[y][x];;
+        BoardPiece currentArea = boardGame[y][x];;
 
-        if (!(currentArea.getFood() <= 0)) {
+        if (!(currentArea.getAnimals() <= 0)) {
+            // New comment
             //set count to the new amount of firewood
             count = inventory.getFood() + 1;
             //subtract from the currentArea
-            currentArea.setFood(currentArea.getFood() - 1);
+            currentArea.setAnimals(currentArea.getAnimals() - 1);
             //set the inventory to the new firewood count
             inventory.setFood(count);
             //set the player's inventory to the new inventory
@@ -80,37 +82,6 @@ public class Action {
             //set the display text
             displayText = HARVEST_FOOD_SUCCESS;
         }
-
-        //TODO: Uncomment the code below and delete the code above when
-        //TODO: we've implemented animals and plants into Player class
-//        if (!(currentArea.getAnimals() <= 0)) {
-//            // New comment
-//            //set count to the new amount of firewood
-//            count = inventory.getFood() + 1;
-//            //subtract from the currentArea
-//            currentArea.setFood(currentArea.getAnimals() - 1);
-//            //set the inventory to the new firewood count
-//            inventory.setFood(count);
-//            //set the player's inventory to the new inventory
-//            player.setInventory(inventory);
-//            //set the display text
-//            displayText = HARVEST_FOOD_SUCCESS;
-//        }
-//        if (!(currentArea.getPlants() <= 0)) {
-//
-//            //set count to the new amount of firewood
-//            count = inventory.getFood() + 1;
-//            //subtract from the currentArea
-//            currentArea.setFood(currentArea.getPlants() - 1);
-//            //set the inventory to the new firewood count
-//            inventory.setFood(count);
-//            //set the player's inventory to the new inventory
-//            player.setInventory(inventory);
-//            //set the display text
-//            displayText = HARVEST_FOOD_SUCCESS;
-//        }
-
-
         else {
             displayText = HARVEST_FOOD_FAILURE;
         }
@@ -213,5 +184,8 @@ public class Action {
             displayText = START_FIRE_FAILURE;
             currentArea.setCampFire(null);
         }
+    }
+    //TODO: Implement pick plant action
+    public static void pickPlant(Player player, Object o, BoardPiece[][] testBoard) {
     }
 }

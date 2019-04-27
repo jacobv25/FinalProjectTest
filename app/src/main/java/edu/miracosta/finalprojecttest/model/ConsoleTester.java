@@ -81,7 +81,7 @@ public class ConsoleTester {
 
             case "firewood":
 
-                Action.getFireWood(player, nullText);
+                Action.getFireWood(player, nullText, GAME_BOARD_PIECES);
                 break;
             case "start fire":
 
@@ -89,7 +89,7 @@ public class ConsoleTester {
                 break;
             case "harvest food":
 
-                Action.harvestFood(player, nullText);
+                Action.harvestAnimal(player, nullText, GAME_BOARD_PIECES);
                 break;
             case "collect water":
 

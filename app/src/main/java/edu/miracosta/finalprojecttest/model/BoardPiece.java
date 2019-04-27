@@ -3,18 +3,17 @@ package edu.miracosta.finalprojecttest.model;
 /**
  * This class handles as the values in a BoardPiece
  * -its x and y position on the game board
- * -its quantity of resources (firewood, food, water)
+ * -its quantity of resources (firewood, animals, water)
  * -weather its an obstacle or not
  * -Keeps if it has a burning camp fire
  */
-//TODO: Get rid of member variable food and
-//TODO: add replace it with animals and plants
+
 public class BoardPiece {
 
-    private int[] resources;
     private int firewood;
-    private int food;
+    private int animals;
     private int water;
+    private int plants;
 
     private int x;
     private int y;
@@ -30,16 +29,18 @@ public class BoardPiece {
      * be no campfires until a player makes one.
      * @param firewood
      * @param water
-     * @param food
+     * @param animals
+     * @param plants
      * @param x
      * @param y
      * @param isAnObstacle
      */
-    public BoardPiece(int firewood, int food, int water, int x, int y,
+    public BoardPiece(int firewood, int animals, int water, int plants, int x, int y,
                       boolean isAnObstacle, String displayText) {
         this.firewood = firewood;
-        this.food = food;
+        this.animals = animals;
         this.water = water;
+        this.plants = plants;
         this.x = x;
         this.y = y;
         this.isAnObstacle = isAnObstacle;
@@ -52,8 +53,9 @@ public class BoardPiece {
     public String toString() {
         return "BoardPiece{" +
                 "firewood=" + firewood +
-                ", food=" + food +
+                ", animals=" + animals +
                 ", water=" + water +
+                ", plants=" + plants +
                 ", x=" + x +
                 ", y=" + y +
                 ", isAnObstacle=" + isAnObstacle +
@@ -124,12 +126,12 @@ public class BoardPiece {
         this.firewood = firewood;
     }
 
-    public int getFood() {
-        return food;
+    public int getAnimals() {
+        return animals;
     }
 
-    public void setFood(int food) {
-        this.food = food;
+    public void setAnimals(int animals) {
+        this.animals = animals;
     }
 
     public int getWater() {
@@ -138,6 +140,14 @@ public class BoardPiece {
 
     public void setWater(int water) {
         this.water = water;
+    }
+
+    public int getPlants() {
+        return plants;
+    }
+
+    public void setPlants(int plants) {
+        this.plants = plants;
     }
 
     public String getDisplayText() {

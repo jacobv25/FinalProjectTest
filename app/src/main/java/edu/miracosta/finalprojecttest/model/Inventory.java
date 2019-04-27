@@ -2,6 +2,7 @@ package edu.miracosta.finalprojecttest.model;
 
 import static edu.miracosta.finalprojecttest.model.Action.POS_FIREWOOD;
 import static edu.miracosta.finalprojecttest.model.Action.POS_FOOD;
+import static edu.miracosta.finalprojecttest.model.Action.POS_PLANTS;
 import static edu.miracosta.finalprojecttest.model.Action.POS_WATER_BOTTLE;
 import static edu.miracosta.finalprojecttest.model.Player.MIN_VALUE;
 
@@ -11,16 +12,17 @@ import static edu.miracosta.finalprojecttest.model.Player.MIN_VALUE;
  */
 public class Inventory {
 
-    public static final int MAX_INVENTORY_SPACE = 3;
+    public static final int MAX_INVENTORY_SPACE = 4;
 
 
     private int[] inventory;
 
-    public Inventory(int firewood, int food, int waterBottle) {
+    public Inventory(int firewood, int food, int waterBottle, int plants) {
         inventory = new int[MAX_INVENTORY_SPACE];
         inventory[POS_FIREWOOD] = firewood;
         inventory[POS_FOOD] = food;
         inventory[POS_WATER_BOTTLE] = waterBottle;
+        inventory[POS_PLANTS] = plants;
     }
 
     public Inventory() {
@@ -28,6 +30,7 @@ public class Inventory {
         inventory[POS_FIREWOOD] = MIN_VALUE;
         inventory[POS_FOOD] = MIN_VALUE;
         inventory[POS_WATER_BOTTLE] = MIN_VALUE;
+        inventory[POS_PLANTS] = MIN_VALUE;
     }
 
     public int[] getInventory() {
@@ -39,8 +42,25 @@ public class Inventory {
     }
 
     /**
+     * Gets the postition of plants in inventory and returns
+     * its amount
+     * @return
+     */
+    public int getPlants() {
+        return  inventory[POS_PLANTS];
+    }
+
+    /**
+     * Sets the amount of plants in inventory
+     * @param plants
+     */
+    public void setPlants( int plants) {
+        this.inventory[POS_PLANTS] = plants;
+    }
+
+    /**
      * Gets the position on firewood in inventory
-     * and returns its ammount
+     * and returns its amount
      * @return
      */
     public int getFirewood() {

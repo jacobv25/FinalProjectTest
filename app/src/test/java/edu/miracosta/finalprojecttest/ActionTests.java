@@ -2,8 +2,11 @@ package edu.miracosta.finalprojecttest;
 
 import org.junit.Test;
 
+import edu.miracosta.finalprojecttest.model.Action;
+import edu.miracosta.finalprojecttest.model.BoardPiece;
 import edu.miracosta.finalprojecttest.model.Player;
 
+import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES_TEST;
 import static org.junit.Assert.*;
 
 /**
@@ -15,15 +18,28 @@ public class ActionTests {
         assertEquals(4, 2 + 2);
     }
     @Test
-    public void testHarvestFoodAnimal() {
+    public void testHarvestAnimal() {
         Player player = new Player();
-
-
+        player.setX(1);
+        player.setY(1);
+        player.getInventory().setFood(0);
+        System.out.println("player food =" + player.getInventory().getFood());
+        BoardPiece[][] testBoard = GAME_BOARD_PIECES_TEST; //because GAME_BOARD_PIECES_TEST is final, we need a new temp board game
+        Action.harvestAnimal(player, null, testBoard);
+        assertEquals(1, player.getInventory().getFood());
+        assertEquals(9, testBoard[player.getX()][player.getY()].getAnimals());
     }
     @Test
-    public void testHarvestFoodPlant() {
+    public void testPickPlant() {
 
-
+        Player player = new Player();
+        player.setX(1);
+        player.setY(1);
+        player.getInventory().setPlants(0);
+        BoardPiece[][] testBoard = GAME_BOARD_PIECES_TEST; //because GAME_BOARD_PIECES_TEST is final, we need a new temp board game
+        Action.pickPlant(player, null, testBoard);
+        assertEquals(1, player.getInventory().getPlants());
+        assertEquals(9, testBoard[player.getX()][player.getY()].getPlants());
     }
 
 }

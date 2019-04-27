@@ -14,28 +14,23 @@ public class BoardValues {
      * Right now there are just simple values so we can continue to test.
      * Ideally, when we are finished there will be 15 to 25 unique areas.
      */
-    //TODO: Change member variable food to animals and plants
-    public static BoardPiece CABN_6_2 = new BoardPiece(2, 0, 0, 6, 2, false, "Dark dank cabin.");
+    public static BoardPiece CABN_6_2 = new BoardPiece(2, 0, 0, 0, 6, 2, false, "Dark dank cabin.");
 
-    public static BoardPiece TRAL_5_2 = new BoardPiece(0, 0, 0, 5, 2, false, "A trail going east-west.");
-    public static BoardPiece TRAL_4_2 = new BoardPiece(0, 0, 0, 4, 2, false, "A trail going east-west.");
-    public static BoardPiece TRAL_3_2 = new BoardPiece(0, 0, 0, 3, 2, false, "A trail going east-west.");
+    public static BoardPiece TRAL_5_2 = new BoardPiece(0, 0, 0, 0, 5, 2, false, "A trail going east-west.");
+    public static BoardPiece TRAL_4_2 = new BoardPiece(0, 0, 0, 0, 4, 2, false, "A trail going east-west.");
+    public static BoardPiece TRAL_3_2 = new BoardPiece(0, 0, 0, 0, 3, 2, false, "A trail going east-west.");
 
-    public static BoardPiece ROAD_2_2 = new BoardPiece(0, 0, 0, 2, 2, false, "A road going north-south.");
-    public static BoardPiece ROAD_2_3 = new BoardPiece(0, 0, 0, 2, 3, false, "A road going north-south.\n" +
+    public static BoardPiece ROAD_2_2 = new BoardPiece(0, 0, 0, 0, 2, 2, false, "A road going north-south.");
+    public static BoardPiece ROAD_2_3 = new BoardPiece(0, 0, 0, 0, 2, 3, false, "A road going north-south.\n" +
                                                                                                                                 "A car crash lays before you");
-    public static BoardPiece ROAD_2_4 = new BoardPiece(0, 0, 0, 2, 4, false, "A road going north-south.");
-    public static BoardPiece ROAD_2_5 = new BoardPiece(0, 0, 0, 2, 5, false, "A road going north-south.");
-    public static BoardPiece ROAD_2_6 = new BoardPiece(0, 0, 0, 2, 6, false, "A road going north-south.");
-    public static BoardPiece ROAD_2_7 = new BoardPiece(0, 0, 0, 3, 7, false, "A road going north-south.");
-
-    public static BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 0, 0, false, "This area is used for testing.");
+    public static BoardPiece ROAD_2_4 = new BoardPiece(0, 0, 0, 0, 2, 4, false, "A road going north-south.");
+    public static BoardPiece ROAD_2_5 = new BoardPiece(0, 0, 0, 0, 2, 5, false, "A road going north-south.");
+    public static BoardPiece ROAD_2_6 = new BoardPiece(0, 0, 0, 0, 2, 6, false, "A road going north-south.");
+    public static BoardPiece ROAD_2_7 = new BoardPiece(0, 0, 0, 0, 3, 7, false, "A road going north-south.");
 
 
-
-
-
-    public static  final BoardPiece MOUNTAIN = new BoardPiece(0, 0, 0, 0, 0, true, "Impassable mountains.");
+    public static final BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 10, 0, 0, false, "This area is used for testing.");
+    public static final BoardPiece MOUNTAIN = new BoardPiece(0, 0, 0, 0, 0, 0, true, "Impassable mountains.");
 
 
     /**

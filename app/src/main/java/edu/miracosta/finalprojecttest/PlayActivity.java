@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import edu.miracosta.finalprojecttest.model.Action;
-import edu.miracosta.finalprojecttest.model.BoardPiece;
-import edu.miracosta.finalprojecttest.model.BoardValues;
 import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Player;
 import edu.miracosta.finalprojecttest.model.Weather;
@@ -113,7 +111,7 @@ public class PlayActivity extends AppCompatActivity {
 
             case "firewood":
 
-                Action.getFireWood(player, displayText);
+                Action.getFireWood(player, displayText, GAME_BOARD_PIECES);
                 currentAreaTextView.append("\n" + displayText);
                 break;
             case "start fire":
@@ -123,7 +121,7 @@ public class PlayActivity extends AppCompatActivity {
                 break;
             case "harvest food":
 
-                Action.harvestFood(player, displayText);
+                Action.harvestAnimal(player, displayText, GAME_BOARD_PIECES);
                 currentAreaTextView.append("\n" + displayText);
                 break;
             case "collect water":
