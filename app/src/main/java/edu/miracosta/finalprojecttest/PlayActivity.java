@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.miracosta.finalprojecttest.model.Action;
 import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
@@ -48,7 +47,7 @@ public class PlayActivity extends AppCompatActivity {
         eastButton = findViewById(R.id.eastButton);
         westButton = findViewById(R.id.westButton);
         actionButton = findViewById(R.id.actionButton);
-        inventoryButton = findViewById(R.id.inventoryButton);
+        inventoryButton = findViewById(R.id.playerButton);
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
 
         player = new Player();

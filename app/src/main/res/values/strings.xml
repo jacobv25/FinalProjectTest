@@ -17,5 +17,8 @@
     <string name="learn_more">Learn More</string>
     <string name="pick_plant">Pick Plant</string>
     <string name="harvest_animal">Harvest Animal</string>
+    <string name="player">Player</string>
+    <string name="title_activity_player">PlayerActivity</string>
+    <string name="time_button">Time</string>
     />
 </resources>
