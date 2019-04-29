@@ -55,7 +55,10 @@ public class Regeneration {
      */
     private static void regenCondition(Player player) {
 
-        player.setCondition(player.getCondition()  + DEFAULT_CONDITION_REGEN);
+        if(player.getTemperature() > 0 && player.getThirst() > 0 && player.getHunger() > 0){
+
+            player.setCondition(player.getCondition()  + DEFAULT_CONDITION_REGEN);
+        }
     }
     /**
      * Set's the player's thirst to what it was

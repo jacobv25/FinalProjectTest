@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import edu.miracosta.finalprojecttest.model.BoardGame;
+import edu.miracosta.finalprojecttest.model.Damage;
 import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
+import edu.miracosta.finalprojecttest.model.Regeneration;
 import edu.miracosta.finalprojecttest.model.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
@@ -27,6 +30,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button actionButton;
     private Button inventoryButton;
     private TextView currentAreaTextView;
+    private TextView playerConditionTextView;
     
     private Player player;
     private GameTime gameTime;
@@ -36,7 +40,7 @@ public class PlayActivity extends AppCompatActivity {
     //TODO: We wont need it since Player class will provide the diplay text
     //TODO: for currentAreaTextView.
     private String displayText;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class PlayActivity extends AppCompatActivity {
         actionButton = findViewById(R.id.actionButton);
         inventoryButton = findViewById(R.id.playerButton);
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
+        playerConditionTextView = findViewById(R.id.playerConditionTextView);
 
         player = new Player();
         gameTime = new GameTime();
@@ -68,6 +73,17 @@ public class PlayActivity extends AppCompatActivity {
             System.out.println("displayText=" + player.getDisplayText());
             currentAreaTextView.setText(player.getDisplayText());
         }
+
+        //update the player condition text view
+        playerConditionTextView.setText("HP= " + player.getCondition() +
+                                        " | Temp= " + player.getTemperature() +
+                                        " | Hunger= " + player.getHunger() +
+                                        " | Thirst= " + player.getThirst());
+
+        Damage.damagePlayer(player, weather, gameTime);
+        Regeneration.regeneratePlayer(player);
+        gameTime.passTime();
+        BoardGame.update();
     }
 
     public void actionButtonPressed(View v) {
@@ -98,6 +114,17 @@ public class PlayActivity extends AppCompatActivity {
                     player.setInventory(inventory);
                     //displayText = data.getStringExtra("DisplayText");
                     currentAreaTextView.setText(player.getDisplayText());
+
+                    //update the player condition text view
+                    playerConditionTextView.setText("HP= " + player.getCondition() +
+                            " | Temp= " + player.getTemperature() +
+                            " | Hunger= " + player.getHunger() +
+                            " | Thirst= " + player.getThirst());
+
+                    Damage.damagePlayer(player, weather, gameTime);
+                    Regeneration.regeneratePlayer(player);
+                    gameTime.passTime();
+                    BoardGame.update();
                 }
         }
     }

@@ -102,6 +102,14 @@ public class BoardPiece {
         this.campFire = campFire;
     }
 
+    public boolean isAnObstacle() {
+        return isAnObstacle;
+    }
+
+    public void setAnObstacle(boolean anObstacle) {
+        isAnObstacle = anObstacle;
+    }
+
     public int getX() {
         return x;
     }

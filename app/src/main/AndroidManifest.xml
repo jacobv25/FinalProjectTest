@@ -25,7 +25,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".TimeActivity" />
-        <activity android:name=".ConditionActivity" />
         <activity android:name=".ActionActivity" />
         <activity android:name=".PlayActivity" />
     </application>

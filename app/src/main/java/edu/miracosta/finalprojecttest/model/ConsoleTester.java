@@ -2,6 +2,7 @@ package edu.miracosta.finalprojecttest.model;
 
 import java.util.Scanner;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
 
 public class ConsoleTester {
@@ -81,27 +82,27 @@ public class ConsoleTester {
 
             case "firewood":
 
-                Action.getFireWood(player, nullText, GAME_BOARD_PIECES);
+                Action.getFireWood(player, RUNNING_GAME_BOARD);
                 break;
             case "start fire":
 
-                Action.startFire(player, gameTime, nullText);
+                Action.startFire(player, gameTime, RUNNING_GAME_BOARD);
                 break;
             case "harvest food":
 
-                Action.harvestAnimal(player, GAME_BOARD_PIECES);
+                Action.harvestAnimal(player, RUNNING_GAME_BOARD);
                 break;
             case "collect water":
 
-                Action.collectWater(player, nullText);
+                Action.collectWater(player, RUNNING_GAME_BOARD);
                 break;
             case "drink water":
 
-                Action.drinkWater(player, nullText);
+                Action.drinkWater(player);
                 break;
             case "eat food":
 
-                Action.eatFood(player, nullText);
+                Action.eatFood(player);
                 break;
             default:
 

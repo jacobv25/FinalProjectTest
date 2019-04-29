@@ -1,5 +1,8 @@
 package edu.miracosta.finalprojecttest.model;
 
+import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
+import static edu.miracosta.finalprojecttest.model.StoryElements.INTRO;
+
 /**
  * This class is for organizational purposes:
  *
@@ -29,8 +32,8 @@ public class BoardValues {
     public static BoardPiece ROAD_2_7 = new BoardPiece(0, 0, 0, 0, 3, 7, false, "A road going north-south.");
 
 
-    public static final BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 10, 0, 0, false, "This area is used for testing.");
-    public static final BoardPiece TST_STRT = new BoardPiece(0, 0, 0, 0, 1, 1, false, "This is the test START.");
+    public static final BoardPiece TEST_X_Y = new BoardPiece(10, 10, 10, 10, 0, 0, false, "This is start area of testing");
+    public static final BoardPiece TST_STRT = new BoardPiece(0, 0, 0, 0, 1, 1, false, "This area is used for testing");
     public static final BoardPiece MOUNTAIN = new BoardPiece(0, 0, 0, 0, 0, 0, true, "Impassable mountains.");
 
 

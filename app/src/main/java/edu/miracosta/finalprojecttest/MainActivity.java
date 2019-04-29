@@ -10,6 +10,7 @@ import edu.miracosta.finalprojecttest.model.BoardPiece;
 
 import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
 import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES_TEST;
+import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,6 +1,9 @@
 package edu.miracosta.finalprojecttest.model;
 
-import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
+import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
+import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
+import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
+import static edu.miracosta.finalprojecttest.model.StoryElements.INTRO;
 
 /**
  * Handles all the Player Actions
@@ -213,6 +216,73 @@ public class Action {
         }
         else {
             player.setDisplayText(PICK_PLANT_FAILURE);
+        }
+    }
+
+    public static void look(Player player, BoardPiece[][] gameBoard) {
+
+        int x = player.getX();
+        int y = player.getY();
+        String displayText;
+        BoardPiece current = gameBoard[y][x];
+        BoardPiece north, south, east, west, northWest, northEast, southWest, southEast;
+
+        //TODO: Display the stats for the surrounding tiles.
+        //TODO: Be aware of tiles outside the gameboard. May cause errors!
+        //TODO: Check for mountains
+        north = gameBoard[y-1][x];
+        south = gameBoard[y+1][x];
+        east = gameBoard[y][x+1];
+        west = gameBoard[y][x-1];
+        northWest = gameBoard[y-1][x-1];
+        northEast = gameBoard[y-1][x+1];
+        southWest = gameBoard[y+1][x-1];
+        southEast = gameBoard[y+1][x+1];
+
+        displayText = "{ YOU LOOKED!" +
+                        "\nnorth=" +  lookActionHelper(north)+
+                        "\nsouth=" + lookActionHelper(south) +
+                        "\neast=" + lookActionHelper(east) +
+                        "\nwest=" + lookActionHelper(west) +
+                        "\nnorth west=" + lookActionHelper(northWest) +
+                        "\nnorth east=" + lookActionHelper(northEast) +
+                        "\nsouth west=" + lookActionHelper(southWest) +
+                        "\nsouth east=" + lookActionHelper(southEast) +
+                        "}";
+        player.setDisplayText(displayText);
+
+        //TODO: Set player display to the Story Elements fo the area
+        if (player.getX() == TST_STRT.getX() && player.getY() == TST_STRT.getY() ) {
+
+            player.setDisplayText(INTRO);
+        }
+        if (player.getX() == TEST_X_Y.getX() && player.getY() == TEST_X_Y.getY()) {
+
+            player.setDisplayText(BODY_CABIN);
+        }
+    }
+    //TODO: Get rid of hard coded values
+    private static String lookActionHelper(BoardPiece area) {
+
+        StringBuilder displayText = new StringBuilder();
+
+        if (area.isAnObstacle()) {
+            return "Impassable mountains.\n";
+        }
+        else {
+            if (area.getPlants() > 0) {
+                displayText.append("Herbs in season\n");
+            }
+            if (area.getWater() > 0) {
+                displayText.append("A rushing river\n");
+            }
+            if (area.getFirewood() > 0) {
+                displayText.append("Firewood\n");
+            }
+            if (area.getAnimals() > 0) {
+                displayText.append("An animal carcass\n");
+            }
+            return displayText.toString();
         }
     }
 }

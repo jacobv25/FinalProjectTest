@@ -68,12 +68,22 @@ public class ActionActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
 
-        System.out.println("Before=" + player.displayInventory());
         Action.pickPlant(player, RUNNING_GAME_BOARD);
-        System.out.println("After=" + player.displayInventory());
 
         intent.putExtra("Player", player);
         intent.putExtra("Inventory", player.getInventory());
+        intent.putExtra("DisplayText", player.getDisplayText());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    public void lookButtonPressed(View v) {
+
+        Intent intent = new Intent();
+
+        Action.look(player, RUNNING_GAME_BOARD);
+
+        intent.putExtra("Player", player);
         intent.putExtra("DisplayText", player.getDisplayText());
         setResult(RESULT_OK, intent);
         finish();
