@@ -88,6 +88,7 @@ public class PlayActivity extends AppCompatActivity {
         gameTime.passTime();
         BoardGame.update();
 
+
         //update the player condition text view
         playerConditionTextView.setText("HP= " + player.getCondition() +
                 " | Temp= " + player.getTemperature() +
