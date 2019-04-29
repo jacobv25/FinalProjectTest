@@ -2,6 +2,11 @@ package edu.miracosta.finalprojecttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.List;
+
+import edu.miracosta.finalprojecttest.model.Plant;
 
 public class LearnMoreActivity extends AppCompatActivity {
 
