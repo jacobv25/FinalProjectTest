@@ -3,9 +3,6 @@ package edu.miracosta.finalprojecttest.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-
-import java.io.Serializable;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 

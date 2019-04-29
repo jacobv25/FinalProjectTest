@@ -55,9 +55,7 @@ public class ActionActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
 
-        System.out.println("Before=" + player.displayInventory());
         Action.harvestAnimal(player, RUNNING_GAME_BOARD);
-        System.out.println("After=" + player.displayInventory());
 
         intent.putExtra("Player", player);
         intent.putExtra("Inventory", player.getInventory());
@@ -71,7 +69,7 @@ public class ActionActivity extends AppCompatActivity {
         Intent intent = new Intent();
 
         System.out.println("Before=" + player.displayInventory());
-        Action.pickPlant(player, displayText, RUNNING_GAME_BOARD);
+        Action.pickPlant(player, RUNNING_GAME_BOARD);
         System.out.println("After=" + player.displayInventory());
 
         intent.putExtra("Player", player);

@@ -16,6 +16,8 @@ public class Action {
     public static final String COLLECT_WATER_FAILURE = "You failed to collect any water.";
     public static final String HARVEST_FOOD_SUCCESS = "You harvested food.";
     public static final String HARVEST_FOOD_FAILURE = "You failed to harvest any food.";
+    public static final String PICK_PLANT_SUCCESS = "You picked a plant.";
+    public static final String PICK_PLANT_FAILURE = "You failed to pick any plants.";
     public static final String EAT_FOOD_SUCCESS = "You ate some food.";
     public static final String EAT_FOOD_FAILURE = "You have no food to eat.";
     public static final String DRINK_WATER_SUCCESS = "You drank some water.";
@@ -26,7 +28,6 @@ public class Action {
     public static final int POS_WATER_BOTTLE = 2;
     public static final int POS_PLANTS = 3;
 
-    private static String displayText;
 
     /**
      * Access the xy area the Player is currently at and check the amount of firewood.
@@ -34,7 +35,7 @@ public class Action {
      * player's firewood inventory
      * @param player
      */
-    public static void getFireWood(Player player, String displayText, BoardPiece[][] boardGame) {
+    public static void getFireWood(Player player, BoardPiece[][] boardGame) {
 
         int x = player.getX();
         int y = player.getY();
@@ -52,10 +53,10 @@ public class Action {
             //set the player's inventory to the new inventory
             player.setInventory(inventory);
             //set the displayText to say "You collected wood!"
-            displayText = FIREWOOD_SUCCESS;
+            player.setDisplayText(FIREWOOD_SUCCESS);
         }
         else
-            displayText = FIREWOOD_FAILURE;
+            player.setDisplayText(FIREWOOD_FAILURE);
     }
     /**
      * Access the xy area the Player is currently at and check the amount of food.
@@ -95,13 +96,13 @@ public class Action {
      * player's water inventory
      * @param player
      */
-    public static void collectWater(Player player, String displayText) {
+    public static void collectWater(Player player, BoardPiece[][] gameBoard) {
 
         int x = player.getX();
         int y = player.getY();
         int count;
         Inventory inventory = player.getInventory();
-        BoardPiece currentArea = RUNNING_GAME_BOARD[y][x];;
+        BoardPiece currentArea = gameBoard[y][x];;
 
         if (!(currentArea.getWater() <= 0)) {
             //set count to the new amount of firewood
@@ -113,10 +114,10 @@ public class Action {
             //set the player's inventory to the new inventory
             player.setInventory(inventory);
             //set the display text
-            displayText = COLLECT_WATER_SUCCESS;
+            player.setDisplayText(COLLECT_WATER_SUCCESS);
         }
         else {
-            displayText = COLLECT_WATER_FAILURE;
+            player.setDisplayText(COLLECT_WATER_FAILURE);
         }
     }
 
@@ -125,7 +126,7 @@ public class Action {
      * regenerate the player's hunger value
      * @param player
      */
-    public  static void eatFood(Player player, String displayText) {
+    public  static void eatFood(Player player) {
 
         Inventory inventory = player.getInventory();
         int food = inventory.getFood();
@@ -134,10 +135,10 @@ public class Action {
 
             inventory.setFood(food - 1);
             Regeneration.regenHunger(player);
-            displayText = EAT_FOOD_SUCCESS;
+            player.setDisplayText(EAT_FOOD_SUCCESS);
         }
         else {
-            displayText = EAT_FOOD_FAILURE;
+            player.setDisplayText(EAT_FOOD_FAILURE);
         }
     }
 
@@ -146,7 +147,7 @@ public class Action {
      * regen the player's thirst
      * @param player
      */
-    public static void drinkWater(Player player, String displayText) {
+    public static void drinkWater(Player player) {
 
         Inventory inventory = player.getInventory();
         int water = inventory.getWaterBottle();
@@ -155,10 +156,10 @@ public class Action {
 
             inventory.setWaterBottle(water - 1);
             Regeneration.regenThirst(player);
-            displayText = DRINK_WATER_SUCCESS;
+            player.setDisplayText(DRINK_WATER_SUCCESS);
         }
         else
-            displayText = DRINK_WATER_FAILURE;
+            player.setDisplayText(DRINK_WATER_FAILURE);
     }
 
     /**
@@ -167,13 +168,13 @@ public class Action {
      * @param player
      * @param gameTime
      */
-    public static void startFire(Player player, GameTime gameTime, String displayText) {
+    public static void startFire(Player player, GameTime gameTime, BoardPiece[][] gameBoard) {
 
         Inventory inventory = player.getInventory();
         int firewood = inventory.getFirewood();
         int x = player.getX();
         int y = player.getY();
-        BoardPiece currentArea = RUNNING_GAME_BOARD[y][x];
+        BoardPiece currentArea = gameBoard[y][x];
 
         if (firewood > 0) {
 
@@ -181,14 +182,37 @@ public class Action {
             Regeneration.regenThirst(player);
             currentArea.setCampFire(new CampFire(gameTime));
             //set display text
-            displayText = START_FIRE_SUCCESS;
+            player.setDisplayText(START_FIRE_SUCCESS);
         }
         else {
-            displayText = START_FIRE_FAILURE;
+            player.setDisplayText(START_FIRE_FAILURE);
             currentArea.setCampFire(null);
         }
     }
-    //TODO: Implement pick plant action
-    public static void pickPlant(Player player, Object o, BoardPiece[][] testBoard) {
+    //TODO: Write documentation
+    public static void pickPlant(Player player, BoardPiece[][] gameBoard) {
+
+        int x = player.getX();
+        int y = player.getY();
+        int count;
+        Inventory inventory = player.getInventory();
+        BoardPiece currentArea = gameBoard[y][x];
+
+
+        if (!(currentArea.getPlants() <= 0)) {
+            //set count to the new amount of plants
+            count = inventory.getPlants() + 1;
+            //subtract from the currentArea
+            currentArea.setPlants(currentArea.getPlants() - 1);
+            //set the inventory to the new plant count
+            inventory.setPlants(count);
+            //set the player's inventory to the new inventory
+            player.setInventory(inventory);
+            //set the display text
+            player.setDisplayText(PICK_PLANT_SUCCESS);
+        }
+        else {
+            player.setDisplayText(PICK_PLANT_FAILURE);
+        }
     }
 }

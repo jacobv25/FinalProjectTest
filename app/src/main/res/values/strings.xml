@@ -20,5 +20,8 @@
     <string name="player">Player</string>
     <string name="title_activity_player">PlayerActivity</string>
     <string name="time_button">Time</string>
+    <string name="animals">Animals</string>
+    <string name="plants">Plants</string>
+    <string name="survival_tips">Survival Tips</string>
     />
 </resources>

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class LearnMoreActivity extends AppCompatActivity {
 
+    //TODO: Each button (Animals, Plants, Survival Tips) take the user to its specific List View.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
