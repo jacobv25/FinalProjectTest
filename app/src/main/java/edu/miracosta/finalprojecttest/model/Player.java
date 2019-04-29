@@ -82,7 +82,7 @@ public class Player implements Parcelable {
                 ", water bottle=" + inventory.getWaterBottle();
     }
 
-    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces, String displayText) {
+    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
 
         switch (buttonText)
         {

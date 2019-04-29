@@ -13,6 +13,7 @@ import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
 import edu.miracosta.finalprojecttest.model.Regeneration;
+import edu.miracosta.finalprojecttest.model.StoryElements;
 import edu.miracosta.finalprojecttest.model.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
@@ -31,6 +32,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button inventoryButton;
     private TextView currentAreaTextView;
     private TextView playerConditionTextView;
+    private TextView bigTextView;
     
     private Player player;
     private GameTime gameTime;
@@ -39,7 +41,7 @@ public class PlayActivity extends AppCompatActivity {
     //TODO: Get rid of member variable displayText.
     //TODO: We wont need it since Player class will provide the diplay text
     //TODO: for currentAreaTextView.
-    private String displayText;
+    //private String displayText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,14 @@ public class PlayActivity extends AppCompatActivity {
         gameTime = new GameTime();
         weather = new Weather();
 
+        playerConditionTextView.setText("HP= " + player.getCondition() +
+                " | Temp= " + player.getTemperature() +
+                " | Hunger= " + player.getHunger() +
+                " | Thirst= " + player.getThirst());
+
+        //currentAreaTextView.setText(RUNNING_GAME_BOARD[player.getY()][player.getX()].getDisplayText());
+        currentAreaTextView.setText(StoryElements.INTRO);
+
     }
 
     public void movePlayer(View v) {
@@ -69,21 +79,22 @@ public class PlayActivity extends AppCompatActivity {
         if (buttonText.equals("E") || buttonText.equals("W") ||
                 buttonText.equals("N") || buttonText.equals("S")) {
             //move player
-            player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD, displayText);
-            System.out.println("displayText=" + player.getDisplayText());
+            player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD);
             currentAreaTextView.setText(player.getDisplayText());
         }
-
-        //update the player condition text view
-        playerConditionTextView.setText("HP= " + player.getCondition() +
-                                        " | Temp= " + player.getTemperature() +
-                                        " | Hunger= " + player.getHunger() +
-                                        " | Thirst= " + player.getThirst());
 
         Damage.damagePlayer(player, weather, gameTime);
         Regeneration.regeneratePlayer(player);
         gameTime.passTime();
         BoardGame.update();
+
+        //update the player condition text view
+        playerConditionTextView.setText("HP= " + player.getCondition() +
+                " | Temp= " + player.getTemperature() +
+                " | Hunger= " + player.getHunger() +
+                " | Thirst= " + player.getThirst());
+
+        isPlayerDead(player);
     }
 
     public void actionButtonPressed(View v) {
@@ -92,7 +103,7 @@ public class PlayActivity extends AppCompatActivity {
 
         intent.putExtra("Player", player);
         intent.putExtra("Inventory", player.getInventory());
-        intent.putExtra("DisplayText", displayText);
+        intent.putExtra("DisplayText", player.getDisplayText());
 
         startActivityForResult(intent, REQUEST_CODE_1);
     }
@@ -112,8 +123,15 @@ public class PlayActivity extends AppCompatActivity {
                     player = data.getParcelableExtra("Player");
                     Inventory inventory = data.getParcelableExtra("Inventory");
                     player.setInventory(inventory);
-                    //displayText = data.getStringExtra("DisplayText");
-                    currentAreaTextView.setText(player.getDisplayText());
+                    //Decide which text view to use
+                    //if (player.getDisplayText().length() > 200) {
+
+                      //  bigTextView.setText(player.getDisplayText());
+                    //}
+                    //else {
+
+                        currentAreaTextView.setText(player.getDisplayText());
+                    //}
 
                     //update the player condition text view
                     playerConditionTextView.setText("HP= " + player.getCondition() +
@@ -126,6 +144,16 @@ public class PlayActivity extends AppCompatActivity {
                     gameTime.passTime();
                     BoardGame.update();
                 }
+        }
+    }
+
+    private void isPlayerDead(Player player) {
+
+        if (player.getCondition() == 0) {
+
+            Intent intent = new Intent(this, DeathScreenActivity.class);
+
+            startActivity(intent);
         }
     }
 }

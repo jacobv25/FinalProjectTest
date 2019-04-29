@@ -1,8 +1,11 @@
 package edu.miracosta.finalprojecttest.model;
 
+import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
+import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
 import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
 import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
+import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
 import static edu.miracosta.finalprojecttest.model.StoryElements.INTRO;
 
 /**
@@ -227,9 +230,7 @@ public class Action {
         BoardPiece current = gameBoard[y][x];
         BoardPiece north, south, east, west, northWest, northEast, southWest, southEast;
 
-        //TODO: Display the stats for the surrounding tiles.
-        //TODO: Be aware of tiles outside the gameboard. May cause errors!
-        //TODO: Check for mountains
+        //TODO: Make the design cleaner
         north = gameBoard[y-1][x];
         south = gameBoard[y+1][x];
         east = gameBoard[y][x+1];
@@ -239,27 +240,32 @@ public class Action {
         southWest = gameBoard[y+1][x-1];
         southEast = gameBoard[y+1][x+1];
 
-        displayText = "{ YOU LOOKED!" +
-                        "\nnorth=" +  lookActionHelper(north)+
-                        "\nsouth=" + lookActionHelper(south) +
-                        "\neast=" + lookActionHelper(east) +
-                        "\nwest=" + lookActionHelper(west) +
-                        "\nnorth west=" + lookActionHelper(northWest) +
-                        "\nnorth east=" + lookActionHelper(northEast) +
-                        "\nsouth west=" + lookActionHelper(southWest) +
-                        "\nsouth east=" + lookActionHelper(southEast) +
+        displayText = "{ YOU LOOKED!\n" +
+                        "\tnorth=" +  lookActionHelper(north)+
+                        "\tsouth=" + lookActionHelper(south) +
+                        "\teast=" + lookActionHelper(east) +
+                        "\twest=" + lookActionHelper(west) +
+                        "\tnorth west=" + lookActionHelper(northWest) +
+                        "\tnorth east=" + lookActionHelper(northEast) +
+                        "\tsouth west=" + lookActionHelper(southWest) +
+                        "\tsouth east=" + lookActionHelper(southEast) +
                         "}";
         player.setDisplayText(displayText);
 
         //TODO: Set player display to the Story Elements fo the area
-        if (player.getX() == TST_STRT.getX() && player.getY() == TST_STRT.getY() ) {
-
-            player.setDisplayText(INTRO);
-        }
-        if (player.getX() == TEST_X_Y.getX() && player.getY() == TEST_X_Y.getY()) {
+        if (player.getX() == CABN_6_2.getX() && player.getY() == CABN_6_2.getY() ) {
 
             player.setDisplayText(BODY_CABIN);
         }
+        if (player.getX() == ROAD_2_3.getX() && player.getY() == ROAD_2_3.getY() ) {
+
+            player.setDisplayText(CAR_CRASH);
+        }
+        if (player.getX() == CABN_6_2.getX() && player.getY() == CABN_6_2.getY() ) {
+
+            player.setDisplayText(BODY_CABIN);
+        }
+
     }
     //TODO: Get rid of hard coded values
     private static String lookActionHelper(BoardPiece area) {

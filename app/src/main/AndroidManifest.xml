@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LearnMoreDetailsActivity"></activity>
+        <activity android:name=".DeathScreenActivity"></activity>
+        <activity android:name=".LearnMoreDetailsActivity" />
         <activity android:name=".LearnMoreListActivity" />
         <activity android:name=".InventoryListActivity" />
-        <activity
-            android:name=".PlayerActivity"
-            android:label="@string/title_activity_player"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LearnMoreActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TimeActivity" />
         <activity android:name=".ActionActivity" />
         <activity android:name=".PlayActivity" />
     </application>

@@ -11,60 +11,43 @@
         android:id="@+id/northButton"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/north_button"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="68dp"
         android:onClick="movePlayer"
+        android:text="@string/north_button"
         app:layout_constraintBottom_toTopOf="@+id/southButton"
-        app:layout_constraintEnd_toStartOf="@+id/actionButton"
-        app:layout_constraintHorizontal_bias="0.007"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/westButton"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:onClick="movePlayer"
         android:text="@string/west_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/eastButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintBottom_toTopOf="@+id/southButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/eastButton"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="8dp"
         android:onClick="movePlayer"
         android:text="@string/east_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/playerButton"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentAreaTextView"
-        app:layout_constraintVertical_bias="0.618" />
+        app:layout_constraintStart_toEndOf="@+id/westButton"
+        app:layout_constraintTop_toBottomOf="@+id/northButton" />
 
     <Button
         android:id="@+id/southButton"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="28dp"
-        android:text="@string/south_button"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="36dp"
         android:onClick="movePlayer"
+        android:text="@string/south_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,57 +55,48 @@
         android:id="@+id/playerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="48dp"
         android:text="@string/player"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
-        app:layout_constraintStart_toEndOf="@+id/southButton"
-        app:layout_constraintTop_toBottomOf="@+id/actionButton"
-        app:layout_constraintVertical_bias="0.549" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/actionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="528dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
         android:onClick="actionButtonPressed"
         android:text="@string/action_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/playerButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/currentAreaTextView"
-        android:layout_width="211dp"
-        android:layout_height="136dp"
+        android:layout_width="352dp"
+        android:layout_height="386dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/playerConditionTextView" />
 
     <TextView
         android:id="@+id/playerConditionTextView"
         android:layout_width="348dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:textColor="@color/colorWhite"
         android:outlineSpotShadowColor="@color/colorWhite"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

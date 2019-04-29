@@ -24,5 +24,6 @@
     <string name="plants">Plants</string>
     <string name="survival_tips">Survival Tips</string>
     <string name="look">Look</string>
+    <string name="death_screen">You Have Died</string>
     />
 </resources>

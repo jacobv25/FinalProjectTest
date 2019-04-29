@@ -39,11 +39,11 @@ public class Damage {
     private static void calcConditionDamage(Player player) {
 
         if (player.getTemperature() == 0) {
-            System.out.println("Player temp has reached zero!!");
+
             player.setDisplayText("player temp is zero");
         }
         if (player.getHunger() == 0 || player.getTemperature() == 0 || player.getThirst() == 0) {
-            System.out.println("POOOOOP");
+
             player.setCondition(player.getCondition() - DEFAULT_CONDITION_DAMAGE);
         }
     }
