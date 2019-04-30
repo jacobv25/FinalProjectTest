@@ -1,5 +1,7 @@
 package edu.miracosta.finalprojecttest.model;
 
+import javax.xml.datatype.Duration;
+
 /**
  * This class handles all total running time in the game and the
  * in game day/night time.
@@ -78,6 +80,8 @@ public class GameTime {
     }
 
     //////////GETTERS & SETTERS//////////
+
+
     public long getTotalTime() {
         return totalTime;
     }

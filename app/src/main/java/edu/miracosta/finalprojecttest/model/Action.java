@@ -261,10 +261,7 @@ public class Action {
 
             player.setDisplayText(CAR_CRASH);
         }
-        if (player.getX() == CABN_6_2.getX() && player.getY() == CABN_6_2.getY() ) {
 
-            player.setDisplayText(BODY_CABIN);
-        }
 
     }
     //TODO: Get rid of hard coded values

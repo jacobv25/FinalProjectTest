@@ -32,7 +32,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button inventoryButton;
     private TextView currentAreaTextView;
     private TextView playerConditionTextView;
-    private TextView bigTextView;
+    private TextView timeTextView;
     
     private Player player;
     private GameTime gameTime;
@@ -56,6 +56,7 @@ public class PlayActivity extends AppCompatActivity {
         inventoryButton = findViewById(R.id.playerButton);
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
         playerConditionTextView = findViewById(R.id.playerConditionTextView);
+        timeTextView = findViewById(R.id.timeTextView);
 
         player = new Player();
         gameTime = new GameTime();
@@ -66,7 +67,9 @@ public class PlayActivity extends AppCompatActivity {
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
 
-        //currentAreaTextView.setText(RUNNING_GAME_BOARD[player.getY()][player.getX()].getDisplayText());
+
+        timeTextView.setText(getTime());
+
         currentAreaTextView.setText(StoryElements.INTRO);
 
     }
@@ -94,7 +97,9 @@ public class PlayActivity extends AppCompatActivity {
                 " | Temp= " + player.getTemperature() +
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
-
+        //update the time
+        timeTextView.setText(getTime());
+        //check if player is dead
         isPlayerDead(player);
     }
 
@@ -134,16 +139,20 @@ public class PlayActivity extends AppCompatActivity {
                         currentAreaTextView.setText(player.getDisplayText());
                     //}
 
+                    Damage.damagePlayer(player, weather, gameTime);
+                    Regeneration.regeneratePlayer(player);
+                    gameTime.passTime();
+                    BoardGame.update();
+
                     //update the player condition text view
                     playerConditionTextView.setText("HP= " + player.getCondition() +
                             " | Temp= " + player.getTemperature() +
                             " | Hunger= " + player.getHunger() +
                             " | Thirst= " + player.getThirst());
-
-                    Damage.damagePlayer(player, weather, gameTime);
-                    Regeneration.regeneratePlayer(player);
-                    gameTime.passTime();
-                    BoardGame.update();
+                    //update the time
+                    timeTextView.setText(getTime());
+                    //check if player is dead
+                    isPlayerDead(player);
                 }
         }
     }
@@ -156,5 +165,12 @@ public class PlayActivity extends AppCompatActivity {
 
             startActivity(intent);
         }
+    }
+
+    private String getTime() {
+        int t = gameTime.getDayTime();
+        int hours = t / 60; //since both are ints, you get an int
+        int minutes = t % 60;
+        return String.format("%d:%02d", hours, minutes);
     }
 }
