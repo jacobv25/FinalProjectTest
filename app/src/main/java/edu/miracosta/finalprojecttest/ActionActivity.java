@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.miracosta.finalprojecttest.model.Action;
-import edu.miracosta.finalprojecttest.model.Inventory;
+import edu.miracosta.finalprojecttest.model.GameTime;
 import edu.miracosta.finalprojecttest.model.Player;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
@@ -27,6 +27,7 @@ public class ActionActivity extends AppCompatActivity {
 
     private String displayText;
     private Player player;
+    private GameTime time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +40,15 @@ public class ActionActivity extends AppCompatActivity {
         collectWaterButton = findViewById(R.id.collectWaterButton);
         eatFoodButton = findViewById(R.id.eatFoodButton);
         startFireButton = findViewById(R.id.startFireButton);
-        collectWaterButton = findViewById(R.id.collectWaterButton);
+        drinkWaterButton = findViewById(R.id.drinkWaterButton);
 
-        Intent playerIntent = getIntent();
+        Intent intent = getIntent();
 
-        player = playerIntent.getParcelableExtra("Player");
-        Inventory inventory = (playerIntent.getParcelableExtra("Inventory"));
-        player.setInventory(inventory);
-
-        displayText = playerIntent.getStringExtra("DisplayText");
-
+        player = intent.getParcelableExtra("Player");
+        //Inventory inventory = (intent.getParcelableExtra("Inventory"));
+        //player.setInventory(inventory);
+        displayText = intent.getStringExtra("DisplayText");
+        time = intent.getParcelableExtra("GameTime");
     }
 
     public void harvestFoodButtonPressed(View v) {
@@ -58,7 +58,7 @@ public class ActionActivity extends AppCompatActivity {
         Action.harvestAnimal(player, RUNNING_GAME_BOARD);
 
         intent.putExtra("Player", player);
-        intent.putExtra("Inventory", player.getInventory());
+        //intent.putExtra("Inventory", player.getInventory());
         intent.putExtra("DisplayText", player.getDisplayText());
         setResult(RESULT_OK, intent);
         finish();
@@ -71,7 +71,7 @@ public class ActionActivity extends AppCompatActivity {
         Action.pickPlant(player, RUNNING_GAME_BOARD);
 
         intent.putExtra("Player", player);
-        intent.putExtra("Inventory", player.getInventory());
+        //intent.putExtra("Inventory", player.getInventory());
         intent.putExtra("DisplayText", player.getDisplayText());
         setResult(RESULT_OK, intent);
         finish();
@@ -89,5 +89,29 @@ public class ActionActivity extends AppCompatActivity {
         finish();
     }
 
+    public void getFirewoodButtonPressed(View v) {
+
+        Intent intent = new Intent();
+
+        Action.getFireWood(player, RUNNING_GAME_BOARD);
+
+        intent.putExtra("Player", player);
+        //intent.putExtra("Inventory", player.getInventory());
+        intent.putExtra("DisplayText", player.getDisplayText());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    public void startFireButtonPressed(View v) {
+
+        Intent intent = new Intent();
+
+        Action.startFire(player, time, RUNNING_GAME_BOARD);
+
+        intent.putExtra("Player", player);
+        intent.putExtra("DisplayText", player.getDisplayText());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
     //TODO: Finish linking the buttons to the back end
 }

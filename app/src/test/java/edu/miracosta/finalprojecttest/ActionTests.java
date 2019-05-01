@@ -22,11 +22,11 @@ public class ActionTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.getInventory().setFood(0);
-        System.out.println("player food =" + player.getInventory().getFood());
+        player.setFood(0);
+        System.out.println("player food =" + player.getFood());
         BoardPiece[][] testBoard = GAME_BOARD_PIECES_TEST; //because GAME_BOARD_PIECES_TEST is final, we need a new temp board game
         Action.harvestAnimal(player, testBoard);
-        assertEquals(1, player.getInventory().getFood());
+        assertEquals(1, player.getFood());
         assertEquals(9, testBoard[player.getX()][player.getY()].getAnimals());
     }
     @Test
@@ -35,10 +35,10 @@ public class ActionTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.getInventory().setPlants(0);
+        player.setPlants(0);
         BoardPiece[][] testBoard = GAME_BOARD_PIECES_TEST; //because GAME_BOARD_PIECES_TEST is final, we need a new temp board game
-        Action.pickPlant(player, null, testBoard);
-        assertEquals(1, player.getInventory().getPlants());
+        Action.pickPlant(player, testBoard);
+        assertEquals(1, player.getPlants());
         assertEquals(9, testBoard[player.getX()][player.getY()].getPlants());
     }
 

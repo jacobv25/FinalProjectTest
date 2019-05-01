@@ -2,11 +2,8 @@ package edu.miracosta.finalprojecttest.model;
 
 import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
 import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_3;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
 import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
 import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
-import static edu.miracosta.finalprojecttest.model.StoryElements.INTRO;
 
 /**
  * Handles all the Player Actions
@@ -46,18 +43,17 @@ public class Action {
         int x = player.getX();
         int y = player.getY();
         int count;
-        Inventory inventory = player.getInventory();
         BoardPiece currentArea = boardGame[y][x];;
 
         if (!(currentArea.getFirewood() <= 0)) {
             //set count to the new amount of firewood
-            count = inventory.getFirewood() + 1;
+            count = player.getFirewood() + 1;
             //subtract from the currentArea
             currentArea.setFirewood(currentArea.getFirewood() - 1);
             //set the inventory to the new firewood count
-            inventory.setFirewood(count);
+            player.setFirewood(count);
             //set the player's inventory to the new inventory
-            player.setInventory(inventory);
+            //player.setInventory(inventory);
             //set the displayText to say "You collected wood!"
             player.setDisplayText(FIREWOOD_SUCCESS);
         }
@@ -75,20 +71,20 @@ public class Action {
         int x = player.getX();
         int y = player.getY();
         int count;
-        Inventory inventory = player.getInventory();
+        //Inventory inventory = new Inventory(player.getInventory());
         BoardPiece currentArea = boardGame[y][x];
 
 
         if (!(currentArea.getAnimals() <= 0)) {
             // New comment
             //set count to the new amount of firewood
-            count = inventory.getFood() + 1;
+            count = player.getFood() + 1;
             //subtract from the currentArea
             currentArea.setAnimals(currentArea.getAnimals() - 1);
             //set the inventory to the new firewood count
-            inventory.setFood(count);
+            player.setFood(count);
             //set the player's inventory to the new inventory
-            player.setInventory(inventory);
+            //player.setInventory(inventory);
             //set the display text
             player.setDisplayText(HARVEST_FOOD_SUCCESS);
         }
@@ -107,18 +103,18 @@ public class Action {
         int x = player.getX();
         int y = player.getY();
         int count;
-        Inventory inventory = player.getInventory();
+        //Inventory inventory = new Inventory(player.getInventory());
         BoardPiece currentArea = gameBoard[y][x];;
 
         if (!(currentArea.getWater() <= 0)) {
             //set count to the new amount of firewood
-            count = inventory.getWaterBottle() + 1;
+            count = player.getWater() + 1;
             //subtract from the currentArea
             currentArea.setWater(currentArea.getWater() - 1);
             //set the inventory to the new firewood count
-            inventory.setWaterBottle(count);
+            player.setWater(count);
             //set the player's inventory to the new inventory
-            player.setInventory(inventory);
+            //player.setInventory(inventory);
             //set the display text
             player.setDisplayText(COLLECT_WATER_SUCCESS);
         }
@@ -134,12 +130,12 @@ public class Action {
      */
     public  static void eatFood(Player player) {
 
-        Inventory inventory = player.getInventory();
-        int food = inventory.getFood();
+        //Inventory inventory = new Inventory(player.getInventory());
+        int food = player.getFood();
 
         if (food > 0) {
 
-            inventory.setFood(food - 1);
+            player.setFood(food - 1);
             Regeneration.regenHunger(player);
             player.setDisplayText(EAT_FOOD_SUCCESS);
         }
@@ -155,12 +151,12 @@ public class Action {
      */
     public static void drinkWater(Player player) {
 
-        Inventory inventory = player.getInventory();
-        int water = inventory.getWaterBottle();
+        //Inventory inventory = new Inventory(player.getInventory());
+        int water = player.getWater();
 
         if (water > 0) {
 
-            inventory.setWaterBottle(water - 1);
+            player.setWater(water - 1);
             Regeneration.regenThirst(player);
             player.setDisplayText(DRINK_WATER_SUCCESS);
         }
@@ -176,15 +172,15 @@ public class Action {
      */
     public static void startFire(Player player, GameTime gameTime, BoardPiece[][] gameBoard) {
 
-        Inventory inventory = player.getInventory();
-        int firewood = inventory.getFirewood();
+        //Inventory inventory = new Inventory(player.getInventory());
+        int firewood = player.getFirewood();
         int x = player.getX();
         int y = player.getY();
         BoardPiece currentArea = gameBoard[y][x];
 
         if (firewood > 0) {
 
-            inventory.setFirewood(firewood - 1);
+            player.setFirewood(firewood - 1);
             Regeneration.regenThirst(player);
             currentArea.setCampFire(new CampFire(gameTime));
             //set display text
@@ -201,19 +197,19 @@ public class Action {
         int x = player.getX();
         int y = player.getY();
         int count;
-        Inventory inventory = player.getInventory();
+        //Inventory inventory = new Inventory(player.getInventory());
         BoardPiece currentArea = gameBoard[y][x];
 
 
         if (!(currentArea.getPlants() <= 0)) {
             //set count to the new amount of plants
-            count = inventory.getPlants() + 1;
+            count = player.getPlants() + 1;
             //subtract from the currentArea
             currentArea.setPlants(currentArea.getPlants() - 1);
             //set the inventory to the new plant count
-            inventory.setPlants(count);
+            player.setPlants(count);
             //set the player's inventory to the new inventory
-            player.setInventory(inventory);
+            //player.setInventory(inventory);
             //set the display text
             player.setDisplayText(PICK_PLANT_SUCCESS);
         }

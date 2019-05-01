@@ -16,7 +16,7 @@ public class MoveTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.movePlayerBoardPiece("E", player, GAME_BOARD_PIECES_TEST, null);
+        player.movePlayerBoardPiece("E", player, GAME_BOARD_PIECES_TEST);
 
         assertEquals( 2, player.getX());
         assertEquals( 1, player.getY());
@@ -26,7 +26,7 @@ public class MoveTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.movePlayerBoardPiece("W", player, GAME_BOARD_PIECES_TEST, null);
+        player.movePlayerBoardPiece("W", player, GAME_BOARD_PIECES_TEST);
 
         assertEquals( 0, player.getX());
         assertEquals( 1, player.getY());
@@ -36,7 +36,7 @@ public class MoveTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.movePlayerBoardPiece("N", player, GAME_BOARD_PIECES_TEST, null);
+        player.movePlayerBoardPiece("N", player, GAME_BOARD_PIECES_TEST);
 
         assertEquals( 1, player.getX());
         assertEquals( 0, player.getY());
@@ -46,7 +46,7 @@ public class MoveTests {
         Player player = new Player();
         player.setX(1);
         player.setY(1);
-        player.movePlayerBoardPiece("S", player, GAME_BOARD_PIECES_TEST, null);
+        player.movePlayerBoardPiece("S", player, GAME_BOARD_PIECES_TEST);
 
         assertEquals( 1, player.getX());
         assertEquals( 2, player.getY());

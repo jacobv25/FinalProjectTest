@@ -1,12 +1,15 @@
 package edu.miracosta.finalprojecttest.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import javax.xml.datatype.Duration;
 
 /**
  * This class handles all total running time in the game and the
  * in game day/night time.
  */
-public class GameTime {
+public class GameTime implements Parcelable {
 
     public static final int TIME_INCREMENT = 30; //30 minutes passing in game
     public static final int MAX_DAY_MINUTES = 1440; // (24 hours) * (60 minutes) = 1440 minutes in a day
@@ -97,4 +100,32 @@ public class GameTime {
     public void setDayTime(int dayTime) {
         this.dayTime = dayTime;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(totalTime);
+        dest.writeInt(dayTime);
+    }
+
+    private GameTime(Parcel parcel) {
+        totalTime = parcel.readLong();
+        dayTime = parcel.readInt();
+    }
+
+    public static final Parcelable.Creator<GameTime> CREATOR = new Creator<GameTime>() {
+        @Override
+        public GameTime createFromParcel(Parcel source) {
+            return new GameTime(source);
+        }
+
+        @Override
+        public GameTime[] newArray(int size) {
+            return new GameTime[size];
+        }
+    };
 }

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import edu.miracosta.finalprojecttest.model.BoardGame;
 import edu.miracosta.finalprojecttest.model.Damage;
 import edu.miracosta.finalprojecttest.model.GameTime;
-import edu.miracosta.finalprojecttest.model.Inventory;
 import edu.miracosta.finalprojecttest.model.Player;
 import edu.miracosta.finalprojecttest.model.Regeneration;
 import edu.miracosta.finalprojecttest.model.StoryElements;
@@ -59,6 +58,8 @@ public class PlayActivity extends AppCompatActivity {
         timeTextView = findViewById(R.id.timeTextView);
 
         player = new Player();
+        //Inventory inventory = new Inventory();
+        //player.setInventory(inventory);
         gameTime = new GameTime();
         weather = new Weather();
 
@@ -106,10 +107,12 @@ public class PlayActivity extends AppCompatActivity {
     public void actionButtonPressed(View v) {
 
         Intent intent = new Intent(this, ActionActivity.class);
+        //System.out.println(player.getInventory().toString());
 
         intent.putExtra("Player", player);
-        intent.putExtra("Inventory", player.getInventory());
+        //intent.putExtra("Inventory", player.getInventory());
         intent.putExtra("DisplayText", player.getDisplayText());
+        intent.putExtra("GameTime", gameTime);
 
         startActivityForResult(intent, REQUEST_CODE_1);
     }
@@ -127,17 +130,10 @@ public class PlayActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK)
                 {
                     player = data.getParcelableExtra("Player");
-                    Inventory inventory = data.getParcelableExtra("Inventory");
-                    player.setInventory(inventory);
-                    //Decide which text view to use
-                    //if (player.getDisplayText().length() > 200) {
+                    //Inventory inventory = data.getParcelableExtra("Inventory");
+                    //player.setInventory(inventory);
 
-                      //  bigTextView.setText(player.getDisplayText());
-                    //}
-                    //else {
-
-                        currentAreaTextView.setText(player.getDisplayText());
-                    //}
+                    currentAreaTextView.setText(player.getDisplayText());
 
                     Damage.damagePlayer(player, weather, gameTime);
                     Regeneration.regeneratePlayer(player);

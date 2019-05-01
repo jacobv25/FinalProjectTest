@@ -30,7 +30,13 @@ public class Player implements Parcelable {
 
     private String displayText;
 
-    private Inventory inventory;
+    //private Inventory inventory;
+
+    private int firewood;
+    private int food;
+    private int water;
+    private int plants;
+
 
     public Player() {
         condition = MAX_VALUE;
@@ -39,7 +45,11 @@ public class Player implements Parcelable {
         thirst = MAX_VALUE;
         x = DEFAULT_X;
         y = DEFAULT_Y;
-        inventory = new Inventory();
+        //inventory = new Inventory();
+        firewood = 0;
+        food = 0;
+        water = 0;
+        plants = 0;
 
     }
 
@@ -73,13 +83,11 @@ public class Player implements Parcelable {
      * @return
      */
     public String displayInventory() {
-        if (inventory == null) {
-            return "inventory is null";
-        }
+
         return "Inventory{" +
-                "firewood=" +  inventory.getFirewood() +
-                ", food=" + inventory.getFood() +
-                ", water bottle=" + inventory.getWaterBottle();
+                "firewood=" +  firewood +
+                ", food=" + food +
+                ", water bottle=" + water;
     }
 
     public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
@@ -121,12 +129,36 @@ public class Player implements Parcelable {
         }
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public int getFirewood() {
+        return firewood;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setFirewood(int firewood) {
+        this.firewood = firewood;
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    public int getWater() {
+        return water;
+    }
+
+    public void setWater(int water) {
+        this.water = water;
+    }
+
+    public int getPlants() {
+        return plants;
+    }
+
+    public void setPlants(int plants) {
+        this.plants = plants;
     }
 
     public double getCondition() {
@@ -253,6 +285,11 @@ public class Player implements Parcelable {
         dest.writeInt(x);
         dest.writeInt(y);
         dest.writeString(displayText);
+
+        dest.writeInt(firewood);
+        dest.writeInt(food);
+        dest.writeInt(water);
+        dest.writeInt(plants);
     }
 
     private Player(Parcel parcel) {
@@ -263,6 +300,11 @@ public class Player implements Parcelable {
         x = parcel.readInt();
         y = parcel.readInt();
         displayText = parcel.readString();
+
+        firewood = parcel.readInt();
+        food = parcel.readInt();
+        water = parcel.readInt();
+        plants = parcel.readInt();
     }
 
     public static final Parcelable.Creator<Player> CREATOR = new Creator<Player>() {
