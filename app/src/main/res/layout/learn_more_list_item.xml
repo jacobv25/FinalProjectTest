@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/plantListLinearLayout"
+    android:id="@+id/animalListLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
     android:onClick="viewGameDetails">
 
     <ImageView
-        android:id="@+id/plantListImageView"
+        android:id="@+id/animalListItemImageView"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="4dp"
@@ -20,14 +20,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/plantListNameTextView"
+            android:id="@+id/animalListItemNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/plantListDescriptionTextView"
+            android:id="@+id/animalListItemDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />

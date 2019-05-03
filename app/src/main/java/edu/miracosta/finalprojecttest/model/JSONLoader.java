@@ -23,7 +23,7 @@ public class JSONLoader {
         List<Animal> allAnimals = new ArrayList<>();
         String json;
 
-        InputStream is = context.getAssets().open("MusicEvents.json");
+        InputStream is = context.getAssets().open("Animals.json");
         int size = is.available();
         byte[] buffer = new byte[size];
         is.read(buffer);
@@ -32,7 +32,7 @@ public class JSONLoader {
 
         try {
             JSONObject jsonRootObject = new JSONObject(json);
-            JSONArray allAnimalsJSON = jsonRootObject.getJSONArray("MusicEvents");
+            JSONArray allAnimalsJSON = jsonRootObject.getJSONArray("Animals");
             int numberOfEvents = allAnimalsJSON.length();
 
             for (int i = 0; i < numberOfEvents; i++) {
