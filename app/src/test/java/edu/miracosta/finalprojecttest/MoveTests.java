@@ -2,9 +2,9 @@ package edu.miracosta.finalprojecttest;
 
 import org.junit.Test;
 
-import edu.miracosta.finalprojecttest.model.Player;
+import edu.miracosta.finalprojecttest.model.player.Player;
 
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES_TEST;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES_TEST;
 import static org.junit.Assert.*;
 
 

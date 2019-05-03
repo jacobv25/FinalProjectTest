@@ -3,10 +3,10 @@
 //import android.os.Parcel;
 //import android.os.Parcelable;
 //
-//import static edu.miracosta.finalprojecttest.model.Action.POS_FIREWOOD;
-//import static edu.miracosta.finalprojecttest.model.Action.POS_FOOD;
-//import static edu.miracosta.finalprojecttest.model.Action.POS_PLANTS;
-//import static edu.miracosta.finalprojecttest.model.Action.POS_WATER_BOTTLE;
+//import static edu.miracosta.finalprojecttest.model.player.Action.POS_FIREWOOD;
+//import static edu.miracosta.finalprojecttest.model.player.Action.POS_FOOD;
+//import static edu.miracosta.finalprojecttest.model.player.Action.POS_PLANTS;
+//import static edu.miracosta.finalprojecttest.model.player.Action.POS_WATER_BOTTLE;
 //import static edu.miracosta.finalprojecttest.model.Player.MIN_VALUE;
 //
 ///**

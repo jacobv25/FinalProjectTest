@@ -1,7 +1,4 @@
-package edu.miracosta.finalprojecttest.model;
-
-import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
-import static edu.miracosta.finalprojecttest.model.StoryElements.INTRO;
+package edu.miracosta.finalprojecttest.model.board_game;
 
 /**
  * This class is for organizational purposes:

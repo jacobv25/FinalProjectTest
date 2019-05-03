@@ -1,20 +1,19 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.board_game;
 
-import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.FREE;
-import static edu.miracosta.finalprojecttest.model.BoardValues.MOUNTAIN;
-import static edu.miracosta.finalprojecttest.model.BoardValues.OBST;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_3;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_4;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_5;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_6;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_7;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TEST_X_Y;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_3_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_4_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TRAL_5_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FREE;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.MOUNTAIN;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.OBST;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_3;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_4;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_5;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_6;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TEST_X_Y;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_3_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_4_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_5_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_STRT;
 
 /**
  * Handles the different 2d arrays that act as game boards

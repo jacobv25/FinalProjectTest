@@ -1,7 +1,13 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.player;
 
-import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.ROAD_2_3;
+import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
+import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
+import edu.miracosta.finalprojecttest.model.player.Player;
+import edu.miracosta.finalprojecttest.model.player.Regeneration;
+
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
 import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
 

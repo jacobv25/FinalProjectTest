@@ -1,4 +1,6 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.board_game;
+
+import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
 
 /**
  * This class handles as the values in a BoardPiece

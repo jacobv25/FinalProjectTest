@@ -1,8 +1,11 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.player;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
+import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 

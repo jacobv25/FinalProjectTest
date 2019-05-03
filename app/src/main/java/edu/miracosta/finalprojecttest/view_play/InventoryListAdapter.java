@@ -1,11 +1,6 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_play;
 
-import android.content.Context;
-import android.widget.ArrayAdapter;
-
-import java.util.List;
-
-public class InventoryListAdapeter {
+public class InventoryListAdapter {
 
     //TODO: Extend ArrayAdapter and decide which constructor to implement.
     //TODO: See pet protector for help.

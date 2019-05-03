@@ -1,10 +1,12 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_learn_more;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import edu.miracosta.finalprojecttest.R;
 
 
 public class LearnMoreActivity extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class LearnMoreActivity extends AppCompatActivity {
 
     public void animalsLearnMoreButtonPressed(View v) {
 
-        Intent intent = new Intent(this, LearnMoreListActivity.class);
+        Intent intent = new Intent(this, AnimalsListActivity.class);
 
         startActivity(intent);
     }

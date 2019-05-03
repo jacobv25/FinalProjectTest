@@ -12,6 +12,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.miracosta.finalprojecttest.model.enviroment.Animal;
+
 public class JSONLoader {
 
     /**

@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_learn_more;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -12,7 +12,8 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 
-import edu.miracosta.finalprojecttest.model.Plant;
+import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.enviroment.Plant;
 
 public class ActivityDetails extends AppCompatActivity {
 

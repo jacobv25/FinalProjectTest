@@ -2,8 +2,18 @@ package edu.miracosta.finalprojecttest.model;
 
 import java.util.Scanner;
 
+import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
+import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
+import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
+import edu.miracosta.finalprojecttest.model.enviroment.Weather;
+import edu.miracosta.finalprojecttest.model.player.Action;
+import edu.miracosta.finalprojecttest.model.player.Damage;
+import edu.miracosta.finalprojecttest.model.player.Player;
+import edu.miracosta.finalprojecttest.model.player.Regeneration;
+
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES;
 
 public class ConsoleTester {
 

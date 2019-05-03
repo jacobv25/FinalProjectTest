@@ -1,7 +1,6 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.player;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
 
 /**
  * This class handles all the Player regeneration calculations.

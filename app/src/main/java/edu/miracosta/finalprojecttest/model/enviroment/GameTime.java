@@ -1,9 +1,7 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.enviroment;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import javax.xml.datatype.Duration;
 
 /**
  * This class handles all total running time in the game and the

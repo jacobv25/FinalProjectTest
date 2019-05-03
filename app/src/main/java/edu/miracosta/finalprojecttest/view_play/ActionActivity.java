@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_play;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import edu.miracosta.finalprojecttest.model.Action;
-import edu.miracosta.finalprojecttest.model.GameTime;
-import edu.miracosta.finalprojecttest.model.Player;
+import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.player.Action;
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
+import edu.miracosta.finalprojecttest.model.player.Player;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 

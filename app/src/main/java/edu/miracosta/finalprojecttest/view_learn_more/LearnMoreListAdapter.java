@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_learn_more;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import edu.miracosta.finalprojecttest.model.Animal;
+import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.enviroment.Animal;
 
 /**
  * Helper class to provide custom adapter for the <code>Game</code> list.

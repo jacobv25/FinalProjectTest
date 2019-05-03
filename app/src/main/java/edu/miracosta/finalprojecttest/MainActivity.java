@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import edu.miracosta.finalprojecttest.model.BoardPiece;
+import edu.miracosta.finalprojecttest.view_learn_more.LearnMoreActivity;
+import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
+import edu.miracosta.finalprojecttest.view_play.PlayActivity;
 
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES;
-import static edu.miracosta.finalprojecttest.model.BoardGame.GAME_BOARD_PIECES_TEST;
-import static edu.miracosta.finalprojecttest.model.BoardValues.CABN_6_2;
-import static edu.miracosta.finalprojecttest.model.BoardValues.TST_STRT;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,7 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.player;
+
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
+import edu.miracosta.finalprojecttest.model.enviroment.Weather;
 
 /**
  * Handles the calculations that determine how much damage the character takes.

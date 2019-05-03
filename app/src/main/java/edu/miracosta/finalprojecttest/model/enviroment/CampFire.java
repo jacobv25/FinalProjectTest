@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.enviroment;
 
 /**
  * This class will handle all the functions and calculations for a CampFire

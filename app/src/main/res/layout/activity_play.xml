@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDefaultBackground"
-    tools:context=".PlayActivity">
+    tools:context=".view_play.PlayActivity">
 
     <Button
         android:id="@+id/northButton"

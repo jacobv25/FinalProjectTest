@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.enviroment;
 /**
  * Animal.java: A class that creates an animal object to describe their parameters.
  * @author Gabriel Bactol & Jacob Valenzuela

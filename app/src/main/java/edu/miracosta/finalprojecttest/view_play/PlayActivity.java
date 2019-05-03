@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_play;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.miracosta.finalprojecttest.model.BoardGame;
-import edu.miracosta.finalprojecttest.model.Damage;
-import edu.miracosta.finalprojecttest.model.GameTime;
-import edu.miracosta.finalprojecttest.model.Player;
-import edu.miracosta.finalprojecttest.model.Regeneration;
+import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
+import edu.miracosta.finalprojecttest.model.player.Damage;
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
+import edu.miracosta.finalprojecttest.model.player.Player;
+import edu.miracosta.finalprojecttest.model.player.Regeneration;
 import edu.miracosta.finalprojecttest.model.StoryElements;
-import edu.miracosta.finalprojecttest.model.Weather;
+import edu.miracosta.finalprojecttest.model.enviroment.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 

@@ -1,4 +1,4 @@
-package edu.miracosta.finalprojecttest.model;
+package edu.miracosta.finalprojecttest.model.enviroment;
 /**
  * Plant.java: A class that creates an Plant object to describe their parameters.
  * @author Gabriel Bactol & Jacob Valenzuela

@@ -1,7 +1,6 @@
-package edu.miracosta.finalprojecttest;
+package edu.miracosta.finalprojecttest.view_learn_more;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -9,10 +8,11 @@ import android.widget.ListView;
 import java.io.IOException;
 import java.util.List;
 
-import edu.miracosta.finalprojecttest.model.Animal;
+import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.enviroment.Animal;
 import edu.miracosta.finalprojecttest.model.JSONLoader;
 
-public class LearnMoreListActivity extends ListActivity {
+public class AnimalsListActivity extends ListActivity {
 
     //TODO: Create a custom list adapter.
     //TODO: This one should be easier than the inventory list adapter.
