@@ -62,7 +62,7 @@ public class PlayActivity extends AppCompatActivity {
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
         timeTextView.setText(getTime());
-        currentAreaTextView.setText(StoryElements.INTRO);
+        //currentAreaTextView.setText(StoryElements.INTRO);
     }
 
     public void movePlayer(View v) {
