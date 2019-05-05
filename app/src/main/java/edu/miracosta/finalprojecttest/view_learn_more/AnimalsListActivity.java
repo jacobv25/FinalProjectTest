@@ -18,7 +18,6 @@ public class AnimalsListActivity extends ListActivity {
     //TODO: This one should be easier than the inventory list adapter.
     //TODO: See Pet Protector for help.
 
-    //private DBHelper db;
     private List<Animal> allAnimals;
     private ListView animalsListView;
 

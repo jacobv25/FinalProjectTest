@@ -1,9 +1,10 @@
 package edu.miracosta.finalprojecttest.model.board_game;
 
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
-import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FREE;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FNSH_1_6;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FRST_4_4;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.STN_FRST;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.MOUNTAIN;
-import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.OBST;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_4;
@@ -20,33 +21,19 @@ import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_ST
  */
 public class BoardGame {
 
-
     /**
-     * v.0.1 design
-     */
-    public static final int[][] GAME_BOARD = {
-            {OBST, OBST, OBST, OBST, OBST, OBST, OBST, OBST},
-            {OBST, OBST, OBST, FREE, FREE, FREE, FREE, FREE},
-            {FREE, FREE, FREE, OBST, OBST, FREE, OBST, FREE},
-            {FREE, OBST, OBST, FREE, OBST, FREE, OBST, FREE},
-            {FREE, FREE, FREE, FREE, OBST, FREE, OBST, FREE},
-            {OBST, OBST, OBST, FREE, OBST, FREE, OBST, FREE},
-            {OBST, FREE, FREE, FREE, FREE, FREE, OBST, FREE},
-            {OBST, OBST, OBST, OBST, OBST, OBST, OBST, OBST}
-    };
-    /**
-     * v.0.2 design
+     * v.0.4 design
      *
-     * Used as a tester
+     * Used as a tester for the final
      */
     public static final BoardPiece[][] GAME_BOARD_PIECES = {
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, ROAD_2_2, TRAL_3_2, TRAL_4_2, TRAL_5_2, CABN_6_2, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, ROAD_2_3, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, ROAD_2_4, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, ROAD_2_5, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, ROAD_2_6, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
+            {MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN},
+            {MOUNTAIN, STN_FRST, ROAD_2_2, TRAL_3_2, TRAL_4_2, TRAL_5_2, CABN_6_2, MOUNTAIN},
+            {MOUNTAIN, STN_FRST, ROAD_2_3, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN},
+            {MOUNTAIN, STN_FRST, ROAD_2_4, MOUNTAIN, FRST_4_4, STN_FRST, STN_FRST, MOUNTAIN},
+            {MOUNTAIN, STN_FRST, ROAD_2_5, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN},
+            {MOUNTAIN, FNSH_1_6, ROAD_2_6, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN}
     };
     /**

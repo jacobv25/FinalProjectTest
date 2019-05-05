@@ -17,6 +17,7 @@ import edu.miracosta.finalprojecttest.model.StoryElements;
 import edu.miracosta.finalprojecttest.model.enviroment.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_FINISH;
 
 public class PlayActivity extends AppCompatActivity {
 
@@ -38,11 +39,6 @@ public class PlayActivity extends AppCompatActivity {
     private GameTime gameTime;
     private Weather weather;
 
-    //TODO: Get rid of member variable displayText.
-    //TODO: We wont need it since Player class will provide the diplay text
-    //TODO: for currentAreaTextView.
-    //private String displayText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,25 +55,17 @@ public class PlayActivity extends AppCompatActivity {
         timeTextView = findViewById(R.id.timeTextView);
 
         player = new Player();
-        //Inventory inventory = new Inventory();
-        //player.setInventory(inventory);
         gameTime = new GameTime();
         weather = new Weather();
-
         playerConditionTextView.setText("HP= " + player.getCondition() +
                 " | Temp= " + player.getTemperature() +
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
-
-
         timeTextView.setText(getTime());
-
         currentAreaTextView.setText(StoryElements.INTRO);
-
     }
 
     public void movePlayer(View v) {
-
         String buttonText = ((Button)v).getText().toString();
         System.out.println(buttonText);
 
@@ -93,7 +81,6 @@ public class PlayActivity extends AppCompatActivity {
         gameTime.passTime();
         BoardGame.update();
 
-
         //update the player condition text view
         playerConditionTextView.setText("HP= " + player.getCondition() +
                 " | Temp= " + player.getTemperature() +
@@ -103,6 +90,8 @@ public class PlayActivity extends AppCompatActivity {
         timeTextView.setText(getTime());
         //check if player is dead
         isPlayerDead(player);
+        //TODO: implement didPlayerWin(player : Player)
+        didPlayerWin(player);
     }
 
     public void actionButtonPressed(View v) {
@@ -150,6 +139,8 @@ public class PlayActivity extends AppCompatActivity {
                     timeTextView.setText(getTime());
                     //check if player is dead
                     isPlayerDead(player);
+                    //check if player reached finish
+                    didPlayerWin(player);
                 }
         }
     }
@@ -158,8 +149,23 @@ public class PlayActivity extends AppCompatActivity {
 
         if (player.getCondition() == 0) {
 
-            Intent intent = new Intent(this, DeathScreenActivity.class);
+            Intent intent = new Intent(this, EndGameActivity.class);
+            intent.putExtra("Player", player);
+            startActivity(intent);
+        }
+    }
 
+    private void didPlayerWin(Player player) {
+
+        System.out.println("Player x=" + player.getX());
+        System.out.println("finish x=" + RUNNING_GAME_FINISH.getX());
+        System.out.println("Player y=" + player.getY());
+        System.out.println("finish y=" + RUNNING_GAME_FINISH.getY());
+
+        if( player.getX() == RUNNING_GAME_FINISH.getX() && player.getY() == RUNNING_GAME_FINISH.getY()) {
+
+            Intent intent = new Intent(this, EndGameActivity.class);
+            intent.putExtra("Player", player);
             startActivity(intent);
         }
     }
@@ -170,4 +176,5 @@ public class PlayActivity extends AppCompatActivity {
         int minutes = t % 60;
         return String.format("%d:%02d", hours, minutes);
     }
+
 }

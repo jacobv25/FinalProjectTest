@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view_play.DeathScreenActivity"></activity>
+        <activity android:name=".view_play.EndGameActivity" />
         <activity android:name=".view_learn_more.LearnMoreDetailsActivity" />
         <activity android:name=".view_learn_more.AnimalsListActivity" />
         <activity android:name=".view_play.InventoryListActivity" />

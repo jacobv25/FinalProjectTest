@@ -1,5 +1,6 @@
 package edu.miracosta.finalprojecttest.model.player;
 
+import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
@@ -16,7 +17,7 @@ import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
  * -eating, drinking, starting fire, collect firewood
  */
 public class Action {
-
+    //TODO: Change these to string resources
     public static final String FIREWOOD_SUCCESS = "You picked up firewood.";
     public static final String FIREWOOD_FAILURE = "You could not find any firewood.";
     public static final String START_FIRE_SUCCESS = "You started a fire.";
@@ -237,20 +238,20 @@ public class Action {
         south = gameBoard[y+1][x];
         east = gameBoard[y][x+1];
         west = gameBoard[y][x-1];
-        northWest = gameBoard[y-1][x-1];
-        northEast = gameBoard[y-1][x+1];
-        southWest = gameBoard[y+1][x-1];
-        southEast = gameBoard[y+1][x+1];
+//        northWest = gameBoard[y-1][x-1];
+//        northEast = gameBoard[y-1][x+1];
+//        southWest = gameBoard[y+1][x-1];
+//        southEast = gameBoard[y+1][x+1];
 
         displayText = "{ YOU LOOKED!\n" +
                         "\tnorth=" +  lookActionHelper(north)+
                         "\tsouth=" + lookActionHelper(south) +
                         "\teast=" + lookActionHelper(east) +
                         "\twest=" + lookActionHelper(west) +
-                        "\tnorth west=" + lookActionHelper(northWest) +
-                        "\tnorth east=" + lookActionHelper(northEast) +
-                        "\tsouth west=" + lookActionHelper(southWest) +
-                        "\tsouth east=" + lookActionHelper(southEast) +
+//                        "\tnorth west=" + lookActionHelper(northWest) +
+//                        "\tnorth east=" + lookActionHelper(northEast) +
+//                        "\tsouth west=" + lookActionHelper(southWest) +
+//                        "\tsouth east=" + lookActionHelper(southEast) +
                         "}";
         player.setDisplayText(displayText);
 
@@ -267,6 +268,7 @@ public class Action {
 
     }
     //TODO: Get rid of hard coded values
+    //TODO: Change to string resources
     private static String lookActionHelper(BoardPiece area) {
 
         StringBuilder displayText = new StringBuilder();
