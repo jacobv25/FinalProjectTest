@@ -28,5 +28,7 @@
     <string name="details_description_text_view">Description</string>
     <string name="learn_more_title_text_view">Learn More</string>
     <string name="death_screen">You Are Dead</string>
+
+    <string name="splash_screen_text">Sounds of Hawai\'i</string>
     />
 </resources>
