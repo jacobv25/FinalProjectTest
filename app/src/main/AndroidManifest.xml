@@ -14,6 +14,7 @@
         <activity android:name=".view_learn_more.AnimalsListActivity" />
         <activity android:name=".view_play.InventoryListActivity" />
         <activity android:name=".view_learn_more.LearnMoreActivity" />
+        <activity android:name=".view_learn_more.ActivityDetails" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

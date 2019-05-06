@@ -1,8 +1,8 @@
 {
   "Plants": [
     {
-      "Name": "",
-      "Description": "",
+      "Name": "PlantTest",
+      "Description": "PlantTestDescription",
       "ImageName": "none"
     }
   ]

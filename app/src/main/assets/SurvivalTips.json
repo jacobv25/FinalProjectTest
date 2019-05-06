@@ -1,8 +1,8 @@
 {
   "SurvivalTips": [
     {
-      "Name": "",
-      "Description": "",
+      "Name": "SurvivalTest",
+      "Description": "SurvivalTestDescription",
       "ImageName": "none"
     }
   ]

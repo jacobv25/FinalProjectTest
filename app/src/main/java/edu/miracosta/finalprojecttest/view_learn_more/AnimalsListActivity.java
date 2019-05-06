@@ -1,8 +1,10 @@
 package edu.miracosta.finalprojecttest.view_learn_more;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -36,5 +38,20 @@ public class AnimalsListActivity extends ListActivity {
         animalsListView = findViewById(R.id.learnMoreListView);
 
         setListAdapter(new LearnMoreListAdapter(this, R.layout.learn_more_list_item, allAnimals));
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Intent detailsIntent = new Intent(this, ActivityDetails.class);
+        // ListItems correspond to the List entries by position
+
+        Animal selectedAnimal = allAnimals.get(position);
+
+        detailsIntent.putExtra("Name", selectedAnimal.getAnimalName());
+        detailsIntent.putExtra("Description", selectedAnimal.getAnimalDescription());
+        detailsIntent.putExtra("ImageName", selectedAnimal.getAnimalImage());
+
+        startActivity(detailsIntent);
+
     }
 }

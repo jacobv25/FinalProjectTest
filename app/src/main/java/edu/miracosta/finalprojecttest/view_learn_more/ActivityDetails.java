@@ -28,7 +28,10 @@ public class ActivityDetails extends AppCompatActivity {
         Intent detailsIntent = getIntent();
 
 
-        Plant plant = detailsIntent.getParcelableExtra("SelectedPlant");
+        String name = detailsIntent.getStringExtra("Name");
+        String description = detailsIntent.getStringExtra("Description");
+        String imageName = detailsIntent.getStringExtra("ImageName");
+
 
 
         detailsNameTextView = findViewById(R.id.detailsNameTextView);
@@ -36,17 +39,17 @@ public class ActivityDetails extends AppCompatActivity {
         detailsDescriptionTextView = findViewById(R.id.detailsDescriptionTextView);
         AssetManager am = getAssets();
         try {
-            InputStream stream = am.open(plant.getPlantImage());
-            Drawable image = Drawable.createFromStream(stream, plant.getPlantName());
+            InputStream stream = am.open(imageName);
+            Drawable image = Drawable.createFromStream(stream, name);
             detailsImageView.setImageDrawable(image);
         }
         catch (IOException ex)
         {
-            Log.e("ActivityDetails", "Error loading: " + plant.getPlantImage(), ex);
+            Log.e("ActivityDetails", "Error loading: " + imageName);
         }
 
-        detailsNameTextView.setText(plant.getPlantName());
-        detailsDescriptionTextView.setText(plant.getPlantDetails());
+        detailsNameTextView.setText(name);
+        detailsDescriptionTextView.setText(description);
     }
 
 
