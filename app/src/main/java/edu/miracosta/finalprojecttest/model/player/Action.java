@@ -33,6 +33,7 @@ public class Action {
     public static final String DRINK_WATER_SUCCESS = "You drank some water.";
     public static final String DRINK_WATER_FAILURE = "You have no water to drink.";
     public static final String ENCUMBERED = "You are encumbered.";
+    public static final String MTN_BLOCK_ALERT= "A steep hillside blocks your way.";
 
     public static final int MAX_INV_ITEMS = 7;
 

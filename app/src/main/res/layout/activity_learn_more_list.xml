@@ -28,12 +28,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/learnMoreListView"
+        app:layout_constraintBottom_toTopOf="@+id/animalsLearnMoreListView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/learnMoreListView"
+        android:id="@+id/animalsLearnMoreListView"
         android:layout_width="392dp"
         android:layout_height="543dp"
         android:layout_marginStart="8dp"

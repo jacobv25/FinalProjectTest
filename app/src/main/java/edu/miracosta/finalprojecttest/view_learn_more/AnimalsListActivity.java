@@ -35,7 +35,7 @@ public class AnimalsListActivity extends ListActivity {
             Log.e("Final Project", "Error loading JSON" + e.getMessage());
         }
 
-        animalsListView = findViewById(R.id.learnMoreListView);
+        animalsListView = findViewById(R.id.animalsLearnMoreListView);
 
         setListAdapter(new LearnMoreListAdapter(this, R.layout.learn_more_list_item, allAnimals));
     }

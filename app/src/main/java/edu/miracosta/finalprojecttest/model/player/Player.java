@@ -12,6 +12,7 @@ import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
 import edu.miracosta.finalprojecttest.model.enviroment.Item;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
+import static edu.miracosta.finalprojecttest.model.player.Action.MTN_BLOCK_ALERT;
 
 /**
  * Handles all Player values and contains their Inventory:
@@ -102,30 +103,48 @@ public class Player implements Parcelable {
         switch (buttonText)
         {
             case "E":
-                if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
+                if (gameBoardPieces[player.getY()][player.getX() + 1] == BoardValues.MOUNTAIN) {
+
+                    this.displayText = MTN_BLOCK_ALERT;
+                }
+                else if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN) {
+
                     player.setX(player.getX() + 1);
-                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                }
                 break;
 
             case "W":
+                if (gameBoardPieces[player.getY()][player.getX() - 1] == BoardValues.MOUNTAIN) {
 
-                if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
+                    this.displayText = MTN_BLOCK_ALERT;
+                }
+                else if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN) {
                     player.setX(player.getX() - 1);
-                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                }
                 break;
 
             case "N":
+                if (gameBoardPieces[player.getY() - 1][player.getX()] == BoardValues.MOUNTAIN) {
 
-                if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
+                    this.displayText = MTN_BLOCK_ALERT;
+                }
+                else if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN) {
                     player.setY(player.getY() - 1);
-                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                }
                 break;
 
             case "S":
+                if (gameBoardPieces[player.getY() + 1][player.getX()] == BoardValues.MOUNTAIN) {
 
-                if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
+                    this.displayText = MTN_BLOCK_ALERT;
+                }
+                else if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN) {
                     player.setY(player.getY() + 1);
-                this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
+                }
                 break;
 
             case "w":
