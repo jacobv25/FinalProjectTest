@@ -1,8 +1,43 @@
 {
   "Plants": [
     {
-      "Name": "PlantTest",
-      "Description": "PlantTestDescription",
+      "Name": "Amaranth",
+      "Description": "Look for amaranth along roadsides, in disturbed waste areas, or as weeds in crops throughout the world. All parts are edible, but some may have sharp spines you should remove before eating. The young plants or the growing tips of older plants are an excellent vegetable. Simply boil the young plants (preferred) or eat them raw. ",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Burdock",
+      "Description": "Burdock is found worldwide in the north temperate zone. Look for it in open waste areas during the spring and summer. Peel the tender leaf stalks and eat them raw or cook them like greens. The roots are also edible boiled or baked. \n\nNote: Do not confuse burdock with rhubarb that has poisonous leaves.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Cattail",
+      "Description": "Cattails are found throughout most of the world. Look for them in full sun areas at the margins of lakes, streams, canals, rivers, and brackish water. The young tender shoots, peeled stems, and leaf bases are edible raw or cooked. The rhizome is often very tough but is a rich source of starch and edible after cooking and removing the skin. Pound the rhizome to remove the starch and use as a flour. The pollen is also an exceptional source of starch. When the cattail is immature and still green, you can boil the female portion and eat it like corn on the cob.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Clovers",
+      "Description": "An evergreen perennial growing to half a foot, famous for its three leaves, blossom white, pink and red also varieties edible. Raw or cooked as a potherb, young leaves before flowering suitable in salads or soups, can be cooked and used like spinach. Dried seed pods and flowers ground into powder used as a flour, young flowers in salads. Cooked root edible. Dried flowers best known for making tea.  Dried leaves can have a hint of vanilla aroma.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Chickweed",
+      "Description": "Chickweed Stellaria media is found in both North America and Europe. Stellaria media can be distinguished from other closely related family members by examining the stems. Important Tip:Stellaria has fine hairs on only one side of the stem in a single band and on the sepals. Other members of the family which resemble Stellaria have hairs uniformly covering the entire stem. Chickweed grows in many areas in a wide variety of habitats and soil. It is one of the most common weeds founds in lawns but it also grows well in fields or in deciduous forests.Chickweed grows in many areas in a wide variety of habitats and soil. It is one of the most common weeds founds in lawns but it also grows well in fields or in deciduous forests.Chickweed grows in many areas in a wide variety of habitats and soil. It is one of the most common weeds founds in lawns but it also grows well in fields or in deciduous forests. Edible parts: Chickweed leaves and flowers can be eaten raw.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Chicory",
+      "Description": "Look for chicory in old fields, waste areas, weedy lots, and along roads. It is a native of Europe and Asia, but is also found in Africa and most of North America, where it grows as a weed.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Dandelion",
+      "Description": "Never look at the humble dandelion as a mere weed. It is a dandelion -- from the roots to its leaves and flowers ~ are all useful for food, medicine and more.",
+      "ImageName": "none"
+    },
+    {
+      "Name": "Field Pennycress",
+      "Description": "Field pennycress’s oval, flat and widely-winged silicula makes it easy to recognize. When it is flowering the lowest leaves on the stem go yellow, and in dry places they can ripen their seeds even if they are almost leafless. Young leaves can be eaten raw or cooked. They should be harvested before the plant comes into flower or they will be very bitter. Even the young leaves have a somewhat bitter flavour and aroma, and are not to everyone's taste. ",
       "ImageName": "none"
     }
   ]

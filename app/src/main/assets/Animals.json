@@ -3,7 +3,47 @@
     {
       "Name": "American Black Bear",
       "Description": "the most common bear (family Ursidae), found in the forests of North America, including parts of Mexico. The American black bear consists of only one species, but its colour varies, even among members of the same litter. White markings may occur on the chest, sometimes in the shape of a V. Depending on their colour variations, black bears are often referred to as cinnamon bears, blue-gray or blue-black glacier bears, and white bears (found mainly on Princess Royal Island, British Columbia). Black bears that are actually brown in colour are most common in western North America. They are sometimes called brown bears, but the true brown bear (Ursus arctos; also called the grizzly bear in North America) is much larger.",
-      "ImageName": "none"
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "California Golden Trout",
+      "Description": "Widely regarded as one of the most beautiful trout in the world. It is the State Freshwater Fish of California and has long been recognized for its unparalleled beauty.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Bald Eagle",
+      "Description": "Large bird of prey that lives in North America, where it feeds on fish and small mammals. It is brown with a white head and tail and a yellow bill. Its tail feathers were used in the headdresses of some Native Americans. It is the national emblem of the USA. Though now protected by law, it remains an endangered species. Species Haliaeetus leucocephalus.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Long-Eared Chipmunk",
+      "Description": "Tamias quadrimaculatus (Long-eared Chipmunk) is a species of rodent in the family Sciuridae. It is found in the Nearctic. It is a herbivore.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Douglas Squirrel",
+      "Description": "Douglas squirrels are found along the Pacific coast of North America. Their range is limited to northern California, west and central Oregon, western Washington and southwestern British Columbia, Canada.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "California Mule Deer",
+      "Description": "It is named for its ears, which are large like those of the mule. There are believed to be several subspecies, including the black-tailed deer. One of the principal means of distinguishing the closely related black-tailed deer and white-tailed deer is the growth habit of the buck’s antlers. In the case of the California mule deer, the antlers fork in an upward growth, whereas the other species’ antlers grow in a forward direction.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Mountain Lion",
+      "Description": "The mountain lion used to be found all over the United States, but now is primarily seen in the western U.S. An endangered subspecies of mountain lion also remains in Florida. These felines are comfortable in many different habitats and, aside from humans, have the widest geographic range of any land mammal in the Western Hemisphere.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "California Ground Squirrel",
+      "Description": "The California Ground Squirrel was named after Frederick William Beechey, who explored much of Northern California in 1826-28 as captain of His Majesty's Ship Blossom, this squirrel is also sometimes called the Beechey Ground Squirrel.",
+      "ImageName": "bear.png"
+    },
+    {
+      "Name": "Western Gray Squirrel",
+      "Description": "Western gray squirrels are the largest native tree squirrels in Washington. They are salt-and-pepper to steel gray on the back with contrasting white underparts. These squirrels are distinguished by their very long and bushy white-edged tails, large feet and prominent ears, which are reddish-brown at the back in winter. The long tail is used for balance when dashing between tree branches.",
+      "ImageName": "bear.png"
     }
   ]
 }

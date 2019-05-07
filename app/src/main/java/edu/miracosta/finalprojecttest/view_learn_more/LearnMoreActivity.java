@@ -30,4 +30,17 @@ public class LearnMoreActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void plantsLearnMoreButtonPressed(View v) {
+
+        Intent intent = new Intent(this, PlantsListActivity.class);
+
+        startActivity(intent);
+    }
+    public void tipsLearnMoreButtonPressed(View v) {
+
+        Intent intent = new Intent(this, TipsListActivity.class);
+
+        startActivity(intent);
+    }
 }
