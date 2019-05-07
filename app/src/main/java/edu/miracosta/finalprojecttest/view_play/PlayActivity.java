@@ -13,7 +13,6 @@ import edu.miracosta.finalprojecttest.model.player.Damage;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
 import edu.miracosta.finalprojecttest.model.player.Player;
 import edu.miracosta.finalprojecttest.model.player.Regeneration;
-import edu.miracosta.finalprojecttest.model.StoryElements;
 import edu.miracosta.finalprojecttest.model.enviroment.Weather;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
@@ -49,7 +48,7 @@ public class PlayActivity extends AppCompatActivity {
         eastButton = findViewById(R.id.eastButton);
         westButton = findViewById(R.id.westButton);
         actionButton = findViewById(R.id.actionButton);
-        inventoryButton = findViewById(R.id.playerButton);
+        inventoryButton = findViewById(R.id.inventoryButton);
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
         playerConditionTextView = findViewById(R.id.playerConditionTextView);
         timeTextView = findViewById(R.id.timeTextView);
@@ -92,6 +91,14 @@ public class PlayActivity extends AppCompatActivity {
         isPlayerDead(player);
         //TODO: implement didPlayerWin(player : Player)
         didPlayerWin(player);
+    }
+
+    public void inventoryButtonPressed(View v) {
+        Intent intent = new Intent(this, InventoryListActivity.class);
+
+        intent.putExtra("Player", player);
+
+        startActivity(intent);
     }
 
     public void actionButtonPressed(View v) {

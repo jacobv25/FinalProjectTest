@@ -4,8 +4,12 @@ package edu.miracosta.finalprojecttest.model.player;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
+import edu.miracosta.finalprojecttest.model.enviroment.Item;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 
@@ -130,6 +134,22 @@ public class Player implements Parcelable {
                 break;
 
         }
+    }
+
+    public List<Item> getInventory() {
+
+        List<Item> inventory = new ArrayList<>();
+
+        inventory.add(new Item("Insert Firewood image", "Firewood", firewood));
+        inventory.add(new Item("Insert Food image", "Food", food));
+        inventory.add(new Item("Insert Water image", "Water", water));
+        inventory.add(new Item("Insert Plant image", "Plants", plants));
+
+        return inventory;
+    }
+
+    public int getNumInventoryItems () {
+        return firewood + food + water + plants;
     }
 
     public int getFirewood() {

@@ -28,7 +28,7 @@ public class AnimalsListActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("FINAL PROJECT", "inside on create");
+
         try {
             allAnimals = JSONLoader.loadJSONFromAsset(this);
         } catch (IOException e) {

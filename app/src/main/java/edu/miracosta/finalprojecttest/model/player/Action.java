@@ -32,11 +32,9 @@ public class Action {
     public static final String EAT_FOOD_FAILURE = "You have no food to eat.";
     public static final String DRINK_WATER_SUCCESS = "You drank some water.";
     public static final String DRINK_WATER_FAILURE = "You have no water to drink.";
+    public static final String ENCUMBERED = "You are encumbered.";
 
-    public static final int POS_FIREWOOD = 0;
-    public static final int POS_FOOD = 1;
-    public static final int POS_WATER_BOTTLE = 2;
-    public static final int POS_PLANTS = 3;
+    public static final int MAX_INV_ITEMS = 7;
 
 
     /**
@@ -45,6 +43,8 @@ public class Action {
      * player's firewood inventory
      * @param player
      */
+    //TODO: Fix encumbered bug
+    //TODO: To fix this, I'm going to work on the ListInventory
     public static void getFireWood(Player player, BoardPiece[][] boardGame) {
 
         int x = player.getX();
@@ -55,14 +55,21 @@ public class Action {
         if (!(currentArea.getFirewood() <= 0)) {
             //set count to the new amount of firewood
             count = player.getFirewood() + 1;
-            //subtract from the currentArea
-            currentArea.setFirewood(currentArea.getFirewood() - 1);
-            //set the inventory to the new firewood count
-            player.setFirewood(count);
-            //set the player's inventory to the new inventory
-            //player.setInventory(inventory);
-            //set the displayText to say "You collected wood!"
-            player.setDisplayText(FIREWOOD_SUCCESS);
+            //check if player is over encumbered
+            if (player.getNumInventoryItems() + count > MAX_INV_ITEMS) {
+
+                player.setDisplayText(ENCUMBERED);
+            }
+            else {
+                //subtract from the currentArea
+                currentArea.setFirewood(currentArea.getFirewood() - 1);
+                //set the inventory to the new firewood count
+                player.setFirewood(count);
+                //set the player's inventory to the new inventory
+                //player.setInventory(inventory);
+                //set the displayText to say "You collected wood!"
+                player.setDisplayText(FIREWOOD_SUCCESS);
+            }
         }
         else
             player.setDisplayText(FIREWOOD_FAILURE);
@@ -86,14 +93,21 @@ public class Action {
             // New comment
             //set count to the new amount of firewood
             count = player.getFood() + 1;
-            //subtract from the currentArea
-            currentArea.setAnimals(currentArea.getAnimals() - 1);
-            //set the inventory to the new firewood count
-            player.setFood(count);
-            //set the player's inventory to the new inventory
-            //player.setInventory(inventory);
-            //set the display text
-            player.setDisplayText(HARVEST_FOOD_SUCCESS);
+            //check is player is encumbered
+            if (player.getNumInventoryItems() + count > MAX_INV_ITEMS) {
+
+                player.setDisplayText(ENCUMBERED);
+            }
+            else {
+                //subtract from the currentArea
+                currentArea.setAnimals(currentArea.getAnimals() - 1);
+                //set the inventory to the new firewood count
+                player.setFood(count);
+                //set the player's inventory to the new inventory
+                //player.setInventory(inventory);
+                //set the display text
+                player.setDisplayText(HARVEST_FOOD_SUCCESS);
+            }
         }
         else {
             player.setDisplayText(HARVEST_FOOD_FAILURE);
@@ -116,14 +130,21 @@ public class Action {
         if (!(currentArea.getWater() <= 0)) {
             //set count to the new amount of firewood
             count = player.getWater() + 1;
-            //subtract from the currentArea
-            currentArea.setWater(currentArea.getWater() - 1);
-            //set the inventory to the new firewood count
-            player.setWater(count);
-            //set the player's inventory to the new inventory
-            //player.setInventory(inventory);
-            //set the display text
-            player.setDisplayText(COLLECT_WATER_SUCCESS);
+            //check is player is encumbered
+            if (player.getNumInventoryItems() + count > MAX_INV_ITEMS) {
+
+                player.setDisplayText(ENCUMBERED);
+            }
+            else {
+                //subtract from the currentArea
+                currentArea.setWater(currentArea.getWater() - 1);
+                //set the inventory to the new firewood count
+                player.setWater(count);
+                //set the player's inventory to the new inventory
+                //player.setInventory(inventory);
+                //set the display text
+                player.setDisplayText(COLLECT_WATER_SUCCESS);
+            }
         }
         else {
             player.setDisplayText(COLLECT_WATER_FAILURE);
@@ -211,14 +232,19 @@ public class Action {
         if (!(currentArea.getPlants() <= 0)) {
             //set count to the new amount of plants
             count = player.getPlants() + 1;
-            //subtract from the currentArea
-            currentArea.setPlants(currentArea.getPlants() - 1);
-            //set the inventory to the new plant count
-            player.setPlants(count);
-            //set the player's inventory to the new inventory
-            //player.setInventory(inventory);
-            //set the display text
-            player.setDisplayText(PICK_PLANT_SUCCESS);
+            //check is player is encumbered
+            if (player.getNumInventoryItems() + count > MAX_INV_ITEMS) {
+
+                player.setDisplayText(ENCUMBERED);
+            }
+            else {
+                //subtract from the currentArea
+                currentArea.setPlants(currentArea.getPlants() - 1);
+                //set the inventory to the new plant count
+                player.setPlants(count);
+                //set the display text
+                player.setDisplayText(PICK_PLANT_SUCCESS);
+            }
         }
         else {
             player.setDisplayText(PICK_PLANT_FAILURE);
