@@ -35,6 +35,8 @@ public class BoardValues {
             false, "Deep foreboding forest.");
     public static BoardPiece TRAL_5_2 = new BoardPiece(0, 0, 0, 0, 5, 2,
             false, "A trail going east-west.\nA cabin lies to your east.");
+    public static BoardPiece WELL_5_6 = new BoardPiece(0, 0, 5, 0, 5, 6,
+            false, "A deep well in a small clearing.");
     public static BoardPiece CABN_6_2 = new BoardPiece(2, 0, 0, 0, 6, 2,
             false, "Dark dank cabin.");
     public static BoardPiece STN_FRST = new BoardPiece(1, 0, 0, 0, 0, 0,

@@ -18,8 +18,8 @@ import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_ST
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final BoardPiece[][] RUNNING_GAME_BOARD = GAME_BOARD_PIECES_TEST;
-    public static final BoardPiece RUNNING_GAME_START = TST_STRT;
+    public static final BoardPiece[][] RUNNING_GAME_BOARD = GAME_BOARD_PIECES;
+    public static final BoardPiece RUNNING_GAME_START = CABN_6_2;
     public static final BoardPiece RUNNING_GAME_FINISH = FNSH_1_6;
 
     private Button playButton;

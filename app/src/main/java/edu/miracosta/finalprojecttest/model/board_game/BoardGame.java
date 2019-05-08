@@ -16,6 +16,7 @@ import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_3
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_4_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TRAL_5_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_STRT;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.WELL_5_6;
 
 /**
  * Handles the different 2d arrays that act as game boards
@@ -48,7 +49,7 @@ public class BoardGame {
             {MOUNTAIN, STN_FRST, ROAD_2_3, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, STN_FRST, ROAD_2_4, MOUNTAIN, FRST_4_4, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, STN_FRST, ROAD_2_5, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, FNSH_1_6, ROAD_2_6, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
+            {MOUNTAIN, FNSH_1_6, ROAD_2_6, MOUNTAIN, STN_FRST, WELL_5_6, STN_FRST, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
@@ -71,8 +72,4 @@ public class BoardGame {
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN}
     };
-
-
-
-
 }
