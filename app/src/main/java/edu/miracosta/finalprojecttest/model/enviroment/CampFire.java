@@ -14,6 +14,7 @@ public class CampFire {
 
 
     private int fuel;
+    private boolean isEmpty;
 
     /**
      * Creates a new CampFire that will warm the player
@@ -22,6 +23,7 @@ public class CampFire {
     public CampFire(GameTime gameTime) {
 
         fuel = 10;      // 1 firewood cost = 10 fuel
+        isEmpty = false;
     }
 
     public void burn() {

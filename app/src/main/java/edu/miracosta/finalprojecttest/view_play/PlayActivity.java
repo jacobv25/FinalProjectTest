@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
+import edu.miracosta.finalprojecttest.model.player.Action;
 import edu.miracosta.finalprojecttest.model.player.Damage;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
 import edu.miracosta.finalprojecttest.model.player.Player;
@@ -81,6 +82,11 @@ public class PlayActivity extends AppCompatActivity {
             currentAreaTextView.setText(player.getDisplayText());
         }
 
+        //Check if fire is burning in current area
+        if( Action.isFireBurning(player, RUNNING_GAME_BOARD) ) {
+            Regeneration.regenFromFire(player);
+        }
+
         Damage.damagePlayer(player, weather, gameTime);
         Regeneration.regeneratePlayer(player);
         gameTime.passTime();
@@ -91,12 +97,14 @@ public class PlayActivity extends AppCompatActivity {
                 " | Temp= " + player.getTemperature() +
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
-        //update the time
-        timeTextView.setText(getTime());
         //check if player is dead
         isPlayerDead(player);
-        //TODO: implement didPlayerWin(player : Player)
+        //check if player made it to finish
         didPlayerWin(player);
+        //update the time
+        timeTextView.setText(getTime());
+
+        System.out.println("Temp Weather=" + weather.getTemp());
     }
 
     public void inventoryButtonPressed(View v) {
@@ -142,6 +150,11 @@ public class PlayActivity extends AppCompatActivity {
                     Regeneration.regeneratePlayer(player);
                     gameTime.passTime();
                     BoardGame.update();
+
+                    //Check if fire is burning in current area
+                    if( Action.isFireBurning(player, RUNNING_GAME_BOARD) ) {
+                        Regeneration.regenFromFire(player);
+                    }
 
                     //update the player condition text view
                     playerConditionTextView.setText("HP= " + player.getCondition() +

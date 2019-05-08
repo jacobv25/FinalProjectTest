@@ -11,6 +11,7 @@ import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
 import edu.miracosta.finalprojecttest.model.enviroment.Item;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 import static edu.miracosta.finalprojecttest.model.player.Action.MTN_BLOCK_ALERT;
 import static edu.miracosta.finalprojecttest.view_play.PlayActivity.EAST;
@@ -95,7 +96,7 @@ public class Player implements Parcelable {
      * toString for the Player's inventory
      * @return
      */
-    public String displayInventory() {
+    public String inventoryToString() {
 
         return "Inventory{" +
                 "firewood=" +  firewood +
@@ -158,6 +159,7 @@ public class Player implements Parcelable {
                 break;
 
         }
+
     }
 
     public List<Item> getInventory() {

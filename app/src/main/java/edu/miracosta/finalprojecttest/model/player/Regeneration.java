@@ -82,7 +82,7 @@ public class Regeneration {
      * plus the default fire warmth regen value.
      * @param player
      */
-    private static void regenFromFire(Player player) {
+    public static void regenFromFire(Player player) {
 
         player.setTemperature(player.getTemperature() + DEFAULT_FIRE_WARMTH_REGEN);
     }

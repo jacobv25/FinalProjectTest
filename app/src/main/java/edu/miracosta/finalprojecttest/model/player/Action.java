@@ -1,17 +1,18 @@
 package edu.miracosta.finalprojecttest.model.player;
 
-import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
-import edu.miracosta.finalprojecttest.model.player.Player;
-import edu.miracosta.finalprojecttest.model.player.Regeneration;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
 import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
 
+//TODO: So this is isn't immediately important, but
+//TODO: we should eventually move most of the logic form this class to the ActionActivity class
+//TODO: because this class is the model and should not be doing any calculations.
 /**
  * Handles all the Player Actions
  * -eating, drinking, starting fire, collect firewood
@@ -44,8 +45,7 @@ public class Action {
      * player's firewood inventory
      * @param player
      */
-    //TODO: Fix encumbered bug
-    //TODO: To fix this, I'm going to work on the ListInventory
+
     public static void getFireWood(Player player, BoardPiece[][] boardGame) {
 
         int x = player.getX();
@@ -72,8 +72,13 @@ public class Action {
                 player.setDisplayText(FIREWOOD_SUCCESS);
             }
         }
-        else
+        else {
             player.setDisplayText(FIREWOOD_FAILURE);
+        }
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, RUNNING_GAME_BOARD) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
     /**
      * Access the xy area the Player is currently at and check the amount of food.
@@ -113,6 +118,10 @@ public class Action {
         else {
             player.setDisplayText(HARVEST_FOOD_FAILURE);
         }
+        //Check if fire is burning in current area
+//        if( isFireBurning(player, RUNNING_GAME_BOARD) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
     /**
      * Access the xy area the Player is currently at and check the amount of water.
@@ -150,6 +159,10 @@ public class Action {
         else {
             player.setDisplayText(COLLECT_WATER_FAILURE);
         }
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, RUNNING_GAME_BOARD) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
 
     /**
@@ -171,6 +184,10 @@ public class Action {
         else {
             player.setDisplayText(EAT_FOOD_FAILURE);
         }
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, RUNNING_GAME_BOARD) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
 
     /**
@@ -188,9 +205,13 @@ public class Action {
             player.setWater(water - 1);
             Regeneration.regenThirst(player);
             player.setDisplayText(DRINK_WATER_SUCCESS);
-        }
-        else
+        } else {
             player.setDisplayText(DRINK_WATER_FAILURE);
+        }
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, RUNNING_GAME_BOARD) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
 
     /**
@@ -210,15 +231,14 @@ public class Action {
         if (firewood > 0) {
 
             player.setFirewood(firewood - 1);
-            Regeneration.regenThirst(player);
             currentArea.setCampFire(new CampFire(gameTime));
             //set display text
             player.setDisplayText(START_FIRE_SUCCESS);
         }
-        else {
-            player.setDisplayText(START_FIRE_FAILURE);
-            currentArea.setCampFire(null);
-        }
+//        else {
+//            player.setDisplayText(START_FIRE_FAILURE);
+//            currentArea.setCampFire(null);
+//        }
     }
     //TODO: Write documentation
     public static void pickPlant(Player player, BoardPiece[][] gameBoard) {
@@ -250,6 +270,10 @@ public class Action {
         else {
             player.setDisplayText(PICK_PLANT_FAILURE);
         }
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, gameBoard) ) {
+//            Regeneration.regenFromFire(player);
+//        }
     }
 
     public static void look(Player player, BoardPiece[][] gameBoard) {
@@ -275,10 +299,6 @@ public class Action {
                         "\tsouth=" + lookActionHelper(south) +
                         "\teast=" + lookActionHelper(east) +
                         "\twest=" + lookActionHelper(west) +
-//                        "\tnorth west=" + lookActionHelper(northWest) +
-//                        "\tnorth east=" + lookActionHelper(northEast) +
-//                        "\tsouth west=" + lookActionHelper(southWest) +
-//                        "\tsouth east=" + lookActionHelper(southEast) +
                         "}";
         player.setDisplayText(displayText);
 
@@ -292,7 +312,20 @@ public class Action {
             player.setDisplayText(CAR_CRASH);
         }
 
+//        //Check if fire is burning in current area
+//        if( isFireBurning(player, gameBoard) ) {
+//            Regeneration.regenFromFire(player);
+//        }
+    }
 
+    public static boolean isFireBurning(Player player, BoardPiece[][] gameBoard) {
+
+        if (gameBoard[player.getY()][player.getX()].getCampFire() == null) {
+
+            return false;
+        }
+        else
+            return true;
     }
     //TODO: Get rid of hard coded values
     //TODO: Change to string resources

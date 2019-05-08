@@ -1,5 +1,6 @@
 package edu.miracosta.finalprojecttest.model.board_game;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FNSH_1_6;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FRST_4_4;
@@ -21,6 +22,20 @@ import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_ST
  */
 public class BoardGame {
 
+    /**
+     * Iterate through the double array and update
+     * the game board pieces that are NOT mountains
+     */
+    public static void update() {
+
+        for (int i = 0; i < RUNNING_GAME_BOARD.length; i++) {
+            for (int j = 0; j < RUNNING_GAME_BOARD[i].length; j++) {
+                if (RUNNING_GAME_BOARD[i][j] != MOUNTAIN) {
+                    RUNNING_GAME_BOARD[i][j].update();
+                }
+            }
+        }
+    }
     /**
      * v.0.4 design
      *
@@ -57,19 +72,7 @@ public class BoardGame {
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN}
     };
 
-    /**
-     * The custom areas/pieces.
-     */
-    public static final BoardPiece[] ACTIVE_PIECES = {CABN_6_2, TRAL_5_2,
-                                                        TRAL_4_2, TRAL_3_2};
 
-    public static void update() {
-
-        for(int i=0; i<ACTIVE_PIECES.length; i++) {
-
-            ACTIVE_PIECES[i].update();
-        }
-    }
 
 
 }

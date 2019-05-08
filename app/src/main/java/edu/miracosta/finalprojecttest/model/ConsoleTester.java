@@ -31,7 +31,7 @@ public class ConsoleTester {
 
         System.out.println("WELCOME TO THE TESTER!");
         System.out.println(player.toString());
-        System.out.println(player.displayInventory());
+        System.out.println(player.inventoryToString());
 
         while (running) {
 
@@ -75,7 +75,7 @@ public class ConsoleTester {
             //display player stats
             System.out.println(player.toString());
             //display player inventory
-            System.out.println(player.displayInventory());
+            System.out.println(player.inventoryToString());
             //pass gameTime
             gameTime.passTime();
             //update game board
