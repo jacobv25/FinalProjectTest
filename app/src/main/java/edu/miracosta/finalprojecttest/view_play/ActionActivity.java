@@ -52,67 +52,41 @@ public class ActionActivity extends AppCompatActivity {
         time = intent.getParcelableExtra("GameTime");
     }
 
-    public void harvestFoodButtonPressed(View v) {
+
+    public void actionButtonPressed(View v) {
 
         Intent intent = new Intent();
+        switch (v.getId()) {
 
-        Action.harvestAnimal(player, RUNNING_GAME_BOARD);
-
-        intent.putExtra("Player", player);
-        //intent.putExtra("Inventory", player.getInventory());
-        intent.putExtra("DisplayText", player.getDisplayText());
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-    public void pickPlantButtonPressed(View v) {
-
-        Intent intent = new Intent();
-
-        Action.pickPlant(player, RUNNING_GAME_BOARD);
-
-        intent.putExtra("Player", player);
-        //intent.putExtra("Inventory", player.getInventory());
-        intent.putExtra("DisplayText", player.getDisplayText());
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-    public void lookButtonPressed(View v) {
-
-        Intent intent = new Intent();
-
-        Action.look(player, RUNNING_GAME_BOARD);
-
-        intent.putExtra("Player", player);
-        intent.putExtra("DisplayText", player.getDisplayText());
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-    public void getFirewoodButtonPressed(View v) {
-
-        Intent intent = new Intent();
-
-        Action.getFireWood(player, RUNNING_GAME_BOARD);
-
-        intent.putExtra("Player", player);
-        //intent.putExtra("Inventory", player.getInventory());
-        intent.putExtra("DisplayText", player.getDisplayText());
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-    public void startFireButtonPressed(View v) {
-
-        Intent intent = new Intent();
-
-        Action.startFire(player, time, RUNNING_GAME_BOARD);
-
+            case R.id.harvestAnimalButton:
+                Action.harvestAnimal(player, RUNNING_GAME_BOARD);
+                break;
+            case R.id.pickPlantButton:
+                Action.pickPlant(player,RUNNING_GAME_BOARD);
+                break;
+            case R.id.getFirewoodButton:
+                Action.getFireWood(player, RUNNING_GAME_BOARD);
+                break;
+            case R.id.collectWaterButton:
+                Action.collectWater(player, RUNNING_GAME_BOARD);
+                break;
+            case R.id.eatFoodButton:
+                Action.eatFood(player);
+                break;
+            case R.id.startFireButton:
+                Action.startFire(player, time, RUNNING_GAME_BOARD);
+                break;
+            case R.id.drinkWaterButton:
+                Action.drinkWater(player);
+                break;
+            case R.id.lookButton:
+                Action.look(player, RUNNING_GAME_BOARD);
+                break;
+        }
         intent.putExtra("Player", player);
         intent.putExtra("DisplayText", player.getDisplayText());
         setResult(RESULT_OK, intent);
         finish();
     }
-    //TODO: Finish linking the buttons to the back end
+
 }
