@@ -30,5 +30,6 @@
     <string name="death_screen">You Are Dead</string>
 
     <string name="splash_screen_text">Sounds of Hawai\'i</string>
+    <string name="pass_time_button">WAIT</string>
     />
 </resources>

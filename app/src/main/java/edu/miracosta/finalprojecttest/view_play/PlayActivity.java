@@ -22,6 +22,12 @@ public class PlayActivity extends AppCompatActivity {
 
     private final static int REQUEST_CODE_1 = 1;
 
+    public static final String NORTH = "N";
+    public static final String SOUTH = "S";
+    public static final String EAST = "E";
+    public static final String WEST = "W";
+    public static final String PASS_TIME = "WAIT";
+
     //public static String DISPLAY_TEXT;
 
     private Button northButton;
@@ -68,8 +74,8 @@ public class PlayActivity extends AppCompatActivity {
         String buttonText = ((Button)v).getText().toString();
         System.out.println(buttonText);
 
-        if (buttonText.equals("E") || buttonText.equals("W") ||
-                buttonText.equals("N") || buttonText.equals("S")) {
+        if (buttonText.equals(EAST) || buttonText.equals(PASS_TIME) ||
+                buttonText.equals(NORTH) || buttonText.equals(SOUTH) || buttonText.equals(WEST)) {
             //move player
             player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD);
             currentAreaTextView.setText(player.getDisplayText());

@@ -13,6 +13,11 @@ import edu.miracosta.finalprojecttest.model.enviroment.Item;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
 import static edu.miracosta.finalprojecttest.model.player.Action.MTN_BLOCK_ALERT;
+import static edu.miracosta.finalprojecttest.view_play.PlayActivity.EAST;
+import static edu.miracosta.finalprojecttest.view_play.PlayActivity.NORTH;
+import static edu.miracosta.finalprojecttest.view_play.PlayActivity.PASS_TIME;
+import static edu.miracosta.finalprojecttest.view_play.PlayActivity.SOUTH;
+import static edu.miracosta.finalprojecttest.view_play.PlayActivity.WEST;
 
 /**
  * Handles all Player values and contains their Inventory:
@@ -102,7 +107,7 @@ public class Player implements Parcelable {
 
         switch (buttonText)
         {
-            case "E":
+            case EAST:
                 if (gameBoardPieces[player.getY()][player.getX() + 1] == BoardValues.MOUNTAIN) {
 
                     this.displayText = MTN_BLOCK_ALERT;
@@ -114,7 +119,7 @@ public class Player implements Parcelable {
                 }
                 break;
 
-            case "W":
+            case WEST:
                 if (gameBoardPieces[player.getY()][player.getX() - 1] == BoardValues.MOUNTAIN) {
 
                     this.displayText = MTN_BLOCK_ALERT;
@@ -125,7 +130,7 @@ public class Player implements Parcelable {
                 }
                 break;
 
-            case "N":
+            case NORTH:
                 if (gameBoardPieces[player.getY() - 1][player.getX()] == BoardValues.MOUNTAIN) {
 
                     this.displayText = MTN_BLOCK_ALERT;
@@ -136,7 +141,7 @@ public class Player implements Parcelable {
                 }
                 break;
 
-            case "S":
+            case SOUTH:
                 if (gameBoardPieces[player.getY() + 1][player.getX()] == BoardValues.MOUNTAIN) {
 
                     this.displayText = MTN_BLOCK_ALERT;
@@ -147,9 +152,9 @@ public class Player implements Parcelable {
                 }
                 break;
 
-            case "w":
-                //wait and do nothing
-                this.displayText = "You waited and did nothing.";
+            case PASS_TIME:
+                //pass time and do nothing
+                this.displayText = "You waited where you are and passed time.";
                 break;
 
         }
