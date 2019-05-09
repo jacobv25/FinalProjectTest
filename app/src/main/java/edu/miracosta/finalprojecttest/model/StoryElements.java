@@ -12,6 +12,13 @@ public class StoryElements {
             "You remember what your father told you.\n" +
             "You remember what they taught you.\n";
 
+    public static final String HOW_TO_PLAY = "You awake in a warm dark cabin.\n" +
+            "It's midnight and cold outside.\n" +
+            "There's a secret passage through the mountains.\n" +
+            "Gather wood for fires,\n" +
+            "Collect water and stay hydrated,\n" +
+            "and forage for food or you'll starve.";
+
     public static final String BODY_CABIN = "The bloated body lays unmissable in the corner of the room.\n" +
             "Eyes red. Skin pale. Lips a deep purple.\n" +
             "Did this one bring you to this place?\n";

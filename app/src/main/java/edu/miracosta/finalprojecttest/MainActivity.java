@@ -18,6 +18,9 @@ import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_ST
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * HOW TO: Change the RUNNING_GAME_BOARD and RUNNINGG_GAME_START to change the game board
+     */
     public static final BoardPiece[][] RUNNING_GAME_BOARD = GAME_BOARD_PIECES;
     public static final BoardPiece RUNNING_GAME_START = CABN_6_2;
     public static final BoardPiece RUNNING_GAME_FINISH = FNSH_1_6;

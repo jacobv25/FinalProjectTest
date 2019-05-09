@@ -14,14 +14,14 @@ public class GameTime implements Parcelable {
     public static final int DEFAULT_START_TIME = 360; // game by default starts at 06:00
 
     public static int GLOBAL_DAY_TIME;
-    public static long GLOBAL_TOTAL_TIME;
+    public static int GLOBAL_TOTAL_TIME;
 
-    private long totalTime;
+    private int totalTime;
     private int dayTime;
 
     //We may need String versions of the time
-    private String dayTime_S;
-    private String totalTime_S;
+    private String dayTimeFormatted;
+    private String totalTimeFormatted;
 
     /**
      * Sets total time to 00:00
@@ -35,12 +35,34 @@ public class GameTime implements Parcelable {
         GLOBAL_TOTAL_TIME = this.totalTime;
     }
 
-    public GameTime(long totalTime, int dayTime) {
+    public GameTime(int totalTime, int dayTime) {
         this.totalTime = totalTime;
         this.dayTime = dayTime;
 
         GLOBAL_TOTAL_TIME = totalTime;
         GLOBAL_DAY_TIME = dayTime;
+    }
+
+    public String getDayTimeFormatted() {
+        int t = dayTime;
+        int hours = t / 60; //since both are ints, you get an int
+        int minutes = t % 60;
+        dayTimeFormatted = String.format("%d:%02d", hours, minutes);
+
+        return dayTimeFormatted;
+    }
+
+    public String getTotalTimeFormatted() {
+
+        int days = totalTime/(24*60);
+        int hours = (totalTime%(24*60)) / 60;
+        int minutes = (totalTime%(24*60)) % 60;
+
+
+
+        totalTimeFormatted = days + " Days : " + hours + " Hours : " + minutes + " Minutes";
+
+        return totalTimeFormatted;
     }
 
     /**
@@ -83,11 +105,11 @@ public class GameTime implements Parcelable {
     //////////GETTERS & SETTERS//////////
 
 
-    public long getTotalTime() {
+    public int getTotalTime() {
         return totalTime;
     }
 
-    public void setTotalTime(long totalTime) {
+    public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
     }
 
@@ -106,12 +128,12 @@ public class GameTime implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(totalTime);
+        dest.writeInt(totalTime);
         dest.writeInt(dayTime);
     }
 
     private GameTime(Parcel parcel) {
-        totalTime = parcel.readLong();
+        totalTime = parcel.readInt();
         dayTime = parcel.readInt();
     }
 

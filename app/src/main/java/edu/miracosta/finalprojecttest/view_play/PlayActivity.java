@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import edu.miracosta.finalprojecttest.R;
+import edu.miracosta.finalprojecttest.model.StoryElements;
 import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
 import edu.miracosta.finalprojecttest.model.player.Action;
 import edu.miracosta.finalprojecttest.model.player.Damage;
@@ -67,8 +68,8 @@ public class PlayActivity extends AppCompatActivity {
                 " | Temp= " + player.getTemperature() +
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
-        timeTextView.setText(getTime());
-        //currentAreaTextView.setText(StoryElements.INTRO);
+        timeTextView.setText(gameTime.getDayTimeFormatted());
+        currentAreaTextView.setText(StoryElements.HOW_TO_PLAY);
     }
 
     public void movePlayer(View v) {
@@ -101,10 +102,8 @@ public class PlayActivity extends AppCompatActivity {
         isPlayerDead(player);
         //check if player made it to finish
         didPlayerWin(player);
-        //update the time
-        timeTextView.setText(getTime());
-
-        System.out.println("Temp Weather=" + weather.getTemp());
+        //update the day time
+        timeTextView.setText(gameTime.getDayTimeFormatted());
     }
 
     public void inventoryButtonPressed(View v) {
@@ -162,7 +161,7 @@ public class PlayActivity extends AppCompatActivity {
                             " | Hunger= " + player.getHunger() +
                             " | Thirst= " + player.getThirst());
                     //update the time
-                    timeTextView.setText(getTime());
+                    timeTextView.setText(gameTime.getDayTimeFormatted());
                     //check if player is dead
                     isPlayerDead(player);
                     //check if player reached finish
@@ -177,6 +176,7 @@ public class PlayActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, EndGameActivity.class);
             intent.putExtra("Player", player);
+            intent.putExtra("GameTime", gameTime);
             startActivity(intent);
         }
     }
@@ -192,15 +192,11 @@ public class PlayActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, EndGameActivity.class);
             intent.putExtra("Player", player);
+            intent.putExtra("GameTime", gameTime);
             startActivity(intent);
         }
     }
 
-    private String getTime() {
-        int t = gameTime.getDayTime();
-        int hours = t / 60; //since both are ints, you get an int
-        int minutes = t % 60;
-        return String.format("%d:%02d", hours, minutes);
-    }
+
 
 }
