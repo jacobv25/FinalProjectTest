@@ -12,6 +12,7 @@ import edu.miracosta.finalprojecttest.view_play.PlayActivity;
 
 import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES_TEST;
+import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.LEVEL_1;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.FNSH_1_6;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_STRT;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * HOW TO: Change the RUNNING_GAME_BOARD and RUNNINGG_GAME_START to change the game board
      */
-    public static final BoardPiece[][] RUNNING_GAME_BOARD = GAME_BOARD_PIECES;
+    public static final BoardPiece[][] RUNNING_GAME_BOARD = LEVEL_1;
     public static final BoardPiece RUNNING_GAME_START = CABN_6_2;
     public static final BoardPiece RUNNING_GAME_FINISH = FNSH_1_6;
 

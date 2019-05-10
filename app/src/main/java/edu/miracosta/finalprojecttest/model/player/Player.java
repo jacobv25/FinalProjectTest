@@ -104,53 +104,42 @@ public class Player implements Parcelable {
                 ", water bottle=" + water;
     }
 
-    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoardPieces) {
+    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoard) {
 
+        int x = player.getX();
+        int y = player.getY();
         switch (buttonText)
         {
             case EAST:
-                if (gameBoardPieces[player.getY()][player.getX() + 1] == BoardValues.MOUNTAIN) {
+                if (!gameBoard[y][x + 1].isAnObstacle()) {
 
-                    this.displayText = MTN_BLOCK_ALERT;
+                    player.setX(x + 1);
                 }
-                else if (gameBoardPieces[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN) {
-
-                    player.setX(player.getX() + 1);
-                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                }
+                this.displayText = gameBoard[y][x + 1].getDisplayText();
                 break;
 
             case WEST:
-                if (gameBoardPieces[player.getY()][player.getX() - 1] == BoardValues.MOUNTAIN) {
+                if (!gameBoard[y][x - 1].isAnObstacle()) {
 
-                    this.displayText = MTN_BLOCK_ALERT;
+                    player.setX(x - 1);
                 }
-                else if (gameBoardPieces[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN) {
-                    player.setX(player.getX() - 1);
-                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                }
+                this.displayText = gameBoard[y][x - 1].getDisplayText();
                 break;
 
             case NORTH:
-                if (gameBoardPieces[player.getY() - 1][player.getX()] == BoardValues.MOUNTAIN) {
+                if (!gameBoard[y - 1][x].isAnObstacle()) {
 
-                    this.displayText = MTN_BLOCK_ALERT;
+                    player.setY(y - 1);
                 }
-                else if (gameBoardPieces[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN) {
-                    player.setY(player.getY() - 1);
-                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                }
+                this.displayText = gameBoard[y-1][x].getDisplayText();
                 break;
 
             case SOUTH:
-                if (gameBoardPieces[player.getY() + 1][player.getX()] == BoardValues.MOUNTAIN) {
+                if (!gameBoard[y + 1][x].isAnObstacle()) {
 
-                    this.displayText = MTN_BLOCK_ALERT;
+                    player.setY(y + 1);
                 }
-                else if (gameBoardPieces[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN) {
-                    player.setY(player.getY() + 1);
-                    this.displayText = gameBoardPieces[player.getY()][player.getX()].getDisplayText();
-                }
+                this.displayText = gameBoard[y + 1][x].getDisplayText();
                 break;
 
             case PASS_TIME:
