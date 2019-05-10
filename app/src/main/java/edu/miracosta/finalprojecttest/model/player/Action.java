@@ -4,9 +4,6 @@ import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
 
-import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
-import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.CABN_6_2;
-import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.StoryElements.BODY_CABIN;
 import static edu.miracosta.finalprojecttest.model.StoryElements.CAR_CRASH;
 
@@ -303,14 +300,14 @@ public class Action {
         player.setDisplayText(displayText);
 
         //TODO: Set player display to the Story Elements fo the area
-        if (player.getX() == CABN_6_2.getX() && player.getY() == CABN_6_2.getY() ) {
-
-            player.setDisplayText(BODY_CABIN);
-        }
-        if (player.getX() == ROAD_2_3.getX() && player.getY() == ROAD_2_3.getY() ) {
-
-            player.setDisplayText(CAR_CRASH);
-        }
+//        if (player.getX() == CABN_7_2.getX() && player.getY() == CABN_7_2.getY() ) {
+//
+//            player.setDisplayText(BODY_CABIN);
+//        }
+//        if (player.getX() == ROAD_2_3.getX() && player.getY() == ROAD_2_3.getY() ) {
+//
+//            player.setDisplayText(CAR_CRASH);
+//        }
 
 //        //Check if fire is burning in current area
 //        if( isFireBurning(player, gameBoard) ) {

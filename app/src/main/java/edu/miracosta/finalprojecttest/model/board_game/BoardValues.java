@@ -17,9 +17,9 @@ public class BoardValues {
      */
 
     public static final BoardPiece TEST_1_1 = new BoardPiece(10, 10, 10, 10, 1, 1,
-            false, "This area is used for testing");
+            false, false,"This area is used for testing");
     public static final BoardPiece TST_STRT = new BoardPiece(0, 0, 0, 0, 1, 2,
-            false, "This is the start area for testing");
+            false, true, "This is the start area for testing");
 
 
 }

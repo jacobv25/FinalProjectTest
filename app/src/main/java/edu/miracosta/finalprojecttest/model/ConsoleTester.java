@@ -13,7 +13,7 @@ import edu.miracosta.finalprojecttest.model.player.Player;
 import edu.miracosta.finalprojecttest.model.player.Regeneration;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
-import static edu.miracosta.finalprojecttest.model.board_game.BoardGame.GAME_BOARD_PIECES;
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_FINISH;
 
 public class ConsoleTester {
 
@@ -43,10 +43,10 @@ public class ConsoleTester {
             System.out.println(weather.toString());
 
             //Display area details
-            System.out.println(GAME_BOARD_PIECES[player.getY()][player.getX()].toString());
+            System.out.println(RUNNING_GAME_BOARD[player.getY()][player.getX()].toString());
             //If area has a fire, display its fuel
-            if(GAME_BOARD_PIECES[player.getY()][player.getX()].hasCampfire()) {
-                System.out.println(GAME_BOARD_PIECES[player.getY()][player.getX()].getCampFire().toString());
+            if(RUNNING_GAME_BOARD[player.getY()][player.getX()].hasCampfire()) {
+                System.out.println(RUNNING_GAME_BOARD[player.getY()][player.getX()].getCampFire().toString());
             }
 
             //take in input
@@ -59,7 +59,7 @@ public class ConsoleTester {
                     input.equals("N") || input.equals("S")) {
                 //move player
                 //movePlayer(input, player, GAME_BOARD);
-                movePlayerBoardPiece(input, player, GAME_BOARD_PIECES);
+                movePlayerBoardPiece(input, player, RUNNING_GAME_BOARD);
             }
             //check for Action
             if (input.equals("firewood") || input.equals("harvest food") ||
@@ -130,25 +130,25 @@ public class ConsoleTester {
         {
             case "E":
 
-                if (gameBoard[player.getY()][player.getX() + 1] != BoardValues.MOUNTAIN)
+                if (!gameBoard[player.getY()][player.getX() + 1].isAnObstacle())
                     player.setX(player.getX() + 1);
                 break;
 
             case "W":
 
-                if (gameBoard[player.getY()][player.getX() - 1] != BoardValues.MOUNTAIN)
+                if (!gameBoard[player.getY()][player.getX() - 1].isAnObstacle())
                     player.setX(player.getX() - 1);
                 break;
 
             case "N":
 
-                if (gameBoard[player.getY() - 1][player.getX()] != BoardValues.MOUNTAIN)
+                if (gameBoard[player.getY() - 1][player.getX()].isAnObstacle())
                     player.setY(player.getY() - 1);
                 break;
 
             case "S":
 
-                if (gameBoard[player.getY() + 1][player.getX()] != BoardValues.MOUNTAIN)
+                if (gameBoard[player.getY() + 1][player.getX()].isAnObstacle())
                     player.setY(player.getY() + 1);
                 break;
 

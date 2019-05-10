@@ -3,12 +3,11 @@ package edu.miracosta.finalprojecttest.model.board_game;
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TEST_1_1;
 import static edu.miracosta.finalprojecttest.model.board_game.BoardValues.TST_STRT;
-import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.CABN_6_2;
+import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.CABN_7_2;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.CLEARING;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.FNSH_1_6;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.FRT_TREE;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.MOUNTAIN;
-import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.ROAD_2_3;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.SCRT_PTH;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues.STN_FRST;
 import static edu.miracosta.finalprojecttest.model.board_game.LevelOneValues._CLIFF__;
@@ -44,8 +43,8 @@ public class BoardGame {
     public static final BoardPiece[][] LEVEL_1 = {
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, _CLIFF__, __ROAD__, _TRAIL__, _TRAIL__, _TRAIL__, CABN_6_2, FRT_TREE, MOUNTAIN},
-            {MOUNTAIN, MOUNTAIN, _CLIFF__, ROAD_2_3, MOUNTAIN, MOUNTAIN, MOUNTAIN, CLEARING, STN_FRST, MOUNTAIN},
+            {MOUNTAIN, MOUNTAIN, _CLIFF__, __ROAD__, _TRAIL__, _TRAIL__, _TRAIL__, CABN_7_2, FRT_TREE, MOUNTAIN},
+            {MOUNTAIN, MOUNTAIN, _CLIFF__, __ROAD__, MOUNTAIN, MOUNTAIN, MOUNTAIN, CLEARING, STN_FRST, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, _CLIFF__, __ROAD__, MOUNTAIN, MOUNTAIN, MOUNTAIN, __WELL__, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, MOUNTAIN, _CLIFF__, __ROAD__, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
             {MOUNTAIN, FNSH_1_6, SCRT_PTH, __ROAD__, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
@@ -59,7 +58,7 @@ public class BoardGame {
 //    public static final BoardPiece[][] GAME_BOARD_PIECES = {
 //            {MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN, MOUNTAIN},
 //            {MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
-//            {MOUNTAIN, STN_FRST, ROAD_2_2, TRAL_3_2, TRAL_4_2, TRAL_5_2, CABN_6_2, MOUNTAIN, MOUNTAIN},
+//            {MOUNTAIN, STN_FRST, ROAD_2_2, TRAL_3_2, TRAL_4_2, TRAL_5_2, CABN_7_2, MOUNTAIN, MOUNTAIN},
 //            {MOUNTAIN, STN_FRST, ROAD_2_3, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
 //            {MOUNTAIN, STN_FRST, ROAD_2_4, MOUNTAIN, FRST_4_4, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},
 //            {MOUNTAIN, STN_FRST, ROAD_2_5, MOUNTAIN, STN_FRST, STN_FRST, STN_FRST, MOUNTAIN, MOUNTAIN},

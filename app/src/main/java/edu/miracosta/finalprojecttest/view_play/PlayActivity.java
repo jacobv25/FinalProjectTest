@@ -1,6 +1,7 @@
 package edu.miracosta.finalprojecttest.view_play;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,10 @@ public class PlayActivity extends AppCompatActivity {
     private GameTime gameTime;
     private Weather weather;
 
+    private MediaPlayer cabinAmbientMediaPlayer;
+    private MediaPlayer forestDayAmbientMediaPlayer;
+    private MediaPlayer forestNightAmbientMediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,10 @@ public class PlayActivity extends AppCompatActivity {
         playerConditionTextView = findViewById(R.id.playerConditionTextView);
         timeTextView = findViewById(R.id.timeTextView);
 
+        cabinAmbientMediaPlayer = MediaPlayer.create(this, R.raw.cabin_fire);
+        forestDayAmbientMediaPlayer = MediaPlayer.create(this, R.raw.forest_ambient_day);
+        forestNightAmbientMediaPlayer = MediaPlayer.create(this, R.raw.forest_ambient_night);
+
         player = new Player();
         gameTime = new GameTime();
         weather = new Weather();
@@ -70,11 +79,11 @@ public class PlayActivity extends AppCompatActivity {
                 " | Thirst= " + player.getThirst());
         timeTextView.setText(gameTime.getDayTimeFormatted());
         currentAreaTextView.setText(StoryElements.HOW_TO_PLAY);
+        forestDayAmbientMediaPlayer.start();
     }
 
     public void movePlayer(View v) {
         String buttonText = ((Button)v).getText().toString();
-        System.out.println(buttonText);
 
         if (buttonText.equals(EAST) || buttonText.equals(PASS_TIME) ||
                 buttonText.equals(NORTH) || buttonText.equals(SOUTH) || buttonText.equals(WEST)) {
@@ -104,6 +113,9 @@ public class PlayActivity extends AppCompatActivity {
         didPlayerWin(player);
         //update the day time
         timeTextView.setText(gameTime.getDayTimeFormatted());
+        //update the music
+        System.out.println("Is player inside=" + player.isPlayerInside(RUNNING_GAME_BOARD));
+        playMedia();
     }
 
     public void inventoryButtonPressed(View v) {
@@ -117,7 +129,6 @@ public class PlayActivity extends AppCompatActivity {
     public void actionButtonPressed(View v) {
 
         Intent intent = new Intent(this, ActionActivity.class);
-        //System.out.println(player.getInventory().toString());
 
         intent.putExtra("Player", player);
         //intent.putExtra("Inventory", player.getInventory());
@@ -170,6 +181,31 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    private void playMedia() {
+
+        if (player.isPlayerInside(RUNNING_GAME_BOARD)) {
+            forestDayAmbientMediaPlayer.pause();
+            forestNightAmbientMediaPlayer.pause();
+            cabinAmbientMediaPlayer.start();
+        }
+        else {
+            cabinAmbientMediaPlayer.pause();
+            //if the day time is between 7am and 7pm
+            if (gameTime.getDayTime() > 420 &&
+                    gameTime.getDayTime() < 1140) {
+                System.out.println("PLAYING DAY AMBIENT");
+                forestNightAmbientMediaPlayer.pause();
+                forestDayAmbientMediaPlayer.start();
+            }
+            else {
+                System.out.println("playing night music");
+                forestDayAmbientMediaPlayer.pause();
+                forestNightAmbientMediaPlayer.start();
+            }
+
+        }
+    }
+
     private void isPlayerDead(Player player) {
 
         if (player.getCondition() == 0) {
@@ -182,11 +218,6 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void didPlayerWin(Player player) {
-
-        System.out.println("Player x=" + player.getX());
-        System.out.println("finish x=" + RUNNING_GAME_FINISH.getX());
-        System.out.println("Player y=" + player.getY());
-        System.out.println("finish y=" + RUNNING_GAME_FINISH.getY());
 
         if( player.getX() == RUNNING_GAME_FINISH.getX() && player.getY() == RUNNING_GAME_FINISH.getY()) {
 

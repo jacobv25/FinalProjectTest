@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
 import edu.miracosta.finalprojecttest.model.enviroment.Item;
@@ -28,8 +29,7 @@ import static edu.miracosta.finalprojecttest.view_play.PlayActivity.WEST;
  */
 public class Player implements Parcelable {
 
-    public static final int DEFAULT_X = RUNNING_GAME_START.getX();
-    public static final int DEFAULT_Y = RUNNING_GAME_START.getY();
+
     public static final int MAX_VALUE = 100;
     public static final int MIN_VALUE = 0;
 
@@ -57,8 +57,8 @@ public class Player implements Parcelable {
         temperature = MAX_VALUE;
         hunger = MAX_VALUE;
         thirst = MAX_VALUE;
-        x = DEFAULT_X;
-        y = DEFAULT_Y;
+        x = RUNNING_GAME_START.getX();
+        y = RUNNING_GAME_START.getY();
         //inventory = new Inventory();
         firewood = 0;
         food = 0;
@@ -72,8 +72,8 @@ public class Player implements Parcelable {
      * then set isPlayerInside variable to true
      * @return
      */
-    public boolean isPlayerInside() {
-        if (x == DEFAULT_X && y ==DEFAULT_Y) {
+    public boolean isPlayerInside(BoardPiece[][] gameBoard) {
+        if (gameBoard[y][x].isWarmLocation()) {
             return true;
         }
         else return false;
@@ -88,7 +88,7 @@ public class Player implements Parcelable {
                 ", thirst=" + thirst +
                 ", x=" + x +
                 ", y=" + y +
-                ", isInside=" + isPlayerInside() +
+                ", isInside=" + isPlayerInside(RUNNING_GAME_BOARD) +
                 '}';
     }
 

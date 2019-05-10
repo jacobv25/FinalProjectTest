@@ -27,7 +27,7 @@ public class Regeneration {
         int x = player.getX();
         int y = player.getY();
 
-        if (player.isPlayerInside()) {
+        if (player.isPlayerInside(RUNNING_GAME_BOARD)) {
             regenInside(player);
         }
         if (RUNNING_GAME_BOARD[y][x].getCampFire() != null) {

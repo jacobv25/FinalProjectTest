@@ -23,6 +23,8 @@ public class BoardPiece {
     private String displayText;
 
     private boolean isAnObstacle;
+    private boolean isWarmLocation;
+
     private CampFire campFire;
 
     /**
@@ -36,9 +38,10 @@ public class BoardPiece {
      * @param x
      * @param y
      * @param isAnObstacle
+     * @param isWarmLocation
      */
     public BoardPiece(int firewood, int animals, int water, int plants, int x, int y,
-                      boolean isAnObstacle, String displayText) {
+                      boolean isAnObstacle, boolean isWarmLocation, String displayText) {
         this.firewood = firewood;
         this.animals = animals;
         this.water = water;
@@ -46,6 +49,7 @@ public class BoardPiece {
         this.x = x;
         this.y = y;
         this.isAnObstacle = isAnObstacle;
+        this.isWarmLocation = isWarmLocation;
         this.displayText = displayText;
         this.campFire = null;
     }
@@ -61,6 +65,7 @@ public class BoardPiece {
                 ", x=" + x +
                 ", y=" + y +
                 ", isAnObstacle=" + isAnObstacle +
+                ", isWarmLocation=" + isWarmLocation +
                 ", campFire=" + hasCampfire() +
                 ", displayText=" + displayText +
                 '}';
@@ -102,6 +107,14 @@ public class BoardPiece {
 
     public void setCampFire(CampFire campFire) {
         this.campFire = campFire;
+    }
+
+    public boolean isWarmLocation() {
+        return isWarmLocation;
+    }
+
+    public void setWarmLocation(boolean warmLocation) {
+        isWarmLocation = warmLocation;
     }
 
     public boolean isAnObstacle() {

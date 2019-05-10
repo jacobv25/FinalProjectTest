@@ -3,6 +3,8 @@ package edu.miracosta.finalprojecttest.model.player;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
 import edu.miracosta.finalprojecttest.model.enviroment.Weather;
 
+import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
+
 /**
  * Handles the calculations that determine how much damage the character takes.
  * Depends on time of day and current weather conditions.
@@ -28,7 +30,7 @@ public class Damage {
 
         weather.calculateTemp(gameTime);
 
-        if (!player.isPlayerInside()) {
+        if (!player.isPlayerInside(RUNNING_GAME_BOARD)) {
             calcTempDamage(player, weather, gameTime);
         }
             calcHungerDamage(player);
