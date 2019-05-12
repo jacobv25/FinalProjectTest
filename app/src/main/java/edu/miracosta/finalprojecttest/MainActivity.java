@@ -1,11 +1,11 @@
 package edu.miracosta.finalprojecttest;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import edu.miracosta.finalprojecttest.view_learn_more.LearnMoreActivity;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.view_play.PlayActivity;

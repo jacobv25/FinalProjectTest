@@ -1,11 +1,12 @@
 package edu.miracosta.finalprojecttest.view_play;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.player.Action;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
@@ -30,6 +31,13 @@ public class ActionActivity extends AppCompatActivity {
     private Player player;
     private GameTime time;
 
+    private MediaPlayer woodChopMediaPlayer;
+    private MediaPlayer waterCollectMediaPlayer;
+    private MediaPlayer waterDrinkFemaleMediaPlayer;
+    private MediaPlayer harvestAnimalMediaPlayer;
+    private MediaPlayer pickPlantMediaPlayer;
+    private MediaPlayer eatFoodMediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +50,13 @@ public class ActionActivity extends AppCompatActivity {
         eatFoodButton = findViewById(R.id.eatFoodButton);
         startFireButton = findViewById(R.id.startFireButton);
         drinkWaterButton = findViewById(R.id.drinkWaterButton);
+
+        woodChopMediaPlayer = MediaPlayer.create(this, R.raw.wood_chop);
+        waterCollectMediaPlayer = MediaPlayer.create(this, R.raw.water_collect);
+        waterDrinkFemaleMediaPlayer = MediaPlayer.create(this, R.raw.water_drink_female);
+        harvestAnimalMediaPlayer= MediaPlayer.create(this, R.raw.harvest_animal);
+        pickPlantMediaPlayer = MediaPlayer.create(this, R.raw.pick_plant);
+        eatFoodMediaPlayer = MediaPlayer.create(this, R.raw.eat_food);
 
         Intent intent = getIntent();
 
@@ -59,24 +74,30 @@ public class ActionActivity extends AppCompatActivity {
         switch (v.getId()) {
 
             case R.id.harvestAnimalButton:
+                harvestAnimalMediaPlayer.start();
                 Action.harvestAnimal(player, RUNNING_GAME_BOARD);
                 break;
             case R.id.pickPlantButton:
+                pickPlantMediaPlayer.start();
                 Action.pickPlant(player,RUNNING_GAME_BOARD);
                 break;
             case R.id.getFirewoodButton:
+                woodChopMediaPlayer.start();
                 Action.getFireWood(player, RUNNING_GAME_BOARD);
                 break;
             case R.id.collectWaterButton:
+                waterCollectMediaPlayer.start();
                 Action.collectWater(player, RUNNING_GAME_BOARD);
                 break;
             case R.id.eatFoodButton:
+                eatFoodMediaPlayer.start();
                 Action.eatFood(player);
                 break;
             case R.id.startFireButton:
                 Action.startFire(player, time, RUNNING_GAME_BOARD);
                 break;
             case R.id.drinkWaterButton:
+                waterDrinkFemaleMediaPlayer.start();
                 Action.drinkWater(player);
                 break;
             case R.id.lookButton:

@@ -2,7 +2,6 @@ package edu.miracosta.finalprojecttest.view_learn_more;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.JSONLoader;
-import edu.miracosta.finalprojecttest.model.enviroment.Animal;
 import edu.miracosta.finalprojecttest.model.enviroment.Plant;
 
 public class PlantsListActivity extends ListActivity {

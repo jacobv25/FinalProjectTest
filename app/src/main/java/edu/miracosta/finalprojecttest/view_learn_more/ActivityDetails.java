@@ -3,7 +3,6 @@ package edu.miracosta.finalprojecttest.view_learn_more;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -12,8 +11,8 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 
+import androidx.appcompat.app.AppCompatActivity;
 import edu.miracosta.finalprojecttest.R;
-import edu.miracosta.finalprojecttest.model.enviroment.Plant;
 
 public class ActivityDetails extends AppCompatActivity {
 

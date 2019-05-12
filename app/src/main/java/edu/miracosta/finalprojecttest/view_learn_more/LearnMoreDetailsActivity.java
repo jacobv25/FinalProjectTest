@@ -1,8 +1,8 @@
 package edu.miracosta.finalprojecttest.view_learn_more;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import edu.miracosta.finalprojecttest.R;
 
 public class LearnMoreDetailsActivity extends AppCompatActivity {

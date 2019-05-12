@@ -2,10 +2,10 @@ package edu.miracosta.finalprojecttest.view_play;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import edu.miracosta.finalprojecttest.MainActivity;
 import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;

@@ -1,16 +1,22 @@
 package edu.miracosta.finalprojecttest.model.player;
 
 
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
 import edu.miracosta.finalprojecttest.model.enviroment.Item;
+import edu.miracosta.finalprojecttest.view_play.PlayActivity;
 
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_BOARD;
 import static edu.miracosta.finalprojecttest.MainActivity.RUNNING_GAME_START;
@@ -50,6 +56,7 @@ public class Player implements Parcelable {
     private int food;
     private int water;
     private int plants;
+
 
 
     public Player() {
@@ -104,7 +111,7 @@ public class Player implements Parcelable {
                 ", water bottle=" + water;
     }
 
-    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoard) {
+    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoard, MediaPlayer walkingSFX, List<Button> buttonList) {
 
         int x = player.getX();
         int y = player.getY();
@@ -114,6 +121,8 @@ public class Player implements Parcelable {
                 if (!gameBoard[y][x + 1].isAnObstacle()) {
 
                     player.setX(x + 1);
+                    walkingSFX.start();
+                    setButtonsInvisibleAfterMove(buttonList);
                 }
                 this.displayText = gameBoard[y][x + 1].getDisplayText();
                 break;
@@ -122,6 +131,8 @@ public class Player implements Parcelable {
                 if (!gameBoard[y][x - 1].isAnObstacle()) {
 
                     player.setX(x - 1);
+                    walkingSFX.start();
+                    setButtonsInvisibleAfterMove(buttonList);
                 }
                 this.displayText = gameBoard[y][x - 1].getDisplayText();
                 break;
@@ -130,6 +141,8 @@ public class Player implements Parcelable {
                 if (!gameBoard[y - 1][x].isAnObstacle()) {
 
                     player.setY(y - 1);
+                    walkingSFX.start();
+                    setButtonsInvisibleAfterMove(buttonList);
                 }
                 this.displayText = gameBoard[y-1][x].getDisplayText();
                 break;
@@ -138,6 +151,8 @@ public class Player implements Parcelable {
                 if (!gameBoard[y + 1][x].isAnObstacle()) {
 
                     player.setY(y + 1);
+                    walkingSFX.start();
+                    setButtonsInvisibleAfterMove(buttonList);
                 }
                 this.displayText = gameBoard[y + 1][x].getDisplayText();
                 break;
@@ -149,6 +164,24 @@ public class Player implements Parcelable {
 
         }
 
+    }
+
+    private void setButtonsInvisibleAfterMove(final List<Button> buttonList) {
+
+        //change all buttons to INVISIBLE
+        for (int i = 0; i < buttonList.size(); i++ ) {
+            buttonList.get(i).setVisibility(View.INVISIBLE);
+        }
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //change all buttons to VISIBLE
+                for (int i = 0; i < buttonList.size(); i++ ) {
+                    buttonList.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        }, 2500);
     }
 
     public List<Item> getInventory() {
