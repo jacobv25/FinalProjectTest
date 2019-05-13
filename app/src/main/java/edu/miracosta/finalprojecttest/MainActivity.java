@@ -54,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         riverFluteMediaPlayer.start();
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (!riverFluteMediaPlayer.isPlaying()) {
+            riverFluteMediaPlayer.start();
+        }
+    }
+
     /**
      *
      * @param V

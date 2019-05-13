@@ -296,34 +296,45 @@ public class PlayActivity extends AppCompatActivity {
 
     private void playMedia() {
 
-        if (player.isPlayerInside(RUNNING_GAME_BOARD)) {
-            cabinAmbientExoPlayer.setPlayWhenReady(true);
-        }
-        else {
-            cabinAmbientExoPlayer.setPlayWhenReady(false);
-        }
-        System.out.println("ARE YOU PLAYING?= " + cabinAmbientExoPlayer.getPlayWhenReady());
 //        if (player.isPlayerInside(RUNNING_GAME_BOARD)) {
-//            forestDayAmbientMediaPlayer.stop();
-//            forestNightAmbientMediaPlayer.stop();
-//            cabinAmbientMediaPlayer.start();
+//            cabinAmbientExoPlayer.setPlayWhenReady(true);
 //        }
 //        else {
-//            cabinAmbientMediaPlayer.stop();
-//            //if the day time is between 7am and 7pm
-//            if (gameTime.getDayTime() > 420 &&
-//                    gameTime.getDayTime() < 1140) {
-//                System.out.println("PLAYING DAY AMBIENT");
-//                forestNightAmbientMediaPlayer.stop();
-//                forestDayAmbientMediaPlayer.start();
-//            }
-//            else {
-//                System.out.println("playing night music");
-//                forestDayAmbientMediaPlayer.stop();
-//                forestNightAmbientMediaPlayer.start();
-//            }
-//
+//            cabinAmbientExoPlayer.setPlayWhenReady(false);
 //        }
+//        System.out.println("ARE YOU PLAYING?= " + cabinAmbientExoPlayer.getPlayWhenReady());
+        if (player.isPlayerInside(RUNNING_GAME_BOARD)) {
+            if (forestNightAmbientMediaPlayer.isPlaying()) {
+                forestNightAmbientMediaPlayer.pause();
+            }
+            if (forestDayAmbientMediaPlayer.isPlaying()) {
+                forestDayAmbientMediaPlayer.pause();
+            }
+            cabinAmbientMediaPlayer.start();
+        }
+        else {
+
+            if(cabinAmbientMediaPlayer.isPlaying()) {
+                cabinAmbientMediaPlayer.pause();
+            }
+            //if the day time is between 7am and 7pm
+            if (gameTime.getDayTime() > 420 &&
+                    gameTime.getDayTime() < 1140) {
+                System.out.println("PLAYING DAY AMBIENT");
+                if (forestNightAmbientMediaPlayer.isPlaying()) {
+                    forestNightAmbientMediaPlayer.stop();
+                }
+                forestDayAmbientMediaPlayer.start();
+            }
+            else {
+                System.out.println("playing night music");
+                if (forestDayAmbientMediaPlayer.isPlaying()) {
+                    forestDayAmbientMediaPlayer.stop();
+                }
+                forestNightAmbientMediaPlayer.start();
+            }
+
+        }
     }
 
     private void isPlayerDead(Player player) {
