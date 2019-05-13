@@ -1,5 +1,7 @@
 package edu.miracosta.finalprojecttest.model.player;
 
+import android.media.MediaPlayer;
+
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.enviroment.CampFire;
 import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
@@ -43,7 +45,7 @@ public class Action {
      * @param player
      */
 
-    public static void getFireWood(Player player, BoardPiece[][] boardGame) {
+    public static void getFireWood(Player player, BoardPiece[][] boardGame, MediaPlayer mediaPlayer) {
 
         int x = player.getX();
         int y = player.getY();
@@ -59,6 +61,8 @@ public class Action {
                 player.setDisplayText(ENCUMBERED);
             }
             else {
+                //play sfx
+                mediaPlayer.start();
                 //subtract from the currentArea
                 currentArea.setFirewood(currentArea.getFirewood() - 1);
                 //set the inventory to the new firewood count
@@ -83,7 +87,7 @@ public class Action {
      * player's food inventory
      * @param player
      */
-    public static void harvestAnimal(Player player, BoardPiece[][] boardGame) {
+    public static void harvestAnimal(Player player, BoardPiece[][] boardGame, MediaPlayer mediaPlayer) {
 
         int x = player.getX();
         int y = player.getY();
@@ -102,6 +106,8 @@ public class Action {
                 player.setDisplayText(ENCUMBERED);
             }
             else {
+                //play sfx
+                mediaPlayer.start();
                 //subtract from the currentArea
                 currentArea.setAnimals(currentArea.getAnimals() - 1);
                 //set the inventory to the new firewood count
@@ -126,7 +132,7 @@ public class Action {
      * player's water inventory
      * @param player
      */
-    public static void collectWater(Player player, BoardPiece[][] gameBoard) {
+    public static void collectWater(Player player, BoardPiece[][] gameBoard, MediaPlayer mediaPlayer) {
 
         int x = player.getX();
         int y = player.getY();
@@ -143,6 +149,8 @@ public class Action {
                 player.setDisplayText(ENCUMBERED);
             }
             else {
+                //play sfx
+                mediaPlayer.start();
                 //subtract from the currentArea
                 currentArea.setWater(currentArea.getWater() - 1);
                 //set the inventory to the new firewood count
@@ -167,13 +175,14 @@ public class Action {
      * regenerate the player's hunger value
      * @param player
      */
-    public  static void eatFood(Player player) {
+    public  static void eatFood(Player player, MediaPlayer mediaPlayer) {
 
         //Inventory inventory = new Inventory(player.getInventory());
         int food = player.getFood();
 
         if (food > 0) {
-
+            //play sfx
+            mediaPlayer.start();
             player.setFood(food - 1);
             Regeneration.regenHunger(player);
             player.setDisplayText(EAT_FOOD_SUCCESS);
@@ -192,13 +201,14 @@ public class Action {
      * regen the player's thirst
      * @param player
      */
-    public static void drinkWater(Player player) {
+    public static void drinkWater(Player player, MediaPlayer mediaPlayer) {
 
         //Inventory inventory = new Inventory(player.getInventory());
         int water = player.getWater();
 
         if (water > 0) {
-
+            //play sfx
+            mediaPlayer.start();
             player.setWater(water - 1);
             Regeneration.regenThirst(player);
             player.setDisplayText(DRINK_WATER_SUCCESS);
@@ -232,13 +242,13 @@ public class Action {
             //set display text
             player.setDisplayText(START_FIRE_SUCCESS);
         }
-//        else {
-//            player.setDisplayText(START_FIRE_FAILURE);
-//            currentArea.setCampFire(null);
-//        }
+        else {
+            player.setDisplayText(START_FIRE_FAILURE);
+            currentArea.setCampFire(null);
+        }
     }
     //TODO: Write documentation
-    public static void pickPlant(Player player, BoardPiece[][] gameBoard) {
+    public static void pickPlant(Player player, BoardPiece[][] gameBoard, MediaPlayer mediaPlayer) {
 
         int x = player.getX();
         int y = player.getY();
@@ -256,6 +266,8 @@ public class Action {
                 player.setDisplayText(ENCUMBERED);
             }
             else {
+                //play sfx
+                mediaPlayer.start();
                 //subtract from the currentArea
                 currentArea.setPlants(currentArea.getPlants() - 1);
                 //set the inventory to the new plant count

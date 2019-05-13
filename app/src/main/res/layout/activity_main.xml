@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDefaultBackground"
+    android:background="@color/colorBlack"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/playGameButton"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="8dp"
-        android:onClick="startGame"
+        android:onClick="switchToPlayActivity"
         android:text="@string/play_game"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +25,7 @@
 
     <Button
         android:id="@+id/learnMoreButton"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -31,6 +33,8 @@
         android:layout_marginBottom="8dp"
         android:onClick="switchToLearnMoreActivity"
         android:text="@string/learn_more"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

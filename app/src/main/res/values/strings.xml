@@ -4,8 +4,8 @@
     <string name="south_button">S</string>
     <string name="east_button">E</string>
     <string name="west_button">W</string>
-    <string name="action_button">A</string>
-    <string name="inventory_button">INV</string>
+    <string name="action_button">ACTION</string>
+    <string name="inventory_button">ITEMS</string>
     <string name="look_button">LOOK</string>
     <string name="harvest_food">HARVEST FOOD</string>
     <string name="collect_water">COLLECT WATER</string>

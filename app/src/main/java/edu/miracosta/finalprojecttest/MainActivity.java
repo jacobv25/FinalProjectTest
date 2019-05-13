@@ -1,7 +1,9 @@
 package edu.miracosta.finalprojecttest;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
     private Button playButton;
     private Button learnMoreButton;
 
+    private MediaPlayer riverFluteMediaPlayer;
+
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +41,35 @@ public class MainActivity extends AppCompatActivity {
 
         playButton = findViewById(R.id.playGameButton);
         learnMoreButton = findViewById(R.id.learnMoreButton);
+        riverFluteMediaPlayer = MediaPlayer.create(this, R.raw.river_flute);
     }
 
-    public void startGame(View V) {
+    /**
+     *
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        riverFluteMediaPlayer.start();
+    }
+
+    /**
+     *
+     * @param V
+     */
+    public void switchToPlayActivity(View V) {
 
         Intent startGameIntent = new Intent(this, PlayActivity.class);
-
+        riverFluteMediaPlayer.stop();
         startActivity(startGameIntent);
 
     }
 
+    /**
+     *
+     * @param V
+     */
     public void switchToLearnMoreActivity(View V) {
 
         Intent learnMoreIntent = new Intent(this, LearnMoreActivity.class);

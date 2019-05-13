@@ -74,31 +74,32 @@ public class ActionActivity extends AppCompatActivity {
         switch (v.getId()) {
 
             case R.id.harvestAnimalButton:
-                harvestAnimalMediaPlayer.start();
-                Action.harvestAnimal(player, RUNNING_GAME_BOARD);
+
+                Action.harvestAnimal(player, RUNNING_GAME_BOARD, harvestAnimalMediaPlayer);
                 break;
             case R.id.pickPlantButton:
-                pickPlantMediaPlayer.start();
-                Action.pickPlant(player,RUNNING_GAME_BOARD);
+
+                Action.pickPlant(player,RUNNING_GAME_BOARD, pickPlantMediaPlayer);
                 break;
             case R.id.getFirewoodButton:
-                woodChopMediaPlayer.start();
-                Action.getFireWood(player, RUNNING_GAME_BOARD);
+
+                Action.getFireWood(player, RUNNING_GAME_BOARD, woodChopMediaPlayer);
                 break;
             case R.id.collectWaterButton:
-                waterCollectMediaPlayer.start();
-                Action.collectWater(player, RUNNING_GAME_BOARD);
+
+                Action.collectWater(player, RUNNING_GAME_BOARD, waterCollectMediaPlayer);
                 break;
             case R.id.eatFoodButton:
-                eatFoodMediaPlayer.start();
-                Action.eatFood(player);
+
+                Action.eatFood(player, eatFoodMediaPlayer);
                 break;
             case R.id.startFireButton:
+
                 Action.startFire(player, time, RUNNING_GAME_BOARD);
                 break;
             case R.id.drinkWaterButton:
-                waterDrinkFemaleMediaPlayer.start();
-                Action.drinkWater(player);
+
+                Action.drinkWater(player, waterDrinkFemaleMediaPlayer);
                 break;
             case R.id.lookButton:
                 Action.look(player, RUNNING_GAME_BOARD);

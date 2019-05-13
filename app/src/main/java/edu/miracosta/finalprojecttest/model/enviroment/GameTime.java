@@ -9,7 +9,9 @@ import android.os.Parcelable;
  */
 public class GameTime implements Parcelable {
 
-    public static final int TIME_INCREMENT = 30; //30 minutes passing in game
+    public static final int PASS_LRG = 30; //30 minutes passing in game
+    public static final int PASS_MED= 15; //15 minutes passing in game
+    public static final int PASS_SML = 5; //5 minutes passing in game
     public static final int MAX_DAY_MINUTES = 1440; // (24 hours) * (60 minutes) = 1440 minutes in a day
     public static final int DEFAULT_START_TIME = 360; // game by default starts at 06:00
 
@@ -68,10 +70,10 @@ public class GameTime implements Parcelable {
     /**
      * Increments the total time and day time by the default value (30 minutes).
      */
-    public void passTime() {
+    public void passTime(int time) {
 
-        totalTime += TIME_INCREMENT;
-        dayTime += TIME_INCREMENT;
+        totalTime += time;
+        dayTime += time;
 
         GLOBAL_DAY_TIME = dayTime;
         GLOBAL_TOTAL_TIME = totalTime;

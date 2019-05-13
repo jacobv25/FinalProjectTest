@@ -15,6 +15,7 @@ import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
 import edu.miracosta.finalprojecttest.model.board_game.BoardPiece;
 import edu.miracosta.finalprojecttest.model.board_game.BoardValues;
+import edu.miracosta.finalprojecttest.model.enviroment.GameTime;
 import edu.miracosta.finalprojecttest.model.enviroment.Item;
 import edu.miracosta.finalprojecttest.view_play.PlayActivity;
 
@@ -111,7 +112,8 @@ public class Player implements Parcelable {
                 ", water bottle=" + water;
     }
 
-    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoard, MediaPlayer walkingSFX, List<Button> buttonList) {
+    public void movePlayerBoardPiece(String buttonText, Player player, BoardPiece[][] gameBoard,
+                                     MediaPlayer walkingSFX, List<Button> buttonList, GameTime time) {
 
         int x = player.getX();
         int y = player.getY();
@@ -123,6 +125,7 @@ public class Player implements Parcelable {
                     player.setX(x + 1);
                     walkingSFX.start();
                     setButtonsInvisibleAfterMove(buttonList);
+                    time.passTime(GameTime.PASS_LRG);
                 }
                 this.displayText = gameBoard[y][x + 1].getDisplayText();
                 break;
@@ -133,6 +136,7 @@ public class Player implements Parcelable {
                     player.setX(x - 1);
                     walkingSFX.start();
                     setButtonsInvisibleAfterMove(buttonList);
+                    time.passTime(GameTime.PASS_LRG);
                 }
                 this.displayText = gameBoard[y][x - 1].getDisplayText();
                 break;
@@ -143,6 +147,7 @@ public class Player implements Parcelable {
                     player.setY(y - 1);
                     walkingSFX.start();
                     setButtonsInvisibleAfterMove(buttonList);
+                    time.passTime(GameTime.PASS_LRG);
                 }
                 this.displayText = gameBoard[y-1][x].getDisplayText();
                 break;
@@ -153,6 +158,7 @@ public class Player implements Parcelable {
                     player.setY(y + 1);
                     walkingSFX.start();
                     setButtonsInvisibleAfterMove(buttonList);
+                    time.passTime(GameTime.PASS_LRG);
                 }
                 this.displayText = gameBoard[y + 1][x].getDisplayText();
                 break;
@@ -160,6 +166,7 @@ public class Player implements Parcelable {
             case PASS_TIME:
                 //pass time and do nothing
                 this.displayText = "You waited where you are and passed time.";
+                time.passTime(GameTime.PASS_LRG);
                 break;
 
         }

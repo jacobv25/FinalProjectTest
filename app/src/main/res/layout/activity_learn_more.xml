@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDefaultBackground"
+    android:background="@color/colorBlack"
     tools:context=".view_learn_more.LearnMoreActivity">
 
     <Button
@@ -16,6 +16,8 @@
         android:layout_marginEnd="8dp"
         android:onClick="animalsLearnMoreButtonPressed"
         android:text="@string/animals"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +32,8 @@
         android:layout_marginEnd="8dp"
         android:onClick="plantsLearnMoreButtonPressed"
         android:text="@string/plants"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +48,8 @@
         android:layout_marginEnd="8dp"
         android:onClick="tipsLearnMoreButtonPressed"
         android:text="@string/survival_tips"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"

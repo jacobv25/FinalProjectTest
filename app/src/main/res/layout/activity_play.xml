@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDefaultBackground"
+    android:background="@color/colorBlack"
     tools:context=".view_play.PlayActivity">
 
     <Button
@@ -15,6 +15,8 @@
         android:layout_marginBottom="68dp"
         android:onClick="movePlayer"
         android:text="@string/north_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/southButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -26,6 +28,8 @@
         android:layout_marginBottom="12dp"
         android:onClick="movePlayer"
         android:text="@string/west_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/southButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -37,6 +41,8 @@
         android:layout_marginTop="8dp"
         android:onClick="movePlayer"
         android:text="@string/east_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toEndOf="@+id/westButton"
         app:layout_constraintTop_toBottomOf="@+id/northButton" />
 
@@ -48,17 +54,21 @@
         android:layout_marginBottom="36dp"
         android:onClick="movePlayer"
         android:text="@string/south_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/inventoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="36dp"
         android:onClick="inventoryButtonPressed"
         android:text="@string/inventory_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -78,19 +88,21 @@
 
     <Button
         android:id="@+id/actionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="24dp"
         android:onClick="actionButtonPressed"
         android:text="@string/action_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/currentAreaTextView"
         android:layout_width="352dp"
-        android:layout_height="386dp"
+        android:layout_height="157dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
@@ -121,7 +133,19 @@
         android:layout_marginBottom="16dp"
         android:onClick="movePlayer"
         android:text="@string/pass_time_button"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/actionButton"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/afflictionTextView"
+        android:layout_width="348dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentAreaTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

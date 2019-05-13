@@ -3,10 +3,12 @@ package edu.miracosta.finalprojecttest.view_play;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -63,11 +65,13 @@ public class PlayActivity extends AppCompatActivity {
     private Button inventoryButton;
     private Button passTimeButton;
     private List<Button> allButtons;
+    private View playView;
 
     private TextView currentAreaTextView;
     private TextView playerConditionTextView;
     private TextView timeTextView;
-    
+    private TextView afflictionTextView;
+
     private Player player;
     private GameTime gameTime;
     private Weather weather;
@@ -103,6 +107,8 @@ public class PlayActivity extends AppCompatActivity {
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
         playerConditionTextView = findViewById(R.id.playerConditionTextView);
         timeTextView = findViewById(R.id.timeTextView);
+        afflictionTextView = findViewById(R.id.afflictionTextView);
+        //playView = findViewById(R.id.constraintLayout);
 
         cabinAmbientMediaPlayer = MediaPlayer.create(this, R.raw.cabin_fire);
         forestDayAmbientMediaPlayer = MediaPlayer.create(this, R.raw.forest_ambient_day);
@@ -177,7 +183,7 @@ public class PlayActivity extends AppCompatActivity {
         if (buttonText.equals(EAST) || buttonText.equals(PASS_TIME) ||
                 buttonText.equals(NORTH) || buttonText.equals(SOUTH) || buttonText.equals(WEST)) {
             //move player
-            player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD, walkSnowSFXMediaPlayer, allButtons);
+            player.movePlayerBoardPiece(buttonText, player, RUNNING_GAME_BOARD, walkSnowSFXMediaPlayer, allButtons, gameTime);
             currentAreaTextView.setText(player.getDisplayText());
         }
 
@@ -188,9 +194,12 @@ public class PlayActivity extends AppCompatActivity {
 
         Damage.damagePlayer(player, weather, gameTime);
         Regeneration.regeneratePlayer(player);
-        gameTime.passTime();
+        //check for sunlight
+        changeBackground(gameTime);
+        //gameTime.passTime();
         BoardGame.update();
-
+        //set the affliction text view
+        setAfflictionText();
         //update the player condition text view
         playerConditionTextView.setText("HP= " + player.getCondition() +
                 " | Temp= " + player.getTemperature() +
@@ -242,21 +251,23 @@ public class PlayActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK)
                 {
                     player = data.getParcelableExtra("Player");
-                    //Inventory inventory = data.getParcelableExtra("Inventory");
-                    //player.setInventory(inventory);
-
+                    //set the current area text view
                     currentAreaTextView.setText(player.getDisplayText());
-
+                    //check player hp
                     Damage.damagePlayer(player, weather, gameTime);
                     Regeneration.regeneratePlayer(player);
-                    gameTime.passTime();
+                    //pass time
+                    gameTime.passTime(GameTime.PASS_MED);
+                    //check for sunlight
+                    changeBackground(gameTime);
                     BoardGame.update();
 
                     //Check if fire is burning in current area
                     if( Action.isFireBurning(player, RUNNING_GAME_BOARD) ) {
                         Regeneration.regenFromFire(player);
                     }
-
+                    //set affliction text view
+                    setAfflictionText();
                     //update the player condition text view
                     playerConditionTextView.setText("HP= " + player.getCondition() +
                             " | Temp= " + player.getTemperature() +
@@ -270,6 +281,17 @@ public class PlayActivity extends AppCompatActivity {
                     didPlayerWin(player);
                 }
         }
+    }
+
+    private void changeBackground(GameTime time) {
+
+        //TODO: FIND OUT HOW TO GET ID FOR LAYOUT
+//        if (time.getDayTime() >= 1260 && time.getDayTime() < 360 ) {
+//            playView.setBackgroundColor(Color.BLACK);
+//        }
+//        else {
+//            playView.setBackgroundColor(Color.WHITE);
+//        }
     }
 
     private void playMedia() {
@@ -324,5 +346,19 @@ public class PlayActivity extends AppCompatActivity {
             intent.putExtra("GameTime", gameTime);
             startActivity(intent);
         }
+    }
+
+    private void setAfflictionText() {
+        String s = "";
+        if (player.getTemperature() == 0) {
+            s += "\nYOU ARE FREEZING!";
+        }
+        if (player.getHunger() == 0) {
+            s += "\nYOU ARE STARVING!";
+        }
+        if (player.getThirst() == 0) {
+            s += "\nYOU ARE DYING OF THIRST!";
+        }
+        afflictionTextView.setText(s);
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDefaultBackground"
+    android:background="@color/colorBlack"
     tools:context=".view_play.ActionActivity">
 
     <Button
@@ -15,6 +15,8 @@
         android:layout_marginTop="36dp"
         android:onClick="actionButtonPressed"
         android:text="@string/harvest_animal"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,18 +28,22 @@
         android:layout_marginTop="28dp"
         android:onClick="actionButtonPressed"
         android:text="@string/get_firewood"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/harvestAnimalButton" />
 
     <Button
         android:id="@+id/collectWaterButton"
-        android:layout_width="wrap_content"
+        android:layout_width="134dp"
         android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:onClick="actionButtonPressed"
         android:text="@string/collect_water"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toEndOf="@+id/getFirewoodButton"
@@ -52,6 +58,8 @@
         android:layout_marginBottom="292dp"
         android:onClick="actionButtonPressed"
         android:text="@string/eat_food"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -66,6 +74,8 @@
         android:layout_marginBottom="188dp"
         android:onClick="actionButtonPressed"
         android:text="@string/start_fire"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/drinkWaterButton"
         app:layout_constraintHorizontal_bias="0.168"
@@ -79,6 +89,8 @@
         android:layout_marginBottom="188dp"
         android:onClick="actionButtonPressed"
         android:text="@string/drink_water"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -91,6 +103,8 @@
         android:layout_marginEnd="30dp"
         android:onClick="actionButtonPressed"
         android:text="@string/pick_plant"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/harvestAnimalButton"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,6 +118,8 @@
         android:layout_marginEnd="8dp"
         android:onClick="actionButtonPressed"
         android:text="@string/look"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"

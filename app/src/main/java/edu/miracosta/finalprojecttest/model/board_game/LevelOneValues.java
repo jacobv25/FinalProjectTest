@@ -10,7 +10,7 @@ public class LevelOneValues {
             true, false,"Go any farther and you'll fall of the cliff.");
     public static BoardPiece __WELL__ = new BoardPiece(0, 0, 3, 0, 0, 0,
             false, false, "A deep well containing water.");
-    public static BoardPiece FRT_TREE = new BoardPiece(0, 0, 3, 0, 0, 0,
+    public static BoardPiece FRT_TREE = new BoardPiece(0, 0, 0, 1, 0, 0,
             false, false, "A clearing with a small tree bearing plump fruit.");
     public static BoardPiece __ROAD__ = new BoardPiece(0, 0, 3, 0, 0, 0,
             false, false, "A road going in the north south direction.");

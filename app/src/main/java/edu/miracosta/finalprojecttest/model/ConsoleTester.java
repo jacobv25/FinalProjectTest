@@ -77,7 +77,7 @@ public class ConsoleTester {
             //display player inventory
             System.out.println(player.inventoryToString());
             //pass gameTime
-            gameTime.passTime();
+            gameTime.passTime(GameTime.PASS_LRG);
             //update game board
             BoardGame.update();
         }
@@ -92,7 +92,7 @@ public class ConsoleTester {
 
             case "firewood":
 
-                Action.getFireWood(player, RUNNING_GAME_BOARD);
+                Action.getFireWood(player, RUNNING_GAME_BOARD, null);
                 break;
             case "start fire":
 
@@ -100,19 +100,19 @@ public class ConsoleTester {
                 break;
             case "harvest food":
 
-                Action.harvestAnimal(player, RUNNING_GAME_BOARD);
+                Action.harvestAnimal(player, RUNNING_GAME_BOARD, null);
                 break;
             case "collect water":
 
-                Action.collectWater(player, RUNNING_GAME_BOARD);
+                Action.collectWater(player, RUNNING_GAME_BOARD, null);
                 break;
             case "drink water":
 
-                Action.drinkWater(player);
+                Action.drinkWater(player, null);
                 break;
             case "eat food":
 
-                Action.eatFood(player);
+                Action.eatFood(player, null);
                 break;
             default:
 
