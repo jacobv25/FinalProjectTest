@@ -50,7 +50,7 @@
         android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_shape"
         android:onClick="movePlayer"
         android:text="@string/south_button"
