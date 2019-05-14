@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Layout;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -32,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import edu.miracosta.finalprojecttest.R;
 import edu.miracosta.finalprojecttest.model.StoryElements;
 import edu.miracosta.finalprojecttest.model.board_game.BoardGame;
@@ -65,7 +68,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button inventoryButton;
     private Button passTimeButton;
     private List<Button> allButtons;
-    private View playView;
+    private ConstraintLayout playActivityLayout;
 
     private TextView currentAreaTextView;
     private TextView playerConditionTextView;
@@ -80,8 +83,9 @@ public class PlayActivity extends AppCompatActivity {
     private MediaPlayer forestDayAmbientMediaPlayer;
     private MediaPlayer forestNightAmbientMediaPlayer;
     private ExoPlayer cabinAmbientExoPlayer;
-
     private MediaPlayer walkSnowSFXMediaPlayer;
+
+    private ProgressBar playerTempProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,7 @@ public class PlayActivity extends AppCompatActivity {
         actionButton = findViewById(R.id.actionButton);
         inventoryButton = findViewById(R.id.inventoryButton);
         passTimeButton = findViewById(R.id.waitButton);
+        playActivityLayout = findViewById(R.id.playActivityLayout);
         allButtons = new ArrayList<>();
         allButtons.add(northButton);
         allButtons.add(southButton);
@@ -103,6 +108,8 @@ public class PlayActivity extends AppCompatActivity {
         allButtons.add(actionButton);
         allButtons.add(inventoryButton);
         allButtons.add(passTimeButton);
+
+        playerTempProgressBar = findViewById(R.id.playerTempProgressBar);
 
         currentAreaTextView = findViewById(R.id.currentAreaTextView);
         playerConditionTextView = findViewById(R.id.playerConditionTextView);
@@ -205,6 +212,10 @@ public class PlayActivity extends AppCompatActivity {
                 " | Temp= " + player.getTemperature() +
                 " | Hunger= " + player.getHunger() +
                 " | Thirst= " + player.getThirst());
+        //TODO: Set the player progress bar (Temp)
+        setPlayerProgressBars(player);
+
+
         //check if player is dead
         isPlayerDead(player);
         //check if player made it to finish
@@ -212,10 +223,13 @@ public class PlayActivity extends AppCompatActivity {
         //update the day time
         timeTextView.setText(gameTime.getDayTimeFormatted());
         //update the music
-        System.out.println("Is player inside=" + player.isPlayerInside(RUNNING_GAME_BOARD));
         playMedia();
     }
 
+    private void setPlayerProgressBars(Player player) {
+
+        playerTempProgressBar.setProgress((int)player.getTemperature());
+    }
 
 
     public void inventoryButtonPressed(View v) {
@@ -287,10 +301,12 @@ public class PlayActivity extends AppCompatActivity {
 
         //TODO: FIND OUT HOW TO GET ID FOR LAYOUT
 //        if (time.getDayTime() >= 1260 && time.getDayTime() < 360 ) {
-//            playView.setBackgroundColor(Color.BLACK);
+//            Log.i("Jacob", "Changing screen to black");
+//            playActivityLayout.setBackgroundColor(Color.BLACK);
 //        }
 //        else {
-//            playView.setBackgroundColor(Color.WHITE);
+//            Log.i("Jacob", "Changing screen to white");
+//            playActivityLayout.setBackgroundColor(Color.WHITE);
 //        }
     }
 

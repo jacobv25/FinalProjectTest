@@ -12,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view_play.IntroActivity"></activity>
         <activity android:name=".view_play.EndGameActivity" />
-        <activity android:name=".view_learn_more.LearnMoreDetailsActivity" />
         <activity android:name=".view_learn_more.AnimalsListActivity" />
         <activity android:name=".view_play.InventoryListActivity" />
         <activity android:name=".view_learn_more.LearnMoreActivity" />
