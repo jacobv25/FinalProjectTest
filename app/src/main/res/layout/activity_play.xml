@@ -9,36 +9,35 @@
 
     <Button
         android:id="@+id/northButton"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="56dp"
         android:layout_marginStart="80dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button_shape_north"
         android:onClick="movePlayer"
         android:text="@string/north_button"
-        android:background="@drawable/button_shape"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/southButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/westButton"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_shape"
+        android:layout_width="56dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/button_shape_west"
         android:onClick="movePlayer"
         android:text="@string/west_button"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/southButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="591dp" />
 
     <Button
         android:id="@+id/eastButton"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:background="@drawable/button_shape"
+        android:layout_width="56dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="84dp"
+        android:background="@drawable/button_shape_east"
         android:onClick="movePlayer"
         android:text="@string/east_button"
         android:textColor="@color/colorWhite"
@@ -47,11 +46,11 @@
 
     <Button
         android:id="@+id/southButton"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="56dp"
         android:layout_marginStart="80dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_shape"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_shape_south"
         android:onClick="movePlayer"
         android:text="@string/south_button"
         android:textColor="@color/colorWhite"
@@ -63,11 +62,11 @@
         android:layout_width="85dp"
         android:layout_height="45dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_main_yellow"
         android:onClick="inventoryButtonPressed"
         android:text="@string/inventory_button"
-        android:background="@drawable/button_shape"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -90,24 +89,24 @@
         android:layout_width="85dp"
         android:layout_height="45dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_main_green"
         android:onClick="actionButtonPressed"
         android:text="@string/action_button"
-        android:background="@drawable/button_shape"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorGreen"
         app:layout_constraintBottom_toTopOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/currentAreaTextView"
-        android:layout_width="352dp"
+        android:layout_width="197dp"
         android:layout_height="157dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerConditionTextView" />
 
@@ -129,22 +128,30 @@
         android:layout_width="85dp"
         android:layout_height="45dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_main_red"
         android:onClick="movePlayer"
         android:text="@string/pass_time_button"
-        android:background="@drawable/button_shape"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorRed"
         app:layout_constraintBottom_toTopOf="@+id/actionButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/afflictionTextView"
-        android:layout_width="348dp"
+        android:layout_width="202dp"
         android:layout_height="134dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentAreaTextView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="132dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
